@@ -7,3 +7,5 @@ project ("Benchmark")
 
 # Include sub-projects.
 add_subdirectory ("Benchmark")
+add_subdirectory ("containers")
+add_subdirectory ("Threads")
