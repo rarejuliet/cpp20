@@ -87,7 +87,7 @@ int tuple_tie_main(int argc, char** argv, char** env) {
 
 }
 
-int main(int argc, char** argv, char** env) {
+int jthread_main(int argc, char** argv, char** env) {
     using std::cout;
     uint32_t n = std::jthread::hardware_concurrency();
     cout << n << " concurrent threads are supported.\n";
