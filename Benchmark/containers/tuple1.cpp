@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <tuple>        // for tie() tuple_cat() swap() and tuple
 #include <cstdlib>      // EXIT_SUCCESS and EXIT_FAILURE
 #include <thread>       // jthread
@@ -10,10 +11,13 @@ int tuple_cat_main(int argc, char **argv, char **env)
 
     // Initializing 2nd tuple
     tuple <int, char, float> tup2(30, 'f', 10.5);
+    tuple <std::string, int, std::vector<double>> tup4("I am a string", 2, { 0,1,2,3,4,5,6,7,8,9 });
+
 
     // Concatenating 2 tuples to return a new tuple
     auto tup3 = tuple_cat(tup1, tup2);
-
+    std::pair<std::string, std::string> pair = make_pair("Key", "Value");
+    std::cout << pair.first << pair.second << std::endl;
     // Displaying new tuple elements
     cout << "The new tuple elements in order are : ";
     cout << get<0>(tup3) << " " << get<1>(tup3) << " ";

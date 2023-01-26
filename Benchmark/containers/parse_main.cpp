@@ -35,12 +35,14 @@ int main(int argc, char * argv[], char * envp[]) {
     }
     std::string key, value;
     print_lines(args);
+
     std::map<std::string, std::string> env_map{
         {"HOSTNAME","hyperion"},
         {"COMPUTERNAME","Hyperion"},
         {"PATH", "C:\\Users\\Adam\\bin"},
         {"LIB", "C:\\Users\\Adam\\lib"}
     };
+
     print_map(env_map);
     const char* env[]{
          "HOSTNAME"

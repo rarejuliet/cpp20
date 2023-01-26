@@ -43,7 +43,7 @@ constexpr bool is_prime(uint64_t n) {
     if (n == 2)
         return true;
     if (n % 2 == 0)
-        return true;
+        return false;
     auto sqrt_n = static_cast<uint64_t>(sqrt(n));
     for (uint64_t i = 3; i < sqrt_n; ++i) {
         if ((n % i) == 0) {
