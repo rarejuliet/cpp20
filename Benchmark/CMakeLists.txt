@@ -1,11 +1,12 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
-# and include sub-projects here.
+﻿# CMakeList.txt : CMake project for Benchmark, include source and define
+# project specific logic here.
 #
-cmake_minimum_required (VERSION 3.8)
 
-project ("Benchmark")
+# Add source to this project's executable.
+add_executable (Benchmark "Benchmark.cpp" "Benchmark.h" "main.cpp" "Generator.h")
 
-# Include sub-projects.
-add_subdirectory ("Benchmark")
-add_subdirectory ("containers")
-add_subdirectory ("Threads")
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET Benchmark PROPERTY CXX_STANDARD 20)
+endif()
+
+# TODO: Add tests and install targets if needed.

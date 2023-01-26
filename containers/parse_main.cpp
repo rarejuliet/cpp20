@@ -4,6 +4,7 @@
 #include <vector>
 #include <cstdlib>
 #include <cstddef>
+#include <cstdio>
 #include <map>
 
 void print_map(std::map<std::string, std::string> m) {
@@ -62,10 +63,6 @@ int main(int argc, char * argv[], char * envp[]) {
         if(std::getenv(s))
             std::cout << s << " == " << std::getenv(s) << std::endl;
     }
-    //for (auto s : env) {
-    //    std::cout << s << " == " << std::setenv(s, env_map[s]) <<
-    //        std::endl;
-    //}
     std::cout << "Now raw printing env..." << std::endl;
     for (int i = 0; i < 255; ++i) {
         std::cout << "Checking [" << i << "]\n";
