@@ -107,6 +107,7 @@ auto add(auto x, auto y) {
 /// <returns></returns>
 int main(int argc, char* argv[], char** env)
 {
+    lexer_main(argc, argv, env);
     int rval = 0;
     try {
         int x{ 3 };
@@ -118,13 +119,6 @@ int main(int argc, char* argv[], char** env)
         ajc::Generator<int64_t> primes = get_primes();
         for (int i = 0; i < 100; ++i) {
             std::cout << primes() << " is prime\n";
-        }
-        Lexer lexer(std::cin);
-        while(lexer) {
-            auto tk = lexer.get_next_token();
-            std::cout << "Got token: " << tk->toString() << " " << tk->Buffer << "\n";
-            if (tk->Type == TokenType::Eofsym)
-                break;
         }
     }
     catch (std::exception& e) {

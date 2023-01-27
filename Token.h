@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cctype>
 #include <memory>
+#include <string>
 
 enum class TokenType {
 	Id,
@@ -35,8 +36,8 @@ public:
 	std::string Buffer;
 	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(buffer) {}
 	static std::unique_ptr<Token> CreateToken(TokenType t, std::string buffer) {
-		//	std::make_unique()
-		std::unique_ptr<Token> tk(new Token(t, buffer));
+		auto tk = std::make_unique<Token>(t, buffer);
+//		std::unique_ptr<Token> tk(new Token(t, buffer));
 		return tk;
 	}
 	std::string toString() {
@@ -100,6 +101,7 @@ public:
 		char la{ };
 		TokenType type = TokenType::Eofsym;
 		buf = ch;
+		double num{ 0 };
 		switch (ch) {
 			buf += ch;
 			case	'0':
@@ -112,10 +114,14 @@ public:
 			case	'7':
 			case	'8':
 			case	'9':
+			case	'.':
 				type = TokenType::Number;
-				while (isdigit(la = stream.peek())) {
-					buf += stream.get();
-				}
+				stream.putback(ch);
+				stream >> num;
+				buf = std::to_string(num);
+				//while (isdigit(la = stream.peek())) {
+				//	buf += stream.get();
+				//}
 				break;
 			case '+':
 				type = TokenType::Plus;
@@ -141,9 +147,9 @@ public:
 			case ')':
 				type = TokenType::Rp;
 				break;
-			case '.':
-				type = TokenType::Dot;
-				break;
+			//case '.':
+			//	type = TokenType::Dot;
+			//	break;
 			default:
 				type = TokenType::Eofsym;
 				break;
@@ -154,5 +160,8 @@ private:
 	std::istream &stream;
 	std::string buf;
 };
-
+/// <summary>
+/// A test driver for Lexer.
+/// </summary>
+int lexer_main(int argc, char* argv[], char* env[]);
 #endif //TOKEN_H__

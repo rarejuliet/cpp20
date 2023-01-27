@@ -114,6 +114,7 @@
     <ClCompile Include="Benchmark\main.cpp" />
     <ClCompile Include="containers\parse_main.cpp" />
     <ClCompile Include="containers\tuple1.cpp" />
+    <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Threads\async.cpp" />
   </ItemGroup>
   <ItemGroup>
