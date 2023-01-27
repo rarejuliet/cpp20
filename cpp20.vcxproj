@@ -109,16 +109,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="benchmark\out\build\x64-debug\benchmark\cmakefiles\benchmark.dir\manifest.rc" />
-    <ResourceCompile Include="benchmark\out\build\x64-debug\containers\cmakefiles\containers.dir\manifest.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="benchmark\out\build\x64-debug\cmakefiles\3.24.202208181-msvc_2\CMakeDetermineCompilerABI_C.bin" />
-    <None Include="benchmark\out\build\x64-debug\cmakefiles\3.24.202208181-msvc_2\CMakeDetermineCompilerABI_CXX.bin" />
-    <None Include="benchmark\out\build\x64-release\cmakefiles\3.24.202208181-msvc_2\CMakeDetermineCompilerABI_C.bin" />
-    <None Include="benchmark\out\build\x64-release\cmakefiles\3.24.202208181-msvc_2\CMakeDetermineCompilerABI_CXX.bin" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="aligned.cpp" />
     <ClCompile Include="Benchmark\Benchmark.cpp" />
     <ClCompile Include="Benchmark\main.cpp" />
     <ClCompile Include="containers\parse_main.cpp" />
@@ -128,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="Benchmark\Benchmark.h" />
     <ClInclude Include="Benchmark\Generator.h" />
+    <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

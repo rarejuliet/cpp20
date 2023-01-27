@@ -111,21 +111,17 @@ fibonacci_sequence(uint64_t n)
 /// </summary>
 /// <returns></returns>
 
-int testMain(int argc, char** argv)
-{
-    try
-    {
+int testMain(int argc, char** argv) {
+    try {
         auto gen = fibonacci_sequence(10); // max 94 before uint64_t overflows
 
         for (int j = 0; gen; j++)
             std::cout << "fib(" << j << ")=" << gen() << '\n';
     }
-    catch (const std::exception& ex)
-    {
+    catch (const std::exception& ex) {
         std::cerr << "Exception: " << ex.what() << '\n';
     }
-    catch (...)
-    {
+    catch (...) {
         std::cerr << "Unknown exception.\n";
     }
     return 0;

@@ -9,24 +9,52 @@ enum class TokenType {
 	Mul = '*', Div = '/', Mod = '%', Pow = '^', Lp = '(', Rp = ')', Eofsym = -1
 
 };
-struct Token {
-	TokenType Type;
-	std::string buf;
+class Token {
+public:
+	TokenType Type = TokenType::Eofsym;
+	std::string Buffer;
+	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(buffer) {}
+	static Token* CreateToken(TokenType t, std::string buffer) {
+		//	std::make_unique()
+		//	std::unique_ptr<Token> tk = new Token(t, buffer);
+		return new Token(t, buffer);
+	}
 };
+
 class Lexer {
 public:
 	Lexer(std::istream& s) : stream(s), buf("") {}
-	Token get_next_token() {
+	Token* get_next_token() {
 		char ch = stream.get();
+		char la{ };
 		switch (ch) {
-		case (int)TokenType::Number: {
-				buf += ch;
-				while(isdigit(stream.peek())) {
-					buf += stream.get();
-					return Token(TokenType::Number, buf);
-				}
+		case	'0':
+		case	'1':
+		case	'2':
+		case	'3':
+		case	'4':
+		case	'5':
+		case	'6':
+		case	'7':
+		case	'8':
+		case	'9':
+			buf += ch;
+			while (isdigit(la = stream.peek())) {
+				buf += stream.get();
+			}
+			return Token::CreateToken(TokenType::Number, buf);
+			break;
+		case static_cast<int>(TokenType::Number): {
+			buf += ch;
+			char la{};
+			while (isdigit(la = stream.peek())) {
+				buf += stream.get();
+				return Token::CreateToken(TokenType::Number, buf);
 			}
 		}
+		}
+		return Token::CreateToken(TokenType::Number, buf);
+
 	}
 private:
 	std::istream &stream;
