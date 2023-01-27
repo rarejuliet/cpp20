@@ -5,11 +5,30 @@
 #include <memory>
 
 enum class TokenType {
-	Id, Number, Sin, Cos, Tan, Asin, Acos, Atan, Log, Exp,
-	Log10, Exp10, Sqrt, Int, Assign = '=', Plus = '+', Minus = '-',
-	Mul = '*', Div = '/', Mod = '%', Pow = '^', Lp = '(', Rp = ')', Eofsym = -1
-
+	Id,
+	Number,
+	Sin,
+	Cos,
+	Tan,
+	Log,
+	Exp,
+	Log10,
+	Exp10,
+	Sqrt,
+	Int,
+	Dot = '.',
+	Assign = '=',
+	Plus = '+',
+	Minus = '-',
+	Mul = '*',
+	Div = '/',
+	Mod = '%',
+	Pow = '^',
+	Lp = '(',
+	Rp = ')',
+	Eofsym = -1
 };
+
 class Token {
 public:
 	TokenType Type = TokenType::Eofsym;
@@ -20,42 +39,116 @@ public:
 		std::unique_ptr<Token> tk(new Token(t, buffer));
 		return tk;
 	}
+	std::string toString() {
+		std::string rv{ "" };
+		switch (this->Type) {
+		case TokenType::Id:
+			rv = "Id";
+			break;
+		case TokenType::Number:
+			rv = "Number";
+			break;
+		case TokenType::Int:
+			rv = "Int";
+			break;
+		case TokenType::Assign:
+			rv = "Assign";
+			break;
+		case TokenType::Plus:
+			rv = "Plus";
+			break;
+		case TokenType::Minus:
+			rv = "Minus";
+			break;
+		case TokenType::Mul:
+			rv = "Mul";
+			break;
+		case TokenType::Div:
+			rv = "Div";
+			break;
+		case TokenType::Mod:
+			rv = "Mod";
+			break;
+		case TokenType::Pow:
+			rv = "Pow";
+			break;
+		case TokenType::Lp:
+			rv = "Lp";
+			break;
+		case TokenType::Rp:
+			rv = "Rp";
+			break;
+		case TokenType::Dot:
+			rv = "Dot";
+			break;
+		case TokenType::Eofsym:
+			rv = "Eofsym";
+			break;
+		}
+		return rv;
+	}
 };
 
 class Lexer {
 public:
 	Lexer(std::istream& s) : stream(s), buf("") {}
+	operator bool() {
+		return !stream.eof();
+	}
 	std::unique_ptr<Token> get_next_token() {
 		char ch = stream.get();
 		char la{ };
+		TokenType type = TokenType::Eofsym;
+		buf = ch;
 		switch (ch) {
-		case	'0':
-		case	'1':
-		case	'2':
-		case	'3':
-		case	'4':
-		case	'5':
-		case	'6':
-		case	'7':
-		case	'8':
-		case	'9':
 			buf += ch;
-			while (isdigit(la = stream.peek())) {
-				buf += stream.get();
-			}
-			return Token::CreateToken(TokenType::Number, buf);
-			break;
-		case static_cast<int>(TokenType::Number): {
-			buf += ch;
-			char la{};
-			while (isdigit(la = stream.peek())) {
-				buf += stream.get();
-				return Token::CreateToken(TokenType::Number, buf);
-			}
+			case	'0':
+			case	'1':
+			case	'2':
+			case	'3':
+			case	'4':
+			case	'5':
+			case	'6':
+			case	'7':
+			case	'8':
+			case	'9':
+				type = TokenType::Number;
+				while (isdigit(la = stream.peek())) {
+					buf += stream.get();
+				}
+				break;
+			case '+':
+				type = TokenType::Plus;
+				break;
+			case '-':
+				type = TokenType::Minus;
+				break;
+			case '*':
+				type = TokenType::Mul;
+				break;
+			case '/':
+				type = TokenType::Div;
+				break;
+			case '^':
+				type = TokenType::Pow;
+				break;
+			case '%':
+				type = TokenType::Mod;
+				break;
+			case '(':
+				type = TokenType::Lp;
+				break;
+			case ')':
+				type = TokenType::Rp;
+				break;
+			case '.':
+				type = TokenType::Dot;
+				break;
+			default:
+				type = TokenType::Eofsym;
+				break;
 		}
-		}
-		return Token::CreateToken(TokenType::Number, buf);
-
+		return Token::CreateToken(type, buf);
 	}
 private:
 	std::istream &stream;
