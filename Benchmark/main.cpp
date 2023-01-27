@@ -120,7 +120,7 @@ int main(int argc, char* argv[], char** env)
             std::cout << primes() << " is prime\n";
         }
         Lexer lexer(std::cin);
-        Token *tk = lexer.get_next_token();
+        auto tk = lexer.get_next_token();
         std::cout << "Got token: " << (int)tk->Type << " " << tk->Buffer << "\n";
         tk = lexer.get_next_token();
         std::cout << "Got token: " << (int)tk->Type << " " << tk->Buffer << "\n";

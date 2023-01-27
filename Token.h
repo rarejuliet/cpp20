@@ -2,6 +2,7 @@
 #define TOKEN_H__
 #include <iostream>
 #include <cctype>
+#include <memory>
 
 enum class TokenType {
 	Id, Number, Sin, Cos, Tan, Asin, Acos, Atan, Log, Exp,
@@ -14,17 +15,17 @@ public:
 	TokenType Type = TokenType::Eofsym;
 	std::string Buffer;
 	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(buffer) {}
-	static Token* CreateToken(TokenType t, std::string buffer) {
+	static std::unique_ptr<Token> CreateToken(TokenType t, std::string buffer) {
 		//	std::make_unique()
-		//	std::unique_ptr<Token> tk = new Token(t, buffer);
-		return new Token(t, buffer);
+		std::unique_ptr<Token> tk(new Token(t, buffer));
+		return tk;
 	}
 };
 
 class Lexer {
 public:
 	Lexer(std::istream& s) : stream(s), buf("") {}
-	Token* get_next_token() {
+	std::unique_ptr<Token> get_next_token() {
 		char ch = stream.get();
 		char la{ };
 		switch (ch) {
