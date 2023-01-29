@@ -10,8 +10,11 @@
 #include <cstdint>
 #include <map>
 #include <coroutine>
+
+#include "Benchmark.h"
 #include "Generator.h"
 #include "../Token.h"
+#include "../Parser.h"
 
 namespace ajc {
 /// <summary>
@@ -46,7 +49,7 @@ namespace ajc {
             return true;
         if (n % 2 == 0)
             return false;
-        auto sqrt_n = static_cast<uint64_t>(sqrt(n));
+        const auto sqrt_n = static_cast<uint64_t>(sqrt(n));
         for (uint64_t i = 3; i < sqrt_n; ++i) {
             if ((n % i) == 0) {
                 return false;
@@ -107,7 +110,12 @@ auto add(auto x, auto y) {
 /// <returns></returns>
 int main(int argc, char* argv[], char** env)
 {
+    //parser_main(argc, argv, env);
     lexer_main(argc, argv, env);
+    dc_main(argc, argv);
+    int n;
+    std::cin >> n;
+    return EXIT_SUCCESS;
     int rval = 0;
     try {
         int x{ 3 };

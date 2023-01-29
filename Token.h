@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-enum class TokenType {
+enum class TokenType : char {
 	Id,
 	Number,
 	Sin,
@@ -27,21 +27,27 @@ enum class TokenType {
 	Pow = '^',
 	Lp = '(',
 	Rp = ')',
-	Eofsym = -1
+	Eof = -1
 };
 
 class Token {
 public:
-	TokenType Type = TokenType::Eofsym;
+	TokenType Type = TokenType::Eof;
 	std::string Buffer;
-	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(buffer) {}
-	static std::unique_ptr<Token> CreateToken(TokenType t, std::string buffer) {
+	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(std::move(buffer)) {}
+	static auto CreateToken(TokenType t, std::string buffer) {
+		//		std::unique_ptr<Token> tk(new Token(t, buffer));
+		// Supposedly it's better to do it this way.
 		auto tk = std::make_unique<Token>(t, buffer);
-//		std::unique_ptr<Token> tk(new Token(t, buffer));
 		return tk;
 	}
-	std::string toString() {
-		std::string rv{ "" };
+
+	/**
+	 * \brief Returns a string representation of this Token
+	 * \return A string name for the enumerated value.
+	 */
+	[[nodiscard]] auto to_string() const -> std::string {
+		std::string rv;
 		switch (this->Type) {
 		case TokenType::Id:
 			rv = "Id";
@@ -82,9 +88,35 @@ public:
 		case TokenType::Dot:
 			rv = "Dot";
 			break;
-		case TokenType::Eofsym:
-			rv = "Eofsym";
+		case TokenType::Eof:
+			rv = "Eof";
 			break;
+		case TokenType::Sin:
+			rv = "Sin";
+			break;
+		case TokenType::Cos:
+			rv = "Cos";
+			break;
+		case TokenType::Tan:
+			rv = "Tan";
+			break;
+		case TokenType::Log:
+			rv = "Log";
+			break;
+		case TokenType::Exp:
+			rv = "Exp";
+			break;
+		case TokenType::Log10:
+			rv = "Log10";
+			break;
+		case TokenType::Exp10:
+			rv = "Exp10";
+			break;
+		case TokenType::Sqrt:
+			rv = "Sqrt";
+			break;
+		default: 
+			rv = "Eof";
 		}
 		return rv;
 	}
@@ -92,18 +124,28 @@ public:
 
 class Lexer {
 public:
-	Lexer(std::istream& s) : stream(s), buf("") {}
-	operator bool() {
+	Lexer(std::istream& s) : stream(s), buf() {}
+
+	/**
+	 * \brief operator bool - Used to detect when the stream has reached eof.
+	 */
+	explicit operator bool() const {
 		return !stream.eof();
 	}
+
+	/**
+	 * \brief Retrieves the next token in the input stream.
+	 * \return unique_ptr<Token> 
+	 */
 	std::unique_ptr<Token> get_next_token() {
-		char ch = stream.get();
+		char ch{};
+		ch = stream.get();
 		char la{ };
-		TokenType type = TokenType::Eofsym;
+		TokenType type = TokenType::Eof;
 		buf = ch;
 		double num{ 0 };
+		//buf += ch;
 		switch (ch) {
-			buf += ch;
 			case	'0':
 			case	'1':
 			case	'2':
@@ -151,17 +193,81 @@ public:
 			//	type = TokenType::Dot;
 			//	break;
 			default:
-				type = TokenType::Eofsym;
+				type = TokenType::Eof;
 				break;
 		}
-		return Token::CreateToken(type, buf);
+		return Token::CreateToken(type, std::move(buf));
 	}
 private:
 	std::istream &stream;
 	std::string buf;
 };
+struct Node {
+	/**
+	 * \brief 
+	 * \param t 
+	 */
+	Node(Token t) : token(std::move(t)) {}
+	Token token;
+	Node* left = nullptr;
+	Node* right= nullptr;
+};
+struct Expression : Node{
+	Expression(std::unique_ptr<Node> &root_node) : Node(std::move(root_node->token)) {}
+	std::unique_ptr<Node> root;
+};
+class Parser {
+	explicit Parser(std::istream& is) {
+		lexer = std::make_unique<Lexer>(is);
+	}
+	void expr() {
+		std::unique_ptr<Token> t = lexer->get_next_token();
+		std::unique_ptr<Token> la = lexer->get_next_token();
+		Node node(std::move(*t));
+
+		switch (t->Type)
+		{
+
+		case TokenType::Id: break;
+		case TokenType::Number:
+			//Should find an operator and another Number
+			node.left->token = *t;
+			t = lexer->get_next_token();
+			
+			break;
+		case TokenType::Sin: break;
+		case TokenType::Cos: break;
+		case TokenType::Tan: break;
+		case TokenType::Log: break;
+		case TokenType::Exp: break;
+		case TokenType::Log10: break;
+		case TokenType::Exp10: break;
+		case TokenType::Sqrt: break;
+		case TokenType::Int: break;
+		case TokenType::Dot: break;
+		case TokenType::Assign: break;
+		case TokenType::Plus: break;
+		case TokenType::Minus: break;
+		case TokenType::Mul: break;
+		case TokenType::Div: break;
+		case TokenType::Mod: break;
+		case TokenType::Pow: break;
+		case TokenType::Lp: break;
+		case TokenType::Rp: break;
+		case TokenType::Eof: break;
+		default:
+			//If we got here, there's some error.
+			break;
+		}
+		return;
+	}
+private:
+	std::unique_ptr<Lexer> lexer = nullptr;
+};
+
 /// <summary>
 /// A test driver for Lexer.
 /// </summary>
 int lexer_main(int argc, char* argv[], char* env[]);
+//int parser_main(int argc, char* argv[], char* env[]);
 #endif //TOKEN_H__

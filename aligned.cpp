@@ -13,7 +13,7 @@ int aligned_main(int argc, char **argv, char **env) {
         std::cout << i;
     }
     std::cout << "Buffer:" << std::endl;
-    size_t alignment = std::alignment_of<int>::value;
+    size_t alignment = std::alignment_of_v<int>;
     void* ptr = buffer;
     std::size_t space = sizeof(buffer); // Be sure this results in the true size of your buffer
 
@@ -24,7 +24,7 @@ int aligned_main(int argc, char **argv, char **env) {
         // ...
         // Last, move starting pointer and decrease available space before
         // the while loop restarts.
-        ptr = reinterpret_cast<char*>(ptr) + sizeof(MyObj);
+        ptr = static_cast<char*>(ptr) + sizeof(MyObj);
         space -= sizeof(MyObj);
     }
     // At this point, align() has returned a null pointer, signaling it is not

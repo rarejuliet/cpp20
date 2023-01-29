@@ -36,7 +36,7 @@ namespace ajc {
             std::cout << '[' << key << "] = " << value << "\n";
     }
     void print(auto& a) {
-        for (auto i : a) {
+        for (auto &i : a) {
             std::cout << i;
         }
     }
@@ -56,7 +56,7 @@ namespace ajc {
 int parse_main(int argc, char * argv[], char * envp[]) {
     std::vector<std::string> args(argc);
     for( int i=0; i<argc; ++i ) {
-        args.push_back(argv[i]);
+        args.emplace_back(argv[i]);
     }
     std::string key, value;
 
