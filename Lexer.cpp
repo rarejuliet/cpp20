@@ -6,7 +6,8 @@ int lexer_main(int argc, char* argv[], char** env)
         Lexer lexer(std::cin);
         while (lexer) {
             auto tk = lexer.get_next_token();
-            std::cout << "Got token: " << tk->to_string() << " " << tk->Buffer << "\n";
+            std::cout << "Got token: " << tk->to_string() << " "
+        		<< tk->Buffer << "\n";
             if (tk->Type == TokenType::Eof)
                 break;
         }

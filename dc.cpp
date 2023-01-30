@@ -2,7 +2,7 @@
 
 // reads from standard input or command line 
 // uses namespaces and no exceptions
-
+// The C++ Programming language
 // pp 190-1921, sec 8.3.3, Exceptions in Calculator
 
 
@@ -50,9 +50,9 @@ namespace Lexer {
 namespace Parser {
 	double prim(bool get);		// handle primaries
 	double term(bool get);		// multiply and divide
-	double expr(bool get);		// add and subtract
 
 	using namespace Lexer;
+	double expr(bool get);		// add and subtract
 	using namespace Error;
 }
 

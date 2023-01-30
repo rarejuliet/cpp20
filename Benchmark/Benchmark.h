@@ -13,5 +13,7 @@
 //auto t2 = std::chrono::high_resolution_clock::now();
 //auto dur = t2 - t1;
 int dc_main(int argc, char* argv[]);
+int ascii_main(int argc, char* argv[]);
+int ss_main(int argc, char* argv[]);
 // TODO: Reference additional headers your program requires here.
 #endif //defined BENCHMARK_H__

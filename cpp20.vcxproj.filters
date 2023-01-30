@@ -39,6 +39,12 @@
     <ClCompile Include="dc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AsciiChart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark\Benchmark.h">
