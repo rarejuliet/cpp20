@@ -19,14 +19,15 @@
 #include<iostream>
 #include<cctype>
 #include<string>
+#include <exception>
 
 using namespace std;
 
 namespace Error {
 
-	struct Zero_divide { };
+	struct Zero_divide : std::exception { };
 
-	struct Syntax_error {
+	struct Syntax_error : std::exception {
 		const char* p;
 		Syntax_error(const char* q) { p = q; }
 	};
@@ -225,12 +226,14 @@ int dc_main(int argc, char* argv[])
 			if (Lexer::curr_tok == Lexer::PRINT) continue;
 			cout << Parser::expr(false) << '\n';
 		}
-		catch (Error::Zero_divide) {
+		catch (Error::Zero_divide& e) {
 			cerr << "attempt to divide by zero\n";
+			cerr << e.what() << "\n";
 			skip();
 		}
-		catch (Error::Syntax_error e) {
+		catch (Error::Syntax_error& e) {
 			cerr << "syntax error:" << e.p << "\n";
+			cerr << e.what() << "\n";
 			skip();
 		}
 	}

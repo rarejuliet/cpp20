@@ -34,8 +34,9 @@ class Token {
 public:
 	TokenType Type = TokenType::Eof;
 	std::string Buffer;
-	explicit Token(TokenType t, std::string buffer) : Type(t), Buffer(std::move(buffer)) {}
-	static auto CreateToken(TokenType t, std::string buffer) {
+	explicit Token(TokenType t, std::string buffer) :
+		Type(t), Buffer(std::move(buffer)) {}
+	static auto CreateToken(TokenType t, const std::string& buffer) {
 		//		std::unique_ptr<Token> tk(new Token(t, buffer));
 		// Supposedly it's better to do it this way.
 		auto tk = std::make_unique<Token>(t, buffer);

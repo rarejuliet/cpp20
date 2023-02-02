@@ -117,6 +117,7 @@
     <ClCompile Include="containers\tuple1.cpp" />
     <ClCompile Include="dc.cpp" />
     <ClCompile Include="Lexer.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="StringStream.cpp" />
     <ClCompile Include="Threads\async.cpp" />
   </ItemGroup>

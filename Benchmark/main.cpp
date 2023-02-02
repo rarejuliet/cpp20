@@ -112,9 +112,8 @@ int main(int argc, char* argv[], char** env)
 {
     //parser_main(argc, argv, env);
     //ascii_main(argc, argv);
-    ss_main(argc, argv);
-    //lexer_main(argc, argv, env);
-    //dc_main(argc, argv);
+    bm_main(argc, argv);
+    //ss_main(argc, argv);
     int n{};
     std::cin >> n;
     return EXIT_SUCCESS;

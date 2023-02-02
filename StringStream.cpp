@@ -27,8 +27,10 @@ int ss_main(int argc, char* argv[]) {
 	}
 		
 	} catch (std::exception& e) {
-		std::cerr << "Caught a std::exception"
+		std::cerr << "Caught a std::exception";
 		std::cerr << e.what() << "\n";
+	} catch (...) {
+		std::cerr << "Caught an unknown exception";
 	}
 	return EXIT_SUCCESS;
 }
