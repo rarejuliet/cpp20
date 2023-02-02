@@ -111,8 +111,8 @@ auto add(auto x, auto y) {
 int main(int argc, char* argv[], char** env)
 {
     //parser_main(argc, argv, env);
-    //ascii_main(argc, argv);
-    bm_main(argc, argv);
+    ascii_main(argc, argv);
+   // bm_main(argc, argv);
     //ss_main(argc, argv);
     int n{};
     std::cin >> n;
