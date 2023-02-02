@@ -111,6 +111,7 @@
   <ItemGroup>
     <ClCompile Include="aligned.cpp" />
     <ClCompile Include="AsciiChart.cpp" />
+    <ClCompile Include="BaseN.cpp" />
     <ClCompile Include="Benchmark\Benchmark.cpp" />
     <ClCompile Include="Benchmark\main.cpp" />
     <ClCompile Include="containers\parse_main.cpp" />
@@ -122,8 +123,10 @@
     <ClCompile Include="Threads\async.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseN.h" />
     <ClInclude Include="Benchmark\Benchmark.h" />
     <ClInclude Include="Benchmark\Generator.h" />
+    <ClInclude Include="Hashtable.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
