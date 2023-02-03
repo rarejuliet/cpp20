@@ -3,7 +3,7 @@
 #include <coroutine>
 #include <exception>
 #include <iostream>
-namespace ajc {
+
 template <typename T>
 struct Generator
 {
@@ -81,29 +81,6 @@ private:
         }
     }
 };
-}
 
-inline ajc::Generator<uint64_t>
-fibonacci_sequence(uint64_t n)
-{
-    if (n == 0)
-        co_return;
-    if (n > 94)
-        throw std::runtime_error("Fibonacci sequence too big. Elements would overflow.");
-    co_yield 0;
-    if (n == 1)
-        co_return;
-    co_yield 1;
-    if (n == 2)
-        co_return;
-    uint64_t a = 0;
-    uint64_t b = 1;
-    for (uint64_t i = 2; i < n; i++) {
-        uint64_t s = a + b;
-        co_yield s;
-        a = b;
-        b = s;
-    }
-}
 
 #endif //GENERATOR_H__
