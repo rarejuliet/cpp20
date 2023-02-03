@@ -61,7 +61,7 @@ int main(int argc, char* argv[], char* env[])
     //ss_main(argc, argv);
     int n{};
     std::cin >> n;
-//    return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
     int rval = 0;
     try {
         int x{ 3 };
