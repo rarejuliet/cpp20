@@ -1,82 +1,18 @@
 #include <array>
-#include <cstddef>
 #include <cstdlib>
-#include <vector>
-#include <string>
 #include <iostream>
 #include <format>
 #include <exception>
-#include <initializer_list>
 #include <cstdint>
-#include <map>
 #include <coroutine>
 
 #include "Benchmark.h"
 #include "Generator.h"
-#include "../Token.h"
-#include "../Parser.h"
-#include "../Hashtable.h"
 #include "../bible_statistics.h"
+#include "../sequences.h"
+#include "../math.h"
 
-namespace ajc {
-/// <summary>
-/// Start at 3 and check up to sqrt(n).  Even numbers are ignored since
-/// they would have been found by division by 2 already.
-/// </summary>
-/// <param name="n">An unsigned number/param>
-/// <returns>true if prime, else false</returns>
-    constexpr bool isPrime(uint64_t n) {
-        if (n < 2) {
-            return false;
-        }
-        if (n == 2) {
-            return true;
-        }
-        if (n % 2 == 0) {
-            return false;
-        }
-        auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        for (auto i = 3ul; i <= sqrt_n; i += 2ul) {
-            if ((n % i) == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 
-    constexpr bool is_prime(uint64_t n) {
-        if (n < 2)
-            return false;
-        if (n == 2)
-            return true;
-        if (n % 2 == 0)
-            return false;
-        const auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        for (uint64_t i = 3; i < sqrt_n; ++i) {
-            if ((n % i) == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-/**
- * \brief Get a Generator<int64_t> which will iterate through the prime
- * numbers.
- * \return A Generator<int64_t> over the prime numbers.
- */
-ajc::Generator<int64_t> get_primes()
-{
-    int64_t n = 0;
-    while (n<UINT_MAX) {
-        while (!ajc::is_prime(n)) {
-            ++n;
-        }
-        co_yield n;
-        ++n;
-    }
-}
 
 /// <summary>
 /// The entry point for the fibonacci sequence generator.
@@ -86,7 +22,7 @@ int test_main(int argc, char** argv)
 {
     try
     {
-        auto gen = fibonacci_sequence(10); // max 94 before uint64_t overflows
+        auto gen = get_fibonacci_sequence(10); // max 94 before uint64_t overflows
 
         for (int j = 0; gen; j++)
             std::cout << "fib(" << j << ")=" << gen() << '\n';
@@ -124,7 +60,7 @@ int main(int argc, char* argv[], char* env[])
     //ss_main(argc, argv);
     int n{};
     std::cin >> n;
-    return EXIT_SUCCESS;
+//    return EXIT_SUCCESS;
     int rval = 0;
     try {
         int x{ 3 };
@@ -133,9 +69,14 @@ int main(int argc, char* argv[], char* env[])
         int i = {};
         std::cout << std::format("{0} is prime", i);
         std::cout << "\n";
-        ajc::Generator<int64_t> primes = get_primes();
+        Generator<uint64_t> primes = get_prime_sequence();
         for (int i = 0; i < 100; ++i) {
             std::cout << primes() << " is prime\n";
+        }
+        Generator<uint64_t> fib = get_fibonacci_sequence(121);
+        uint64_t max=121;
+        for(uint64_t i=0; i<max; ++i) {
+	        std::cout << "fib(" << i << ")==\t" << fib() << std::endl;
         }
     }
     catch (std::exception& e) {

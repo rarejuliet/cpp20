@@ -77,5 +77,11 @@
     <ClInclude Include="bible_statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sequences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

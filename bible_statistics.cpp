@@ -1,18 +1,5 @@
 #include "bible_statistics.h"
 
-
-
-
-
-
-
-
-#include <cstdlib>
-#include <map>
-#include <string>
-#include <fstream>
-#include <iostream>
-
 int bible_main(int argc, char* argv[], char* env[]) {
 	// Load all of the words in the text of the bible (add other books later).
 	// This will allow many statistical questions to be answered easily
