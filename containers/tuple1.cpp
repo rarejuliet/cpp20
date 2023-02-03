@@ -58,12 +58,12 @@ int tuple_swap_main(int argc, char** argv, char** env)
     return EXIT_SUCCESS;
 }
 
-int tuple_tie_main(int argc, char** argv, char** env) {
+int tuple_tie_main(int argc, char* argv[], char* env[]) {
     using namespace std;
     // Initializing variables for unpacking
-    int i_val;
-    char ch_val;
-    float f_val;
+    int i_val{};
+    char ch_val{};
+    float f_val{};
 
     // Initializing tuple
     tuple <int, char, float> tup1(20, 'g', 17.5);
@@ -80,13 +80,18 @@ int tuple_tie_main(int argc, char** argv, char** env) {
     // Use of tie() with ignore
     // ignores char value
     tie(i_val, ignore, f_val) = tup1;
-
     // Displaying unpacked tuple elements
     // with ignore
     cout << "The unpacked tuple values (with ignore) are : ";
     cout << i_val << " " << f_val;
     cout << endl;
 
+	//use of structured bindings:
+    auto& [iv,cv,fv] = tup1;
+    cout << "iv:{" << iv << "} " << "cv:{" << cv << "} " << "fv:{" <<
+        fv << "} " << endl;
+
+    
     return EXIT_SUCCESS;
 
 }

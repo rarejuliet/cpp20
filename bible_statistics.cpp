@@ -15,13 +15,11 @@ int bible_main(int argc, char* argv[], char* env[]) {
 	std::string word;
 
 	while(in >> word) {
-		//in >> word;
 		words[word]++;
 	}
 
-	for (auto wrd : words) {
-		std::cout << "Found " << wrd.first << " was found " << wrd.second <<
-			" times." << std::endl;
+	for (auto& [key, value] : words) {
+		std::cout << "Found " << key << value << " times." << std::endl;
 	}
 
 	// a space separated list of words (tokens)
@@ -53,8 +51,8 @@ int regex_main(int argc, char* argv[], char* env[]) {
     		std::cout << "  " << match_str << '\n';
     	}
     }
-	for (auto wrd : words) {
-		std::cout << "Found " << wrd.first << " was found " << wrd.second <<
+	for (auto &[key, value] : words) {
+		std::cout << "Found " << key << " was found " << value <<
 			" times." << std::endl;
 	}
 	  return EXIT_SUCCESS;
