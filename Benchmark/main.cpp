@@ -61,7 +61,11 @@ namespace ajc {
     }
 }
 
-
+/**
+ * \brief Get a Generator<int64_t> which will iterate through the prime
+ * numbers.
+ * \return A Generator<int64_t> over the prime numbers.
+ */
 ajc::Generator<int64_t> get_primes()
 {
     int64_t n = 0;
@@ -75,9 +79,9 @@ ajc::Generator<int64_t> get_primes()
 }
 
 /// <summary>
-/// 
+/// The entry point for the fibonacci sequence generator.
 /// </summary>
-/// <returns></returns>
+/// <returns>0 on success, else <> 0</returns>
 int test_main(int argc, char** argv)
 {
     try

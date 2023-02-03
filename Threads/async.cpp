@@ -33,6 +33,12 @@ namespace math {
     }
 }
 
+/**
+ * \brief The entry point for the asynchronous prime number generator.
+ * \param argc Number of parameters.
+ * \param argv Parameter values.
+ * \return 
+ */
 int async_main(int argc, char ** argv) {
     Generator<uint64_t> primes = math::get_primes();
     for (uint64_t i = 0; i < 255; ++i) {
