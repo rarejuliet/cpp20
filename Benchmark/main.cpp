@@ -113,7 +113,7 @@ auto add(auto x, auto y) {
 int main(int argc, char* argv[], char* env[])
 {
     bible_main(argc, argv, env); 
-    ht_main(argc,argv,env);
+    //ht_main(argc,argv,env);
     //parser_main(argc, argv, env);
     //ascii_main(argc, argv);
     //bm_main(argc, argv);

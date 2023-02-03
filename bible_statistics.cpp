@@ -25,8 +25,8 @@ int bible_main(int argc, char* argv[], char* env[]) {
 	std::ifstream in("bible.txt");
 	std::string word;
 
-	while(in) {
-		in >> word;
+	while(in >> word) {
+		//in >> word;
 		words[word]++;
 	}
 
