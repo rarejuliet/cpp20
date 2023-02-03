@@ -15,6 +15,8 @@
 #include "Generator.h"
 #include "../Token.h"
 #include "../Parser.h"
+#include "../Hashtable.h"
+#include "../bible_statistics.h"
 
 namespace ajc {
 /// <summary>
@@ -108,11 +110,13 @@ auto add(auto x, auto y) {
 /// <param name="argv"></param>
 /// <param name="env"></param>
 /// <returns></returns>
-int main(int argc, char* argv[], char** env)
+int main(int argc, char* argv[], char* env[])
 {
+    bible_main(argc, argv, env); 
+    ht_main(argc,argv,env);
     //parser_main(argc, argv, env);
     //ascii_main(argc, argv);
-    bm_main(argc, argv);
+    //bm_main(argc, argv);
     //ss_main(argc, argv);
     int n{};
     std::cin >> n;

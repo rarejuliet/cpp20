@@ -24,8 +24,7 @@ namespace math {
         ++i;
         uint64_t num = 0;
         while (num < UINTMAX_MAX) {
-            bool p = math::is_prime(num);
-            if (p) {
+	        if (bool p = math::is_prime(num)) {
                 co_yield num;
             }
             ++num;

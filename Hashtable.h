@@ -2,20 +2,15 @@
 #define HASHTABLE_H
 #include <vector>
 #include <string>
+int ht_main(int argc, char* argv[], char* env[]);
 namespace containers {
-	inline unsigned long hash_function(char* str) {
-		unsigned long i = 0;
-		for (int j = 0; str[j]; j++)
-			i += str[j];
-		return i % Capacity;
-	}
 	/// <summary>
 	/// 
 	/// </summary>
-	template <typename Key, typename Val>
-	class HashTable {
-	uint64_t Capacities[] = { 
-		13, //minimum size for our HashTable
+	template <typename Val>
+	class Hashtable {
+	std::vector<uint64_t> Capacities = { //[24]
+		13, //minimum size for our Hashtable
 		29,
 		63,
 		127,
@@ -41,30 +36,40 @@ namespace containers {
 		32767179084151611
 	};
 	uint64_t Capacity = Capacities[0]; 
+	inline uint64_t hash_function(std::string str) const {
+		uint64_t i = 0;
+		for (uint64_t j = 0; str[j]; j++)
+			i += str[j];
+		return i % Capacities[size];
+	}
 	public:
-		struct HashItem<Key, Val> {
-			public:
-				HashItem(Key k, Val v) : key(k), val(v) {}
-			protected:
-				Key key;
-				Val val;
-			};
 		const uint64_t DefaultValue = 0;
 		const uint64_t DefaultSize = 0;
-			HashTable() : items(DefaultValue), size(DefaultSize) {}
-			HashItem Get(Key k) { return items[k]; }
-			bool Exists(Key k) { return false; }
-			
-	private:
+		explicit Hashtable(uint64_t start_size) {
+			size = Capacities[start_size];
+			vals.reserve(Capacities[size]);
+			keys.reserve(Capacities[size]);
+		}
+		Val Get(std::string key) {
+			return vals[hash_function(key)];
+		}
+		bool Exists(std::string key) {
+			keys[hash_function(key)] != nullptr;
+		}
+		void grow() {
+			size++;
+			vals.reserve(Capacities[size]);
+		}
+
+	void Set(std::string key, Val value) {
+			keys[hash_function(key)] = value;
+		}
+
+private:
 		uint64_t size;
-		std::vector<HashItem<Key, Val>> items;
+		std::vector<Val> vals;
+		std::vector<std::string> keys;
 	};
 }
-//template <typename Key, typename Val>
-//class HashItem {
-//public:
-//	HashItem(Key k, Val v) : key(k), val(v) {}
-//	Key key;
-//	Val val;
-//};
+
 #endif //defined HASHTABLE_H

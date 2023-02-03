@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <map>
 #include "../Token.h"
+#include "../bible_statistics.h"
 
 namespace ajc {
     std::map<std::string, std::string> parse_env(char** env) {

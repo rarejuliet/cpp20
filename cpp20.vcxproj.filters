@@ -51,6 +51,12 @@
     <ClCompile Include="Threads\async.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hashtable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bible_statistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark\Generator.h">
@@ -66,6 +72,9 @@
       <Filter>Header Files\Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Benchmark\Benchmark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bible_statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
