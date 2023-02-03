@@ -42,34 +42,26 @@ int test_main(int argc, char** argv)
 auto add(auto x, auto y) {
     return x + y;
 }
+int tuple_tie_main(int argc, char* argv[], char* env[]);
 
-/// <summary>
-/// 
-/// </summary>
-/// <param name="argc"></param>
-/// <param name="argv"></param>
-/// <param name="env"></param>
-/// <returns></returns>
+
 int main(int argc, char* argv[], char* env[])
 {
     //bible_main(argc, argv, env);
-    regex_main(argc, argv, env);
+    //regex_main(argc, argv, env);
     //ht_main(argc,argv,env);
     //parser_main(argc, argv, env);
     //ascii_main(argc, argv);
     //bm_main(argc, argv);
     //ss_main(argc, argv);
+    //tuple_tie_main(argc,argv,env);
     int n{};
     std::cin >> n;
-    return EXIT_SUCCESS;
-    int rval = 0;
+    int rval = EXIT_SUCCESS;
     try {
         int x{ 3 };
         float y{ 4.5 };
         std::cout << std::format("{0} * {1} == {2}\n", x, y, add(x, y));
-        int i = {};
-        std::cout << std::format("{0} is prime", i);
-        std::cout << "\n";
         Generator<uint64_t> primes = get_prime_sequence();
         for (int i = 0; i < 100; ++i) {
             std::cout << primes() << " is prime\n";
@@ -82,7 +74,7 @@ int main(int argc, char* argv[], char* env[])
     }
     catch (std::exception& e) {
         std::cerr << e.what() << "\n";
-        return EXIT_FAILURE;
+        rval = EXIT_FAILURE;
     }
-    return EXIT_SUCCESS;
+    return rval;
 }
