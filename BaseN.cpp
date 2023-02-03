@@ -27,6 +27,7 @@ inline std::string to_hex(const uint64_t n) {
 uint64_t to_int(const std::string& hex) {
 
 	//throw NotImplementedException{};
+	return EXIT_SUCCESS;
 }
 std::string to_bin(uint64_t n) {
 	throw NotImplementedException{};

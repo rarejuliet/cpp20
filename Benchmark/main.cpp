@@ -52,7 +52,8 @@ auto add(auto x, auto y) {
 /// <returns></returns>
 int main(int argc, char* argv[], char* env[])
 {
-    bible_main(argc, argv, env); 
+    //bible_main(argc, argv, env);
+    regex_main(argc, argv, env);
     //ht_main(argc,argv,env);
     //parser_main(argc, argv, env);
     //ascii_main(argc, argv);
