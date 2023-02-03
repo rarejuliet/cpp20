@@ -68,13 +68,13 @@
     <ClInclude Include="Hashtable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BaseN.h">
-      <Filter>Header Files\Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Benchmark\Benchmark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="bible_statistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
