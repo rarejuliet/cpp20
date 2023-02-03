@@ -15,6 +15,8 @@
 #include "Generator.h"
 #include "../Token.h"
 #include "../Parser.h"
+#include "../Hashtable.h"
+#include "../bible_statistics.h"
 
 namespace ajc {
 /// <summary>
@@ -59,7 +61,11 @@ namespace ajc {
     }
 }
 
-
+/**
+ * \brief Get a Generator<int64_t> which will iterate through the prime
+ * numbers.
+ * \return A Generator<int64_t> over the prime numbers.
+ */
 ajc::Generator<int64_t> get_primes()
 {
     int64_t n = 0;
@@ -73,9 +79,9 @@ ajc::Generator<int64_t> get_primes()
 }
 
 /// <summary>
-/// 
+/// The entry point for the fibonacci sequence generator.
 /// </summary>
-/// <returns></returns>
+/// <returns>0 on success, else <> 0</returns>
 int test_main(int argc, char** argv)
 {
     try
@@ -108,11 +114,13 @@ auto add(auto x, auto y) {
 /// <param name="argv"></param>
 /// <param name="env"></param>
 /// <returns></returns>
-int main(int argc, char* argv[], char** env)
+int main(int argc, char* argv[], char* env[])
 {
+    bible_main(argc, argv, env); 
+    //ht_main(argc,argv,env);
     //parser_main(argc, argv, env);
-    ascii_main(argc, argv);
-   // bm_main(argc, argv);
+    //ascii_main(argc, argv);
+    //bm_main(argc, argv);
     //ss_main(argc, argv);
     int n{};
     std::cin >> n;
