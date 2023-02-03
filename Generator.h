@@ -3,19 +3,7 @@
 #include <coroutine>
 #include <exception>
 #include <iostream>
-
-
-
-/**
-
- * \brief The class name 'Generator' is our choice and it is not required for coroutine
- * magic. Compiler recognizes coroutine by the presence of 'co_yield' keyword.
- * You can use name 'Generator' (or any other name) instead as long as you include
- * nested struct promise_type with 'Generator get_return_object()' method.
- * Note: You need to adjust class constructor/destructor names too when choosing to
- * rename class.
- * \tparam T A type for Generator specialization.
- */
+namespace ajc {
 template <typename T>
 struct Generator
 {
@@ -93,6 +81,7 @@ private:
         }
     }
 };
+}
 
 
 #endif //GENERATOR_H__
