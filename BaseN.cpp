@@ -5,9 +5,25 @@
 struct NotImplementedException : std::exception {
 	
 };
-std::string to_hex(uint64_t n) {
-	throw NotImplementedException{};
+
+std::string to_hex(const uint64_t n) {
+    if (n == 0)
+        return "0";
+    uint64_t num = n;
+    std::string s;
+    while (num) {
+        const uint64_t temp = num % 16;
+        if (temp <= 9)
+            s += (static_cast<char>(48 + temp));
+        else
+            s += (87 + temp);
+        num = num / 16;
+    }
+    std::reverse(s.begin(), s.end());
+    return s;
 }
+	//throw NotImplementedException{};
+
 std::string to_int(uint64_t n) {
 	throw NotImplementedException{};
 }
