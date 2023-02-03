@@ -6,7 +6,7 @@ struct NotImplementedException : std::exception {
 	
 };
 
-std::string to_hex(const uint64_t n) {
+inline std::string to_hex(const uint64_t n) {
     if (n == 0)
         return "0";
     uint64_t num = n;
@@ -16,13 +16,13 @@ std::string to_hex(const uint64_t n) {
         if (temp <= 9)
             s += (static_cast<char>(48 + temp));
         else
-            s += (87 + temp);
+            s += (static_cast<char>(87 + temp));
         num = num / 16;
     }
+    s += "x0";
     std::reverse(s.begin(), s.end());
     return s;
 }
-	//throw NotImplementedException{};
 
 std::string to_int(uint64_t n) {
 	throw NotImplementedException{};
