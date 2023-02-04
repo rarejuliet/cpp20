@@ -12,8 +12,8 @@ get_fibonacci_sequence(uint64_t n)
     constexpr uint8_t max_fibonacci = 94;
     if (n == 0)
         co_return;
-    /*if (n > max_fibonacci)
-        throw std::runtime_error("Fibonacci sequence too big. Elements would overflow.");*/
+    if (n > max_fibonacci)
+        throw std::runtime_error(std::format("Fibonacci sequence for [fib({0})] would overflow a 64-bit integer.",n));
     co_yield 0;
     if (n == 1)
         co_return;
@@ -34,7 +34,7 @@ get_fibonacci_sequence(uint64_t n)
  * numbers.
  * \return A Generator<int64_t> over the prime numbers.
  */
-Generator<uint64_t> get_prime_sequence()
+inline Generator<uint64_t> get_prime_sequence()
 {
     uint64_t n = 0;
     while (n<UINT64_MAX) {

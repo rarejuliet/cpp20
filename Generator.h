@@ -3,7 +3,6 @@
 #include <coroutine>
 #include <exception>
 #include <iostream>
-namespace ajc {
 template <typename T>
 struct Generator
 {
@@ -81,7 +80,6 @@ private:
         }
     }
 };
-}
 
 
 #endif //GENERATOR_H__

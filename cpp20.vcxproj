@@ -118,6 +118,7 @@
     <ClCompile Include="containers\parse_main.cpp" />
     <ClCompile Include="containers\tuple1.cpp" />
     <ClCompile Include="dc.cpp" />
+    <ClCompile Include="Generator_Test.cpp" />
     <ClCompile Include="Hashtable.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -131,7 +132,9 @@
     <ClInclude Include="bible_statistics.h" />
     <ClInclude Include="Hashtable.h" />
     <ClInclude Include="math.h" />
+    <ClInclude Include="output_utils.h" />
     <ClInclude Include="sequences.h" />
+    <ClInclude Include="string_utils.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>

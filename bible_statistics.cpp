@@ -1,6 +1,5 @@
 #include "bible_statistics.h"
 
-#include <regex>
 
 int bible_main(int argc, char* argv[], char* env[]) {
 	// Load all of the words in the text of the bible (add other books later).
@@ -8,8 +7,7 @@ int bible_main(int argc, char* argv[], char* env[]) {
 	// First hack will be to put the words in a hash, and every time there's a
 	// collision, increment a counter saved at that hashed address.
 	std::map<std::string, uint64_t> words{
-		{"Adam",1},
-		{"Roberta",1}
+		{"adam",1}  // Ok, so adam will have one extra recorded use.
 	};
 	std::ifstream in("bible.txt");
 	std::string word;
@@ -40,16 +38,19 @@ int regex_main(int argc, char* argv[], char* env[]) {
 			std::sregex_iterator(buf.begin(), buf.end(), word_regex);
     	auto words_end = std::sregex_iterator();
 
-    	//std::cout << "Found "
-				 // << std::distance(words_begin, words_end)
-				 // << " words\n";
+		[[maybe_unused]]auto words_found = std::distance(words_begin, words_end);
+//    	std::cout << "Found " << words_found << " words" << std::endl;
 
     	for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
     		std::smatch match = *i;
     		std::string match_str = match.str();
-            std::ranges::transform(match_str, match_str.begin(), ::tolower);
-			words[match_str]++;
-    		std::cout << "  " << match_str << '\n';
+			util::lowercase(match_str);
+			util::uppercase(match_str);
+			std::string lc_cp = util::lowercase_copy(match_str);
+//            std::ranges::transform(match_str, match_str.begin(), ::tolower);
+			words[util::uppercase_copy(match_str)]++;
+
+    		//std::cout << "  " << match_str << '\n';
     	}
     }
 	std::ofstream out("out.txt");
