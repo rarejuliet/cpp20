@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cstdint>
 
-namespace ajc::math {
+namespace math {
 /// <summary>
 /// Start at 3 and check up to sqrt(n).  Even numbers are ignored since
 /// they would have been found by division by 2 already.
@@ -42,7 +42,7 @@ namespace ajc::math {
         if (n % 2 == 0)
             return false;
         const auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        for (uint64_t i = 3; i < sqrt_n; ++i) {
+        for (uint64_t i = 3; i < sqrt_n; i+=2) {
             if ((n % i) == 0) {
                 return false;
             }
@@ -64,6 +64,17 @@ namespace ajc::math {
             b=a+b;
         }
         return a;
+    }
+
+    /**
+     * \brief A recursive fibonacci number generator.
+     * \param n The number in the sequence to obtain.
+     * \return The nth number in the fibonacci sequence.
+     */
+    constexpr uint64_t rfib(uint64_t n) {
+	    if(n<2)
+            return n;
+        return rfib(n-1)+rfib(n-2);
     }
 
 }

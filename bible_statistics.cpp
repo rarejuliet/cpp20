@@ -40,20 +40,22 @@ int regex_main(int argc, char* argv[], char* env[]) {
 			std::sregex_iterator(buf.begin(), buf.end(), word_regex);
     	auto words_end = std::sregex_iterator();
 
-    	std::cout << "Found "
-				  << std::distance(words_begin, words_end)
-				  << " words\n";
+    	//std::cout << "Found "
+				 // << std::distance(words_begin, words_end)
+				 // << " words\n";
 
     	for (std::sregex_iterator i = words_begin; i != words_end; ++i) {
     		std::smatch match = *i;
     		std::string match_str = match.str();
+            std::ranges::transform(match_str, match_str.begin(), ::tolower);
 			words[match_str]++;
     		std::cout << "  " << match_str << '\n';
     	}
     }
+	std::ofstream out("out.txt");
 	for (auto &[key, value] : words) {
-		std::cout << "Found " << key << " was found " << value <<
-			" times." << std::endl;
+		out << key << "," << value << std::endl;
 	}
-	  return EXIT_SUCCESS;
+	out.close();
+	return EXIT_SUCCESS;
 }

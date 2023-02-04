@@ -38,7 +38,7 @@ Generator<uint64_t> get_prime_sequence()
 {
     uint64_t n = 0;
     while (n<UINT64_MAX) {
-        while (!ajc::math::is_prime(n)) {
+        while (!math::is_prime(n)) {
             ++n;
         }
         co_yield n;
