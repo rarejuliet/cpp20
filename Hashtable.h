@@ -1,26 +1,15 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 #include <vector>
+#include <array>
 #include <string>
+constexpr uint64_t MAX_CAPACITY {87};
 int ht_main(int argc, char* argv[], char* env[]);
 namespace containers {
 	/// <summary>
 	/// 
 	/// </summary>
-	template <typename Val>
-	class Hashtable {
-		
-		
-		/**
-		 * \brief  We don't want to spend too much time resizing our
-		 * underlying container everytime we add something, so we'll
-		 * do it in steps.
-		 *	This number list is taken from the fibonacci sequence, and
-		 *	should be a good starting point for relative primality.
-		 *	Also, we approximately double the size of the collection at
-		 *	each resize so as not to waste time doing it too often.
-		 */
-		std::vector<uint64_t> Capacities = { //[24]
+	static uint64_t Capacities[MAX_CAPACITY] { //87
 		 13
 		,21
 		,34
@@ -57,7 +46,7 @@ namespace containers {
 		,102334155
 		,165580141
 		,267914296
-		, 433494437
+		,433494437
 		,701408733
 		,1134903170
 		,1836311903
@@ -109,40 +98,116 @@ namespace containers {
 		,7540113804746346429
 		,12200160415121876738ull
 	};
-	uint64_t Capacity = Capacities[0]; 
-	inline uint64_t hash_function(std::string str) const {
-		uint64_t i = 0;
-		for (uint64_t j = 0; str[j]; j++)
-			i += str[j];
-		return i % Capacities[size];
+	template <typename Val>
+	class Hashtable {
+		
+		/**
+		 * \brief  We don't want to spend too much time resizing our
+		 * underlying container every time we add something, so we'll
+		 * do it in steps.
+		 *	This number list is taken from the fibonacci sequence, and
+		 *	should be a good starting point for relative primality.
+		 *	Also, we approximately double the size of the collection at
+		 *	each resize so as not to waste time doing it too often.
+		 */
+
+//	constexpr uint64_t Capacity = Capacities[0];
+	/**
+	 * \brief Our hash function.  This is the reason the key is specialized to
+	 * std::string, because our hash function only accepts std::string(s).
+	 * \param str A std::string
+	 * \return An integer representation of str, after hashing and doing modulo
+	 * Capacities[size_] to ensure we're within bounds of the current array.
+	 */
+	static inline uint64_t hash_str(const std::string& str) {
+	uint64_t i = 0;
+	for (uint64_t j = 0; str[j]; j++)
+		i += str[j];
+	return i;
+}
+public:
+
+	explicit Hashtable(const uint64_t start_size = 0) {
+		size_=start_size;
+		vals_=new Val[Capacities[size_]];
+		filled_=new bool[Capacities[size_]];
+		for (uint64_t i=0; i<capacity(); ++i) {
+			filled_[i]=false;
+		}
 	}
-	public:
-		const uint64_t DefaultValue = 0;
-		const uint64_t DefaultSize = 0;
-		explicit Hashtable(uint64_t start_size) {
-			size = Capacities[start_size];
-			vals.reserve(Capacities[size]);
-			keys.reserve(Capacities[size]);
+	Val Get(std::string key) {
+		uint64_t n = hash_str(key);
+		return vals_[n];
+	}
+	auto keys() {
+		return keys_;
+	}
+	bool exists(const std::string& key) const {
+		uint64_t hash = hash_str(key);
+		return filled_[hash];
+	}
+	void grow() {
+		size_++;
+		Val *v = vals_;
+		bool *oldfilled = filled_;
+		filled_=new bool[Capacities[size_]];
+		for (uint64_t i=0; i<Capacities[size_]; ++i)	{
+			filled_[i]=false;
 		}
-		Val Get(std::string key) {
-			return vals[hash_function(key)];
+		vals_ = new Val[Capacities[size_]];
+
+		for (const auto & val : keys_) {
+			uint64_t oldhash=hash_str(val)%Capacities[size_-1];
+			uint64_t newhash=hash_str(val)%capacity();
+			if(oldfilled[oldhash])
+				filled_[newhash] = true;
+			Val item = v[oldhash];
+			vals_[newhash]=item;
 		}
-		bool Exists(std::string key) {
-			keys[hash_function(key)] != nullptr;
-		}
-		void grow() {
-			size++;
-			vals.reserve(Capacities[size]);
-		}
+		delete[] v;
+		v=nullptr;
+	}
+	size_t size() {
+		[[maybe_unused]]uint64_t count = keys_.size();
+		return num_items_;
+	}
+
+	size_t capacity() {
+		return Capacities[size_];
+	}
 
 	void Set(std::string key, Val value) {
-			keys[hash_function(key)] = value;
+			uint64_t hash = hash_str(key) % capacity();
+			if(filled_[hash] == false) // New item
+			{
+				num_items_++;
+				vals_[hash] = value;
+				keys_.push_back(key);
+				filled_[hash] = true;
+				if( (num_items_) > (capacity() / 3)) //We're a third full, so resize.
+				{
+					grow();
+				}
+			}
+			else  // Overwrite existing value
+			{
+				uint64_t i=0;
+				//Handle collisions
+				while(filled_[hash+i])
+				{
+					if(!filled_[hash+i])
+						filled_[hash+i]=true;
+					vals_[hash+i] = value;
+					++i;
+				}
+			}
 		}
-
 private:
-		uint64_t size;
-		std::vector<Val> vals;
-		std::vector<std::string> keys;
+		uint64_t size_{0};
+		uint64_t num_items_{0};
+		bool* filled_{nullptr};
+		Val* vals_{nullptr};
+		std::vector<std::string> keys_{};
 	};
 }
 

@@ -17,7 +17,8 @@ namespace DateTime {
 namespace Fibonacci {
 	/**
 	 * \brief The highest value for which a compile-time evaluation may occur.  May be
-	 * different on various platforms but for MSVC it can go up to 94 before constexpr call limits are exceeded.
+	 * different on various platforms but for MSVC it can go up to 94 before int type
+	 * uint64_t overflows (64-bit).
 	 */
 	static constexpr uint64_t MAX_FIBONACCI = 94;
 

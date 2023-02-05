@@ -3,11 +3,11 @@
 #include <iostream>
 #include <format>
 #include <exception>
-
 #include "Benchmark.h"
 #include "Generator.h"
 #include "../bible_statistics.h"
 #include "../sequences.h"
+#include "../Hashtable.h"
 
 /// <summary>
 /// The entry point for the fibonacci sequence generator.
@@ -41,10 +41,10 @@ int main(int argc, char* argv[], char* env[])
 {
     try
     {
-        test_main(argc, argv);
+        //test_main(argc, argv);
 //	    bible_main(argc, argv, env);
 //    	regex_main(argc, argv, env);
-    	//ht_main(argc,argv,env);
+    	ht_main(argc,argv,env);
     	//parse_main(argc, argv, env);
     	//ascii_main(argc, argv);
     	//bm_main(argc, argv);
