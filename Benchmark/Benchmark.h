@@ -64,7 +64,7 @@ namespace Benchmark {
 		}
 		time_point<high_resolution_clock, nanoseconds> t0{}; // = high_resolution_clock::now();
 		time_point<high_resolution_clock, nanoseconds> t1{};
-		nanoseconds elapsed;
+		nanoseconds elapsed{};
 		void start() {
 			t0 = high_resolution_clock::now();
 		}
@@ -81,5 +81,7 @@ int dc_main(int argc, char* argv[]);
 int ascii_main(int argc, char* argv[]);
 int ss_main(int argc, char* argv[]);
 int bm_main(int argc, char* argv[]);
+int tuple_tie_main(int argc, char* argv[], char* env[]);
+int inf_test_main(int argc, char* argv[], char* env[]);
 // TODO: Reference additional headers your program requires here.
 #endif //defined BENCHMARK_H

@@ -13,7 +13,7 @@
 /// The entry point for the fibonacci sequence generator.
 /// </summary>
 /// <returns>0 on success, else <> 0</returns>
-int test_main(int argc, char** argv)
+int fib_test_main(int argc, char** argv)
 {
     try
     {
@@ -33,15 +33,48 @@ int test_main(int argc, char** argv)
     return 0;
 }
 
+/**
+ * \brief Entry point for infinity generator test.
+ * \param argc number of elements in argv
+ * \param argv a string array containing argc elements.
+ * \param env a null terminated array of char* containing
+ * the environment variables for this process.
+ * \return EXIT_SUCCESS
+ */
+int inf_test_main(int argc, char* argv[], char* env[]) {
+    auto inf = get_infinite_sequence();
+    while (inf)
+    {
+	    uint64_t i = inf();
+    	std::cout << i << " ";
+        if (i >= 255)
+    		break;
+    }
+    return EXIT_SUCCESS;
+}
 
-int tuple_tie_main(int argc, char* argv[], char* env[]);
 
-
+/**
+ * \brief Entry point for the application.
+ * \param argc 
+ * \param argv 
+ * \param env 
+ * \return 
+ */
 int main(int argc, char* argv[], char* env[])
 {
     try
     {
-        //test_main(argc, argv);
+	    std::istringstream iss{};
+        iss.imbue(std::locale("en_US.UTF8"));
+        std::cout << "Current locale: " << iss.getloc().name() << std::endl;
+
+        iss.imbue(std::locale());
+        std::cout << "Global locale : " << iss.getloc().name() << std::endl;
+ 
+//	    string_utils_test_main(argc, argv, env);
+        //fib_test_main(argc, argv);
+        //inf_test_main(argc, argv, env);
 //	    bible_main(argc, argv, env);
 //    	regex_main(argc, argv, env);
     	ht_main(argc,argv,env);

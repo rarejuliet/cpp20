@@ -6,6 +6,12 @@
 #include "Generator.h"
 #include "math.h"
 
+/**
+ * \brief Create a Generator<uint64> which will iterate through the fibonacci
+ * sequence.
+ * \param n The fibonacci number you wish to retrieve.
+ * \return The nth number in the fibonacci sequence.
+ */
 inline Generator<uint64_t>
 get_fibonacci_sequence(uint64_t n)
 {
@@ -43,6 +49,20 @@ inline Generator<uint64_t> get_prime_sequence()
         }
         co_yield n;
         ++n;
+    }
+}
+
+/**
+ * \brief Get a sequence for infinity (at least up to
+ * 2^64)
+ * \return A uint64_t
+ */
+inline Generator<uint64_t> get_infinite_sequence() {
+	uint64_t i=0;
+    while(i<UINT64_MAX)
+    {
+	    co_yield i;
+        ++i;
     }
 }
 #endif

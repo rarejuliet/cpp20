@@ -7,6 +7,11 @@ struct NotImplementedException : std::exception {
 };
 
 //INTEGER TO HEXADECIMAL
+/**
+ * \brief Convert a number to hexadecimal string.
+ * \param n A number to convert
+ * \return 
+ */
 std::string dec_to_hex(const uint64_t n) {
     if (n == 0)
         return "0";
@@ -25,6 +30,11 @@ std::string dec_to_hex(const uint64_t n) {
     return s;
 }
 //HEXADECIMAL TO DECIMAL
+/**
+ * \brief Convert
+ * \param hex 
+ * \return 
+ */
 uint64_t hex_to_dec(const std::string& hex) {
     std::stringstream ss;
     uint64_t converted;

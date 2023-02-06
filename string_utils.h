@@ -1,8 +1,8 @@
 #ifndef STRING_UTILS_H
 #define STRING_UTILS_H
-//#include <algorithm>
-//#include <string>
-
+#include <algorithm>
+#include <string>
+#include <sstream>
 namespace util {
 	/**
 	 * \brief Takes a string argument and creates a copy in uppercase.
@@ -44,5 +44,17 @@ namespace util {
 		std::ranges::transform(s,s.begin(),::tolower);
 	}
 
+	/**
+	 * \brief 
+	 * \param value A numeric value is expected.
+	 * \return A new string with a comma-separated value.
+	 */
+	std::string commify(const auto& value)
+	{
+	    std::stringstream ss;
+	    ss.imbue(std::locale("en_US.UTF8"));
+	    ss << std::fixed << value;
+	    return ss.str();
+	}
 }
 #endif

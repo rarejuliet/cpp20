@@ -31,7 +31,7 @@ struct Generator
 
     struct promise_type // required
     {
-        T value_;
+        T value_ {};
         std::exception_ptr exception_;
 
         Generator get_return_object()
