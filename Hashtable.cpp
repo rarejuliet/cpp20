@@ -1,15 +1,11 @@
 #include "Hashtable.h"
 #include <iostream>
+
+//#include "output_utils.h"
 #include "string_utils.h"
-int string_utils_test_main(int argc, char* argv[], char* env[]) {
-	const double d = 125489.3254;
-	const std::string num_with_commas = util::commify(d);
-	std::cout << num_with_commas << std::endl;
-	return EXIT_SUCCESS;
-}
 int ht_main(int argc, char* argv[], char* env[]) {
-	string_utils_test_main(argc, argv, env);
-	containers::Hashtable<char8_t> tbl{};
+	//string_utils_test_main(argc, argv, env);
+	containers::Hashtable<char> tbl{};
 	tbl.set("zero",'0');
 	tbl.set("one",'1');
 	tbl.set("two",'2');
@@ -79,6 +75,9 @@ int ht_main(int argc, char* argv[], char* env[]) {
 	std::cout << util::commify(tbl.max_size()) << std::endl;
 	std::cout << "tbl.capacity() == ";
 	std::cout << util::commify(tbl.capacity()) << std::endl;
+
+//	std::map<std::string, std::string> map = util::parse_env(env);
+//	util::print_map(map);
 
 	for (const auto &[key, val] : tbl.items)
 	{

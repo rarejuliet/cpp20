@@ -100,12 +100,14 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -123,6 +125,7 @@
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StringStream.cpp" />
+    <ClCompile Include="tests.cpp" />
     <ClCompile Include="Threads\async.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -131,10 +134,13 @@
     <ClInclude Include="Benchmark\Generator.h" />
     <ClInclude Include="bible_statistics.h" />
     <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="output_utils.h" />
+    <ClInclude Include="parse_main.h" />
     <ClInclude Include="sequences.h" />
     <ClInclude Include="string_utils.h" />
+    <ClInclude Include="tests.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>

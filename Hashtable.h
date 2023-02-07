@@ -4,7 +4,7 @@
 #include <array>
 #include <map>
 #include <string>
-constexpr uint64_t MAX_CAPACITY {87};
+//constexpr uint64_t MAX_CAPACITY {87};
 int ht_main(int argc, char* argv[], char* env[]);
 namespace containers {
 	template <typename Val>

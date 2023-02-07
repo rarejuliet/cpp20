@@ -2,10 +2,12 @@
 #define SEQUENCES_H
 #include <cstdint>
 #include <stdexcept>
-
+#include <format>
 #include "Generator.h"
 #include "math.h"
 
+namespace sequences {
+	
 /**
  * \brief Create a Generator<uint64> which will iterate through the fibonacci
  * sequence.
@@ -64,6 +66,7 @@ inline Generator<uint64_t> get_infinite_sequence() {
 	    co_yield i;
         ++i;
     }
+}
 }
 #endif
 
