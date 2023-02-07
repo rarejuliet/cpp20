@@ -9,8 +9,8 @@ struct NotImplementedException : std::exception {
 //INTEGER TO HEXADECIMAL
 /**
  * \brief Convert a number to hexadecimal string.
- * \param n A number to convert
- * \return 
+ * \param n A number to convert to hex.
+ * \return A string representation of the decimal value for n.
  */
 std::string dec_to_hex(const uint64_t n) {
     if (n == 0)
@@ -31,9 +31,9 @@ std::string dec_to_hex(const uint64_t n) {
 }
 //HEXADECIMAL TO DECIMAL
 /**
- * \brief Convert
- * \param hex 
- * \return 
+ * \brief Convert a hex value to decimal.
+ * \param hex A string representation of an hexadecimal number.
+ * \return An integer with the corresponding decimal value for hex.
  */
 uint64_t hex_to_dec(const std::string& hex) {
     std::stringstream ss;
@@ -43,7 +43,11 @@ uint64_t hex_to_dec(const std::string& hex) {
     return converted;
 }
 
-//DECIMAL TO BINARY
+/**
+ * \brief Convert an integer into a string representation of the number in binary.
+ * \param n A number to convert.
+ * \return A string representation of the binary value of n.
+ */
 std::string dec_to_bin(uint64_t n) {
     std::string bin;
     while (n != 0)
@@ -55,6 +59,11 @@ std::string dec_to_bin(uint64_t n) {
     return bin;
 }
 //BINARY TO DECIMAL
+/**
+ * \brief Convert a binary string representation of a number to its decimal representation.
+ * \param bin A string containing a binary representation of a number.
+ * \return An integer containing the decimal value of bin.
+ */
 uint64_t bin_to_dec(std::string bin)
 {
     uint64_t dec = 0;
@@ -67,8 +76,15 @@ uint64_t bin_to_dec(std::string bin)
     return --dec;
 }
 
+/**
+ * \brief Does the same job as std::pow
+ * \param num A number to be raised to power.
+ * \param power An exponent to raise num to the power of.
+ * \return An integer containing num**power.
+ */
 uint64_t toThePower(uint64_t num, uint64_t power)
 {
+    return std::pow(num,power);
     uint64_t temp = num;
     for (uint64_t i = 1; i < power; i++)
         temp = temp * num;

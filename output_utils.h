@@ -8,6 +8,14 @@
 #include "string_utils.h"
 
 namespace util {
+	/**
+	 * \brief Parse environment variables and put contents in a map, where the variable
+	 * name is the key to the value associated with it.  We know exactly what format the
+	 * environment variables are in, so most error checking is done away with.
+	 * \param env A pointer to an array of char * containing the environment variables for
+	 * the current process.
+	 * \return A std::map<std::string, std::string> containing the environment variables.
+	 */
 	inline auto parse_env(char** env) {
         std::map<std::string, std::string> env_map{};
         for (int i = 0; env[i]; ++i) {
@@ -31,22 +39,43 @@ namespace util {
         return env_map;
     }
 
-    inline void print_map(const auto& m) {
+	/**
+	 * \brief Print the contents of a map to stdout.  Note that this is a template function,
+	 * and it has not been specialized for the new char type char8_t.
+	 * \param m A std::map
+	 */
+	inline void print_map(const auto& m) {
         for (const auto& [key, value] : m)
             std::cout << '[' << key << "] = " << value << "\n";
+        
     }
-    inline void print(auto& a) {
+
+	/**
+	 * \brief Print the contents of a to std::cout
+	 * \param a A container having an iterator interface.
+	 */
+	inline void print(auto& a) {
         for (auto &i : a) {
             std::cout << i;
         }
     }
-    inline void println(auto& a) {
+
+	/**
+	 * \brief Print the contents of a to std::cout, followed by a newline.
+	 * \param a A container having an iterator interface.
+	 */
+	inline void println(auto& a) {
         for (auto &i : a) {
             std::cout << i;
         }
         std::cout << std::endl;
     }
-    inline void print_lines(auto& a) {
+
+	/**
+	 * \brief Print the contents of a to std::cout, with each value followed by a newline.
+	 * \param a A container having an iterator interface.
+	 */
+	inline void print_lines(auto& a) {
         for (auto &i : a) {
             std::cout << i << std::endl;
         }
