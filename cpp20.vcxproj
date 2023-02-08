@@ -117,6 +117,7 @@
     <ClCompile Include="Benchmark\Benchmark.cpp" />
     <ClCompile Include="Benchmark\main.cpp" />
     <ClCompile Include="bible_statistics.cpp" />
+    <ClCompile Include="concepts.cpp" />
     <ClCompile Include="containers\parse_main.cpp" />
     <ClCompile Include="containers\tuple1.cpp" />
     <ClCompile Include="dc.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="Benchmark\Benchmark.h" />
     <ClInclude Include="Benchmark\Generator.h" />
     <ClInclude Include="bible_statistics.h" />
+    <ClInclude Include="concepts.h" />
     <ClInclude Include="Hashtable.h" />
     <ClInclude Include="vfs.h" />
     <ClInclude Include="main.h" />

@@ -66,6 +66,9 @@
     <ClCompile Include="vfs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="concepts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark\Generator.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="concepts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
