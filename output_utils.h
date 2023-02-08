@@ -3,11 +3,12 @@
 #include <iostream>
 #include <map>
 #include <string>
-
+#include <filesystem>
 #include "main.h"
 #include "string_utils.h"
 
 namespace util {
+	namespace fs = std::filesystem;
 	/**
 	 * \brief Parse environment variables and put contents in a map, where the variable
 	 * name is the key to the value associated with it.  We know exactly what format the
@@ -80,6 +81,10 @@ namespace util {
             std::cout << i << std::endl;
         }
         std::cout << std::endl;
+    }
+    inline fs::path get_working_path()
+	{
+	    return fs::current_path();
     }
 }
 #endif
