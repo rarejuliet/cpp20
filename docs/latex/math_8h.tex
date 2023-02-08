@@ -1,0 +1,20 @@
+\hypertarget{math_8h}{}\doxysection{math.\+h File Reference}
+\label{math_8h}\index{math.h@{math.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemath}{math}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr bool \mbox{\hyperlink{namespacemath_ab0cb2467a4eadfb220c8bc0ca3dad053}{math\+::is\+Prime}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacemath_a46ff225a15a847130bed5f5c09180924}{math\+::is\+\_\+prime}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. This is the best algorithm I have for finding primes. \mbox{\hyperlink{struct_a}{A}} further optimization would be to cache results of previous calls and return the cached copy in case of further calls. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespacemath_a4747013d0a9059067c697ac28e1c9354}{math\+::ifib}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Computes the nth fibonacci number. This function uses a loop or iterative design to compute fib(n), and so is much faster than the recursive version of this function. For more information, see documentation for the rfib function. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespacemath_a55ed2e100b9ae581d35eabe5bf5ad9e3}{math\+::rfib}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_a}{A}} recursive fibonacci number generator. Mainly for test and comparison with the iterative algorithm in function ifib. This function will be slow, and might cause a stack overflow with high enough values for n. In any case, overflow is NOT noted or reported. Instead, this function will happily compute values for n where the result doesn\textquotesingle{}t fit in a 64-\/bit integer. It simply overflows. The value for n where this starts to happen is 94. I could have thrown an exception, but for now this suffices. I\textquotesingle{}d like to keep it constexpr if possible. \end{DoxyCompactList}\end{DoxyCompactItemize}

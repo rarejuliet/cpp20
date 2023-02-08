@@ -1,0 +1,103 @@
+\hypertarget{class_token}{}\doxysection{Token Class Reference}
+\label{class_token}\index{Token@{Token}}
+
+
+{\ttfamily \#include $<$Token.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_token_afddc86c367b8684da63e20c437ab7f92}{Token}} (\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} t, std\+::string buffer)
+\item 
+auto \mbox{\hyperlink{class_token_a806ed9a184812d579f6a3167e63e92f0}{to\+\_\+string}} () const -\/$>$ std\+::string
+\begin{DoxyCompactList}\small\item\em Returns a string representation of this \mbox{\hyperlink{class_token}{Token}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{class_token_a6fa3c503e9cbcea0160981adeff72faf}{Create\+Token}} (\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} t, const std\+::string \&buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} \mbox{\hyperlink{class_token_a125b7cd40164e5e1118834bf2733a2e5}{Type}} = Token\+Type\+::\+Eof
+\item 
+std\+::string \mbox{\hyperlink{class_token_a6e3292ec1765b962931e986fb4d21118}{Buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00036}{36}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_token_afddc86c367b8684da63e20c437ab7f92}\label{class_token_afddc86c367b8684da63e20c437ab7f92}} 
+\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\doxysubsubsection{\texorpdfstring{Token()}{Token()}}
+{\footnotesize\ttfamily Token\+::\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}}}]{t,  }\item[{std\+::string}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00041}{41}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_token_a6fa3c503e9cbcea0160981adeff72faf}\label{class_token_a6fa3c503e9cbcea0160981adeff72faf}} 
+\index{Token@{Token}!CreateToken@{CreateToken}}
+\index{CreateToken@{CreateToken}!Token@{Token}}
+\doxysubsubsection{\texorpdfstring{CreateToken()}{CreateToken()}}
+{\footnotesize\ttfamily static auto Token\+::\+Create\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}}}]{t,  }\item[{const std\+::string \&}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00043}{43}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+\mbox{\Hypertarget{class_token_a806ed9a184812d579f6a3167e63e92f0}\label{class_token_a806ed9a184812d579f6a3167e63e92f0}} 
+\index{Token@{Token}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!Token@{Token}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily auto Token\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ std\+::string \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a string representation of this \mbox{\hyperlink{class_token}{Token}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} string name for the enumerated value. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00055}{55}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_token_a6e3292ec1765b962931e986fb4d21118}\label{class_token_a6e3292ec1765b962931e986fb4d21118}} 
+\index{Token@{Token}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!Token@{Token}}
+\doxysubsubsection{\texorpdfstring{Buffer}{Buffer}}
+{\footnotesize\ttfamily std\+::string Token\+::\+Buffer}
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00040}{40}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+\mbox{\Hypertarget{class_token_a125b7cd40164e5e1118834bf2733a2e5}\label{class_token_a125b7cd40164e5e1118834bf2733a2e5}} 
+\index{Token@{Token}!Type@{Type}}
+\index{Type@{Type}!Token@{Token}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} Token\+::\+Type = Token\+Type\+::\+Eof}
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00039}{39}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_token_8h}{Token.\+h}}\end{DoxyCompactItemize}

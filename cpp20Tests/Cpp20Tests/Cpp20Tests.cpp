@@ -9,10 +9,10 @@ namespace Cpp20Tests
 	public:
 		std::filesystem::path test_dir = R"(C:\Temp)";
 		std::filesystem::path new_dir = test_dir / "test_dir_from_vfs";
-		std::unique_ptr<real_fs> vfs;
+		std::unique_ptr<vfs::real_fs> vfs;
 		TEST_METHOD_INITIALIZE(vfs_init) {
 			Logger::WriteMessage("Creating a smart pointer to a vfs instance...");
-			vfs = std::make_unique<real_fs>(test_dir.string());
+			vfs = std::make_unique<vfs::real_fs>(test_dir.string());
 			Logger::WriteMessage("Done!\n");
 		}
 		TEST_METHOD_CLEANUP(vfs_teardown) {
@@ -83,7 +83,7 @@ namespace Cpp20Tests
 			vfs->chdir("/");
 		}
 		BEGIN_TEST_METHOD_ATTRIBUTE(vfs_unlink)
-			TEST_OWNER("Adam Choate")
+			TEST_OWNER(L"Adam Choate")
 			TEST_PRIORITY(5)
 		END_TEST_METHOD_ATTRIBUTE()
 		TEST_METHOD(vfs_unlink)

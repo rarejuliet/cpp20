@@ -1,0 +1,173 @@
+\hypertarget{_token_8h}{}\doxysection{Token.\+h File Reference}
+\label{_token_8h}\index{Token.h@{Token.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_token}{Token}}
+\item 
+class \mbox{\hyperlink{class_lexer}{Lexer}}
+\item 
+struct \mbox{\hyperlink{struct_node}{Node}}
+\item 
+struct \mbox{\hyperlink{struct_expression}{Expression}}
+\item 
+class \mbox{\hyperlink{class_parser}{Parser}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} \+: char \{ \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a490aa6e856ccf208a054389e47ce0d06}{Id}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ab2ee912b91d69b435159c7c3f6df7f5f}{Number}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a0986d137604183312e6d3599578bc6cd}{Sin}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823affca562be079b9e4e41ea9d6a86c582b}{Cos}}
+, \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1266b4e6f81e60733ec6c717e0181f60}{Tan}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ace0be71e33226e4c1db2bcea5959f16b}{Log}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823acad39a154bffb61175f674d6eefaf6d0}{Exp}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823af91f89a8b9c7f2e02675fa2d2609abd9}{Log10}}
+, \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7a62a19ae79ad2e91c678d8cae130794}{Exp10}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aae77f3ad25595e35b327334d89410054}{Sqrt}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1686a6c336b71b36d77354cea19a8b52}{Int}}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aaf6c6cf7a454b4ef4a850ac4d960a2cc}{Dot}} = \textquotesingle{}.\textquotesingle{}
+, \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a185b7133db22230701a857c059360cc2}{Assign}} = \textquotesingle{}=\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a32ba78fe43257d3e7f88e3935a8ea0d4}{Plus}} = \textquotesingle{}+\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a453fb623e752c5993f65bc410fd74fe5}{Minus}} = \textquotesingle{}-\/\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a62b6d55816cf737bfc6f42e60df1a3f2}{Mul}} = \textquotesingle{}$\ast$\textquotesingle{}
+, \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a43d11850893d2fe84a1e618121c1cc0a}{Div}} = \textquotesingle{}/\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7aeb0277500c86e4aa6bd23f9a737942}{Mod}} = \textquotesingle{}\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a8be6d3e955290ee50c00a4bc92aa7749}{Pow}} = \textquotesingle{}$^\wedge$\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a83aa590baf7250511fba793140bd1ea0}{Lp}} = \textquotesingle{}(\textquotesingle{}
+, \newline
+\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a79e01c1296be018f71c07736b282fb40}{Rp}} = \textquotesingle{})\textquotesingle{}
+, \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a49650dcc55dc413da4032cbe44b15d37}{Eof}} = -\/1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_token_8h_a7ad5e6d28bc8ada4997316aaa734eaa2}{lexer\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$env\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_a}{A}} test driver for \mbox{\hyperlink{class_lexer}{Lexer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}} 
+\index{Token.h@{Token.h}!TokenType@{TokenType}}
+\index{TokenType@{TokenType}!Token.h@{Token.h}}
+\doxysubsubsection{\texorpdfstring{TokenType}{TokenType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{Token\+Type}} \+: char\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Id@{Id}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Id@{Id}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a490aa6e856ccf208a054389e47ce0d06}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a490aa6e856ccf208a054389e47ce0d06}} 
+Id&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Number@{Number}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Number@{Number}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ab2ee912b91d69b435159c7c3f6df7f5f}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ab2ee912b91d69b435159c7c3f6df7f5f}} 
+Number&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Sin@{Sin}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Sin@{Sin}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a0986d137604183312e6d3599578bc6cd}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a0986d137604183312e6d3599578bc6cd}} 
+Sin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cos@{Cos}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Cos@{Cos}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823affca562be079b9e4e41ea9d6a86c582b}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823affca562be079b9e4e41ea9d6a86c582b}} 
+Cos&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Tan@{Tan}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Tan@{Tan}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1266b4e6f81e60733ec6c717e0181f60}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1266b4e6f81e60733ec6c717e0181f60}} 
+Tan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Log@{Log}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Log@{Log}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ace0be71e33226e4c1db2bcea5959f16b}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ace0be71e33226e4c1db2bcea5959f16b}} 
+Log&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Exp@{Exp}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Exp@{Exp}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823acad39a154bffb61175f674d6eefaf6d0}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823acad39a154bffb61175f674d6eefaf6d0}} 
+Exp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Log10@{Log10}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Log10@{Log10}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823af91f89a8b9c7f2e02675fa2d2609abd9}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823af91f89a8b9c7f2e02675fa2d2609abd9}} 
+Log10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Exp10@{Exp10}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Exp10@{Exp10}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7a62a19ae79ad2e91c678d8cae130794}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7a62a19ae79ad2e91c678d8cae130794}} 
+Exp10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Sqrt@{Sqrt}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Sqrt@{Sqrt}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aae77f3ad25595e35b327334d89410054}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aae77f3ad25595e35b327334d89410054}} 
+Sqrt&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Int@{Int}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Int@{Int}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1686a6c336b71b36d77354cea19a8b52}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1686a6c336b71b36d77354cea19a8b52}} 
+Int&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Dot@{Dot}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Dot@{Dot}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aaf6c6cf7a454b4ef4a850ac4d960a2cc}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aaf6c6cf7a454b4ef4a850ac4d960a2cc}} 
+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Assign@{Assign}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Assign@{Assign}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a185b7133db22230701a857c059360cc2}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a185b7133db22230701a857c059360cc2}} 
+Assign&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Plus@{Plus}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Plus@{Plus}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a32ba78fe43257d3e7f88e3935a8ea0d4}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a32ba78fe43257d3e7f88e3935a8ea0d4}} 
+Plus&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Minus@{Minus}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Minus@{Minus}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a453fb623e752c5993f65bc410fd74fe5}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a453fb623e752c5993f65bc410fd74fe5}} 
+Minus&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mul@{Mul}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Mul@{Mul}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a62b6d55816cf737bfc6f42e60df1a3f2}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a62b6d55816cf737bfc6f42e60df1a3f2}} 
+Mul&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Div@{Div}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Div@{Div}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a43d11850893d2fe84a1e618121c1cc0a}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a43d11850893d2fe84a1e618121c1cc0a}} 
+Div&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mod@{Mod}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Mod@{Mod}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7aeb0277500c86e4aa6bd23f9a737942}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7aeb0277500c86e4aa6bd23f9a737942}} 
+Mod&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pow@{Pow}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Pow@{Pow}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a8be6d3e955290ee50c00a4bc92aa7749}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a8be6d3e955290ee50c00a4bc92aa7749}} 
+Pow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lp@{Lp}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Lp@{Lp}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a83aa590baf7250511fba793140bd1ea0}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a83aa590baf7250511fba793140bd1ea0}} 
+Lp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rp@{Rp}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Rp@{Rp}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a79e01c1296be018f71c07736b282fb40}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a79e01c1296be018f71c07736b282fb40}} 
+Rp&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Eof@{Eof}!Token.h@{Token.h}}\index{Token.h@{Token.h}!Eof@{Eof}}}\mbox{\Hypertarget{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a49650dcc55dc413da4032cbe44b15d37}\label{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a49650dcc55dc413da4032cbe44b15d37}} 
+Eof&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00008}{8}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_token_8h_a7ad5e6d28bc8ada4997316aaa734eaa2}\label{_token_8h_a7ad5e6d28bc8ada4997316aaa734eaa2}} 
+\index{Token.h@{Token.h}!lexer\_main@{lexer\_main}}
+\index{lexer\_main@{lexer\_main}!Token.h@{Token.h}}
+\doxysubsubsection{\texorpdfstring{lexer\_main()}{lexer\_main()}}
+{\footnotesize\ttfamily int lexer\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{char $\ast$}]{env\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{struct_a}{A}} test driver for \mbox{\hyperlink{class_lexer}{Lexer}}. 
+

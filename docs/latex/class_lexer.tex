@@ -1,0 +1,195 @@
+\hypertarget{class_lexer}{}\doxysection{Lexer Class Reference}
+\label{class_lexer}\index{Lexer@{Lexer}}
+
+
+{\ttfamily \#include $<$Token.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8}{Token\+\_\+value}} \{ \newline
+\mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a4f26f4b85625ce6c50532b084a06cf74}{NAME}}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a5eaecdaad036488c829c12140484f222}{NUMBER}}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8afd8d9d842502cdbf61112bbfa5bf64f0}{END}}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a56757dd8c5e8e083fa70266599ba1aef}{PLUS}} = \textquotesingle{}+\textquotesingle{}
+, \newline
+\mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a1ed5accd87afc0cc0ad9918596a00b10}{MINUS}} = \textquotesingle{}-\/\textquotesingle{}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8201cb7503714769ad0ee1757ebca9c7}{MUL}} = \textquotesingle{}$\ast$\textquotesingle{}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8adfdb0f5365d2f0d4a9a6996b3080a954}{DIV}} = \textquotesingle{}/\textquotesingle{}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a83c440d3d2e3330a7d26c2a354c2fe53}{PRINT}} = \textquotesingle{};\textquotesingle{}
+, \newline
+\mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8ad2254cbafe9f3c3cdc8bc3d70d23ae6e}{ASSIGN}} = \textquotesingle{}=\textquotesingle{}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a75e5eab6c9fc24074a64e6ee28ef7292}{LP}} = \textquotesingle{}(\textquotesingle{}
+, \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8dd6b154c0e770cf595717f6149be372}{RP}} = \textquotesingle{})\textquotesingle{}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lexer_a03928c9428a7a948c6c28f8178ff340b}{Lexer}} (std\+::istream \&s)
+\item 
+\mbox{\hyperlink{class_lexer_a5341bf89d0abddfa5694edf272c31ef3}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em operator bool -\/ Used to detect when the stream has reached eof. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_token}{Token}} $>$ \mbox{\hyperlink{class_lexer_a9694461c4f1061069ac3a501ecb8b7b2}{get\+\_\+next\+\_\+token}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the next token in the input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8}{Token\+\_\+value}} \mbox{\hyperlink{class_lexer_aceb4284a7d88a1fa378335fd8ea93180}{curr\+\_\+tok}}
+\item 
+double \mbox{\hyperlink{class_lexer_ab4e88cbac8e4f6e8c63572c7f3232f59}{number\+\_\+value}}
+\item 
+string \mbox{\hyperlink{class_lexer_a02aa66474f963a78e16b91de4b22e690}{string\+\_\+value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00131}{131}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8}} 
+\index{Lexer@{Lexer}!Token\_value@{Token\_value}}
+\index{Token\_value@{Token\_value}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{Token\_value}{Token\_value}}
+{\footnotesize\ttfamily enum Lexer\+::\+Token\+\_\+value}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAME@{NAME}!Lexer@{Lexer}}\index{Lexer@{Lexer}!NAME@{NAME}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a4f26f4b85625ce6c50532b084a06cf74}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a4f26f4b85625ce6c50532b084a06cf74}} 
+NAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMBER@{NUMBER}!Lexer@{Lexer}}\index{Lexer@{Lexer}!NUMBER@{NUMBER}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a5eaecdaad036488c829c12140484f222}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a5eaecdaad036488c829c12140484f222}} 
+NUMBER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!Lexer@{Lexer}}\index{Lexer@{Lexer}!END@{END}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8afd8d9d842502cdbf61112bbfa5bf64f0}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8afd8d9d842502cdbf61112bbfa5bf64f0}} 
+END&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLUS@{PLUS}!Lexer@{Lexer}}\index{Lexer@{Lexer}!PLUS@{PLUS}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a56757dd8c5e8e083fa70266599ba1aef}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a56757dd8c5e8e083fa70266599ba1aef}} 
+PLUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MINUS@{MINUS}!Lexer@{Lexer}}\index{Lexer@{Lexer}!MINUS@{MINUS}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a1ed5accd87afc0cc0ad9918596a00b10}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a1ed5accd87afc0cc0ad9918596a00b10}} 
+MINUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MUL@{MUL}!Lexer@{Lexer}}\index{Lexer@{Lexer}!MUL@{MUL}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8201cb7503714769ad0ee1757ebca9c7}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8201cb7503714769ad0ee1757ebca9c7}} 
+MUL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV@{DIV}!Lexer@{Lexer}}\index{Lexer@{Lexer}!DIV@{DIV}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8adfdb0f5365d2f0d4a9a6996b3080a954}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8adfdb0f5365d2f0d4a9a6996b3080a954}} 
+DIV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRINT@{PRINT}!Lexer@{Lexer}}\index{Lexer@{Lexer}!PRINT@{PRINT}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a83c440d3d2e3330a7d26c2a354c2fe53}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a83c440d3d2e3330a7d26c2a354c2fe53}} 
+PRINT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ASSIGN@{ASSIGN}!Lexer@{Lexer}}\index{Lexer@{Lexer}!ASSIGN@{ASSIGN}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8ad2254cbafe9f3c3cdc8bc3d70d23ae6e}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8ad2254cbafe9f3c3cdc8bc3d70d23ae6e}} 
+ASSIGN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LP@{LP}!Lexer@{Lexer}}\index{Lexer@{Lexer}!LP@{LP}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a75e5eab6c9fc24074a64e6ee28ef7292}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a75e5eab6c9fc24074a64e6ee28ef7292}} 
+LP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RP@{RP}!Lexer@{Lexer}}\index{Lexer@{Lexer}!RP@{RP}}}\mbox{\Hypertarget{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8dd6b154c0e770cf595717f6149be372}\label{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8a8dd6b154c0e770cf595717f6149be372}} 
+RP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{dc_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{dc_8cpp_source}{dc.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_lexer_a03928c9428a7a948c6c28f8178ff340b}\label{class_lexer_a03928c9428a7a948c6c28f8178ff340b}} 
+\index{Lexer@{Lexer}!Lexer@{Lexer}}
+\index{Lexer@{Lexer}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{Lexer()}{Lexer()}}
+{\footnotesize\ttfamily Lexer\+::\+Lexer (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00133}{133}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_lexer_a9694461c4f1061069ac3a501ecb8b7b2}\label{class_lexer_a9694461c4f1061069ac3a501ecb8b7b2}} 
+\index{Lexer@{Lexer}!get\_next\_token@{get\_next\_token}}
+\index{get\_next\_token@{get\_next\_token}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{get\_next\_token()}{get\_next\_token()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_token}{Token}} $>$ Lexer\+::get\+\_\+next\+\_\+token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the next token in the input stream. 
+
+\begin{DoxyReturn}{Returns}
+unique\+\_\+ptr$<$\+Token$>$ 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00146}{146}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+\mbox{\Hypertarget{class_lexer_a5341bf89d0abddfa5694edf272c31ef3}\label{class_lexer_a5341bf89d0abddfa5694edf272c31ef3}} 
+\index{Lexer@{Lexer}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Lexer\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+operator bool -\/ Used to detect when the stream has reached eof. 
+
+
+
+Definition at line \mbox{\hyperlink{_token_8h_source_l00138}{138}} of file \mbox{\hyperlink{_token_8h_source}{Token.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_lexer_aceb4284a7d88a1fa378335fd8ea93180}\label{class_lexer_aceb4284a7d88a1fa378335fd8ea93180}} 
+\index{Lexer@{Lexer}!curr\_tok@{curr\_tok}}
+\index{curr\_tok@{curr\_tok}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{curr\_tok}{curr\_tok}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_lexer_a4151ff6b71d6c3fe5ec76a52113d94c8}{Token\+\_\+value}} Lexer\+::curr\+\_\+tok}
+
+
+
+Definition at line \mbox{\hyperlink{dc_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{dc_8cpp_source}{dc.\+cpp}}.
+
+\mbox{\Hypertarget{class_lexer_ab4e88cbac8e4f6e8c63572c7f3232f59}\label{class_lexer_ab4e88cbac8e4f6e8c63572c7f3232f59}} 
+\index{Lexer@{Lexer}!number\_value@{number\_value}}
+\index{number\_value@{number\_value}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{number\_value}{number\_value}}
+{\footnotesize\ttfamily double Lexer\+::number\+\_\+value}
+
+
+
+Definition at line \mbox{\hyperlink{dc_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{dc_8cpp_source}{dc.\+cpp}}.
+
+\mbox{\Hypertarget{class_lexer_a02aa66474f963a78e16b91de4b22e690}\label{class_lexer_a02aa66474f963a78e16b91de4b22e690}} 
+\index{Lexer@{Lexer}!string\_value@{string\_value}}
+\index{string\_value@{string\_value}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{string\_value}{string\_value}}
+{\footnotesize\ttfamily string Lexer\+::string\+\_\+value}
+
+
+
+Definition at line \mbox{\hyperlink{dc_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{dc_8cpp_source}{dc.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_token_8h}{Token.\+h}}\item 
+\mbox{\hyperlink{dc_8cpp}{dc.\+cpp}}\end{DoxyCompactItemize}

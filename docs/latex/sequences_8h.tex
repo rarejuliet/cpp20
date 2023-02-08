@@ -1,0 +1,21 @@
+\hypertarget{sequences_8h}{}\doxysection{sequences.\+h File Reference}
+\label{sequences_8h}\index{sequences.h@{sequences.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$format$>$}\newline
+{\ttfamily \#include \char`\"{}Generator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesequences}{sequences}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}{sequences\+::get\+\_\+fibonacci\+\_\+sequence}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Create a Generator$<$uint64$>$ which will iterate through the fibonacci sequence. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a099d9498d223dce72d8c42419ba16d78}{sequences\+::get\+\_\+prime\+\_\+sequence}} ()
+\begin{DoxyCompactList}\small\item\em Get a Generator$<$int64\+\_\+t$>$ which will iterate through the prime numbers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}{sequences\+::get\+\_\+infinite\+\_\+sequence}} ()
+\begin{DoxyCompactList}\small\item\em Get a sequence for infinity (at least up to 2$^\wedge$64) \end{DoxyCompactList}\end{DoxyCompactItemize}

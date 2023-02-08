@@ -1,0 +1,70 @@
+\hypertarget{namespacesequences}{}\doxysection{sequences Namespace Reference}
+\label{namespacesequences}\index{sequences@{sequences}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}{get\+\_\+fibonacci\+\_\+sequence}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Create a Generator$<$uint64$>$ which will iterate through the fibonacci sequence. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a099d9498d223dce72d8c42419ba16d78}{get\+\_\+prime\+\_\+sequence}} ()
+\begin{DoxyCompactList}\small\item\em Get a Generator$<$int64\+\_\+t$>$ which will iterate through the prime numbers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}{get\+\_\+infinite\+\_\+sequence}} ()
+\begin{DoxyCompactList}\small\item\em Get a sequence for infinity (at least up to 2$^\wedge$64) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}\label{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}} 
+\index{sequences@{sequences}!get\_fibonacci\_sequence@{get\_fibonacci\_sequence}}
+\index{get\_fibonacci\_sequence@{get\_fibonacci\_sequence}!sequences@{sequences}}
+\doxysubsubsection{\texorpdfstring{get\_fibonacci\_sequence()}{get\_fibonacci\_sequence()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ sequences\+::get\+\_\+fibonacci\+\_\+sequence (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a Generator$<$uint64$>$ which will iterate through the fibonacci sequence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The fibonacci number you wish to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nth number in the fibonacci sequence. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sequences_8h_source_l00018}{18}} of file \mbox{\hyperlink{sequences_8h_source}{sequences.\+h}}.
+
+\mbox{\Hypertarget{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}\label{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}} 
+\index{sequences@{sequences}!get\_infinite\_sequence@{get\_infinite\_sequence}}
+\index{get\_infinite\_sequence@{get\_infinite\_sequence}!sequences@{sequences}}
+\doxysubsubsection{\texorpdfstring{get\_infinite\_sequence()}{get\_infinite\_sequence()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ sequences\+::get\+\_\+infinite\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a sequence for infinity (at least up to 2$^\wedge$64) 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} uint64\+\_\+t 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sequences_8h_source_l00062}{62}} of file \mbox{\hyperlink{sequences_8h_source}{sequences.\+h}}.
+
+\mbox{\Hypertarget{namespacesequences_a099d9498d223dce72d8c42419ba16d78}\label{namespacesequences_a099d9498d223dce72d8c42419ba16d78}} 
+\index{sequences@{sequences}!get\_prime\_sequence@{get\_prime\_sequence}}
+\index{get\_prime\_sequence@{get\_prime\_sequence}!sequences@{sequences}}
+\doxysubsubsection{\texorpdfstring{get\_prime\_sequence()}{get\_prime\_sequence()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ sequences\+::get\+\_\+prime\+\_\+sequence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a Generator$<$int64\+\_\+t$>$ which will iterate through the prime numbers. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} Generator$<$int64\+\_\+t$>$ over the prime numbers. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{sequences_8h_source_l00045}{45}} of file \mbox{\hyperlink{sequences_8h_source}{sequences.\+h}}.
+

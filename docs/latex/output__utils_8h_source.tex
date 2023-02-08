@@ -1,0 +1,70 @@
+\hypertarget{output__utils_8h_source}{}\doxysection{output\+\_\+utils.\+h}
+\mbox{\hyperlink{output__utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ OUTPUT\_UTILS\_H}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ OUTPUT\_UTILS\_H}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{string__utils_8h}{string\_utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00010}\mbox{\hyperlink{namespaceutil}{00010}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutil}{util}}\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00020}\mbox{\hyperlink{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}{00020}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}{parse\_env}}(\textcolor{keywordtype}{char}**\ env)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ std::map<std::string,\ std::string>\ env\_map\{\};}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ env[i];\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8h_aebd3b02a31285c20cc9ad01c4d034b9e}{DEBUG}})\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Checking\ ["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ s\{\ env[i]\ \};}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ equals\ =\ s.find(\textcolor{charliteral}{'='});}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ all\ variable\ names\ are\ in\ uppercase\ so\ we\ don't\ have\ problems}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//with\ lookup\ later.}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ first\ =\ \mbox{\hyperlink{namespaceutil_a1819236004259f5ed311a3280921b254}{util::uppercase\_copy}}(s.substr(0,\ equals));}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ second\ =\ s.substr(equals\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8h_aebd3b02a31285c20cc9ad01c4d034b9e}{DEBUG}})}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ first\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ second\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ env\_map.insert(std::make\_pair(first,\ second));}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8h_aebd3b02a31285c20cc9ad01c4d034b9e}{DEBUG}})\{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}envp["{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}]:\ "{}}\ <<\ env[i]\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ env\_map[first]\ =\ second;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ env\_map;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00048}\mbox{\hyperlink{namespaceutil_abc23c210733315546b8135fa70beb66d}{00048}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_abc23c210733315546b8135fa70beb66d}{print\_map}}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ m)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ value]\ :\ m)}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'['}\ <<\ key\ <<\ \textcolor{stringliteral}{"{}]\ =\ "{}}\ <<\ value\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00058}\mbox{\hyperlink{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}{00058}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}{print}}(\textcolor{keyword}{auto}\&\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00068}\mbox{\hyperlink{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}{00068}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}{println}}(\textcolor{keyword}{auto}\&\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00079}\mbox{\hyperlink{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}{00079}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}{print\_lines}}(\textcolor{keyword}{auto}\&\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&i\ :\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ i\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00085}\mbox{\hyperlink{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}{00085}}\ \ \ \ \ \textcolor{keyword}{inline}\ fs::path\ \mbox{\hyperlink{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}{get\_working\_path}}()}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00086}00086\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fs::current\_path();}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{output__utils_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

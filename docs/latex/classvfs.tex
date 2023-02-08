@@ -1,0 +1,302 @@
+\hypertarget{classvfs}{}\doxysection{vfs Class Reference}
+\label{classvfs}\index{vfs@{vfs}}
+
+
+Base class for all virtual filesystem components.  
+
+
+
+
+{\ttfamily \#include $<$vfs.\+h$>$}
+
+Inheritance diagram for vfs\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvfs}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvfs_ad627d4e1fd808ad533c24181b9e65247}{vfs}} (fs\+::path root=fs\+::path(default\+\_\+directory))
+\begin{DoxyCompactList}\small\item\em Create a virtual filesystem object, rooted to root. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_a0cb8a8ee482f68ec2623702df573775a}{chdir}} (const fs\+::path \&directory)
+\begin{DoxyCompactList}\small\item\em Change the current directory. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}{opendir}} (const fs\+::path \&path=default\+\_\+directory)=0
+\begin{DoxyCompactList}\small\item\em open a directory. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_a9e0fbfec02091ced01365fa10709a1da}{closedir}} ()=0
+\begin{DoxyCompactList}\small\item\em Close a directory opened with \mbox{\hyperlink{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}{opendir()}} \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classvfs_a2de029c61312045623244ae7e30ff80a}{readdir}} ()=0
+\begin{DoxyCompactList}\small\item\em read the contents of a directory into a std\+::vector$<$string$>$. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classvfs_a5f0d5677ea536981c2d037f45075a96b}{readdir\+\_\+recurse}} ()=0
+\begin{DoxyCompactList}\small\item\em Like \mbox{\hyperlink{classvfs_a2de029c61312045623244ae7e30ff80a}{readdir()}}, only this version recurses into all subdirectories. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_a2f4d5ccc3cd927b2a04ceb90145bc18c}{mkdir}} (const fs\+::path \&path)=0
+\begin{DoxyCompactList}\small\item\em Create a new directory. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_a158c5cb3c68963d1392ce94193acc44d}{mount}} ()=0
+\begin{DoxyCompactList}\small\item\em Mount, or connect a filesystem to this one. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classvfs_a0d1c24006299bb971aeb754694d60a7e}{unmount}} ()=0
+\begin{DoxyCompactList}\small\item\em Unmount, or disconnect a filesystem from this one. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvfs_a3e562138514a02ed3a1f48caa95d1f44}{unlink}} (const fs\+::path \&directory)
+\begin{DoxyCompactList}\small\item\em Unlink(), or delete a directory or file. \end{DoxyCompactList}\item 
+virtual std\+::filesystem\+::path \mbox{\hyperlink{classvfs_acad085244a52d0496352a3e6fb6113df}{cwd}} ()
+\begin{DoxyCompactList}\small\item\em Get the current working directory. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classvfs_a71bb9de9d5262719f0b8ca85cde5b94c}{$\sim$vfs}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. Virtual here by necessity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all virtual filesystem components. 
+
+Definition at line \mbox{\hyperlink{vfs_8h_source_l00013}{13}} of file \mbox{\hyperlink{vfs_8h_source}{vfs.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvfs_ad627d4e1fd808ad533c24181b9e65247}\label{classvfs_ad627d4e1fd808ad533c24181b9e65247}} 
+\index{vfs@{vfs}!vfs@{vfs}}
+\index{vfs@{vfs}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{vfs()}{vfs()}}
+{\footnotesize\ttfamily vfs\+::vfs (\begin{DoxyParamCaption}\item[{fs\+::path}]{root = {\ttfamily fs\+:\+:path(default\+\_\+directory)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Create a virtual filesystem object, rooted to root. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The real path for this vfs (this will become the root directory for this filesystem.) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{vfs_8h_source_l00025}{25}} of file \mbox{\hyperlink{vfs_8h_source}{vfs.\+h}}.
+
+\mbox{\Hypertarget{classvfs_a71bb9de9d5262719f0b8ca85cde5b94c}\label{classvfs_a71bb9de9d5262719f0b8ca85cde5b94c}} 
+\index{vfs@{vfs}!````~vfs@{$\sim$vfs}}
+\index{````~vfs@{$\sim$vfs}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{$\sim$vfs()}{~vfs()}}
+{\footnotesize\ttfamily virtual vfs\+::$\sim$vfs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructor. Virtual here by necessity. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvfs_a0cb8a8ee482f68ec2623702df573775a}\label{classvfs_a0cb8a8ee482f68ec2623702df573775a}} 
+\index{vfs@{vfs}!chdir@{chdir}}
+\index{chdir@{chdir}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{chdir()}{chdir()}}
+{\footnotesize\ttfamily virtual bool vfs\+::chdir (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Change the current directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & \mbox{\hyperlink{struct_a}{A}} path to a directory to change to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vfs_8h_source_l00034}{34}} of file \mbox{\hyperlink{vfs_8h_source}{vfs.\+h}}.
+
+\mbox{\Hypertarget{classvfs_a9e0fbfec02091ced01365fa10709a1da}\label{classvfs_a9e0fbfec02091ced01365fa10709a1da}} 
+\index{vfs@{vfs}!closedir@{closedir}}
+\index{closedir@{closedir}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{closedir()}{closedir()}}
+{\footnotesize\ttfamily bool vfs\+::closedir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Close a directory opened with \mbox{\hyperlink{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}{opendir()}} 
+
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_ac2d39181d90da3b2123f726736be4cef}{real\+\_\+fs}}.
+
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+\mbox{\Hypertarget{classvfs_acad085244a52d0496352a3e6fb6113df}\label{classvfs_acad085244a52d0496352a3e6fb6113df}} 
+\index{vfs@{vfs}!cwd@{cwd}}
+\index{cwd@{cwd}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{cwd()}{cwd()}}
+{\footnotesize\ttfamily virtual std\+::filesystem\+::path vfs\+::cwd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get the current working directory. 
+
+\begin{DoxyReturn}{Returns}
+The current working directory as a std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vfs_8h_source_l00089}{89}} of file \mbox{\hyperlink{vfs_8h_source}{vfs.\+h}}.
+
+\mbox{\Hypertarget{classvfs_a2f4d5ccc3cd927b2a04ceb90145bc18c}\label{classvfs_a2f4d5ccc3cd927b2a04ceb90145bc18c}} 
+\index{vfs@{vfs}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{mkdir()}{mkdir()}}
+{\footnotesize\ttfamily bool vfs\+::mkdir (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Create a new directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path containing the name of the folder you wish to create. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_a2d09d781e9b192418a5f992b1ecfe033}{real\+\_\+fs}}.
+
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+\mbox{\Hypertarget{classvfs_a158c5cb3c68963d1392ce94193acc44d}\label{classvfs_a158c5cb3c68963d1392ce94193acc44d}} 
+\index{vfs@{vfs}!mount@{mount}}
+\index{mount@{mount}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{mount()}{mount()}}
+{\footnotesize\ttfamily bool vfs\+::mount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Mount, or connect a filesystem to this one. 
+
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_aff25d41efce9a44ddff375a6876a1521}{real\+\_\+fs}}.
+
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+\mbox{\Hypertarget{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}\label{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}} 
+\index{vfs@{vfs}!opendir@{opendir}}
+\index{opendir@{opendir}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{opendir()}{opendir()}}
+{\footnotesize\ttfamily bool vfs\+::opendir (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path = {\ttfamily default\+\_\+directory} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+open a directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & a path to a directory to open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, else false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_ac57ef32b5543963c7abc8a8eccebdb7c}{real\+\_\+fs}}.
+
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+\mbox{\Hypertarget{classvfs_a2de029c61312045623244ae7e30ff80a}\label{classvfs_a2de029c61312045623244ae7e30ff80a}} 
+\index{vfs@{vfs}!readdir@{readdir}}
+\index{readdir@{readdir}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{readdir()}{readdir()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ std\+::string $>$ vfs\+::readdir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+read the contents of a directory into a std\+::vector$<$string$>$. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$string$>$ containing the file and directory names. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_a084620566b163817559de4bcff804a02}{real\+\_\+fs}}.
+
+\mbox{\Hypertarget{classvfs_a5f0d5677ea536981c2d037f45075a96b}\label{classvfs_a5f0d5677ea536981c2d037f45075a96b}} 
+\index{vfs@{vfs}!readdir\_recurse@{readdir\_recurse}}
+\index{readdir\_recurse@{readdir\_recurse}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{readdir\_recurse()}{readdir\_recurse()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ std\+::string $>$ vfs\+::readdir\+\_\+recurse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Like \mbox{\hyperlink{classvfs_a2de029c61312045623244ae7e30ff80a}{readdir()}}, only this version recurses into all subdirectories. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} vector of string containing all directory entries and sub-\/entries. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_a4dfbaa96f795bde9720b0ab7e497d473}{real\+\_\+fs}}.
+
+\mbox{\Hypertarget{classvfs_a3e562138514a02ed3a1f48caa95d1f44}\label{classvfs_a3e562138514a02ed3a1f48caa95d1f44}} 
+\index{vfs@{vfs}!unlink@{unlink}}
+\index{unlink@{unlink}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{unlink()}{unlink()}}
+{\footnotesize\ttfamily bool vfs\+::unlink (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{directory }\end{DoxyParamCaption})}
+
+
+
+Unlink(), or delete a directory or file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & \mbox{\hyperlink{struct_a}{A}} path to a file or directory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+\mbox{\Hypertarget{classvfs_a0d1c24006299bb971aeb754694d60a7e}\label{classvfs_a0d1c24006299bb971aeb754694d60a7e}} 
+\index{vfs@{vfs}!unmount@{unmount}}
+\index{unmount@{unmount}!vfs@{vfs}}
+\doxysubsubsection{\texorpdfstring{unmount()}{unmount()}}
+{\footnotesize\ttfamily bool vfs\+::unmount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Unmount, or disconnect a filesystem from this one. 
+
+\begin{DoxyReturn}{Returns}
+true on success, else false 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classreal__fs_a0c7fac51db30a8d946ac6e9c27b644ba}{real\+\_\+fs}}.
+
+
+
+Definition at line \mbox{\hyperlink{vfs_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{vfs_8cpp_source}{vfs.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vfs_8h}{vfs.\+h}}\item 
+\mbox{\hyperlink{vfs_8cpp}{vfs.\+cpp}}\end{DoxyCompactItemize}

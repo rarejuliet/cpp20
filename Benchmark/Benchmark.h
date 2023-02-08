@@ -14,45 +14,6 @@ namespace DateTime {
 	}
 }
 // Code to benchmark here
-namespace Fibonacci {
-	/**
-	 * \brief The highest value for which a compile-time evaluation may occur.  May be
-	 * different on various platforms but for MSVC it can go up to 94 before int type
-	 * uint64_t overflows (64-bit).
-	 */
-	static constexpr uint64_t MAX_FIBONACCI = 94;
-
-	/**
-	 * \brief A recursive fibonacci number generator.
-	 * \param num The nth fibonacci number 
-	 * \return The nth number in the fibonacci sequence. 
-	 */
-	constexpr uint64_t recursive(const uint64_t num) {
-//		[[unlikely]]
-		if( num < 2 )
-			return num;
-		return recursive(num-1) + recursive(num-2);
-	}
-
-	/**
-	 * \brief An iterative solution to the fibonacci sequence.
-	 * \param num The nth fibonacci number
-	 * \return The nth number in the fibonacci sequence.
-	 */
-	constexpr uint64_t iterative(const uint64_t num) {
-		if( num < 2 )
-			return num;
-		uint64_t p {1};
-		uint64_t pp {0};
-		uint64_t tmp{p+pp};
-		for(uint64_t i=0; i<num; ++i) {
-			tmp = p + pp;
-			p=pp;
-			pp=tmp;
-		}
-		return tmp;
-	}
-}
 
 namespace Benchmark {
 	using namespace std::chrono;

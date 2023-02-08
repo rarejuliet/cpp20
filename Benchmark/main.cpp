@@ -33,7 +33,7 @@ int main(int argc, char* argv[], char* env[])
         std::cout << "Global locale : " << iss.getloc().name() << std::endl;
         std::cout << std::bitset<8>(-47) << "\n";
         concept_main(argc, argv, env);
-        vfs_test(argc, argv, env);
+	    vfs::vfs_test(argc, argv, env);
 	    string_utils_test_main(argc, argv, env);
         fib_test_main(argc, argv);
         inf_test_main(argc, argv, env);

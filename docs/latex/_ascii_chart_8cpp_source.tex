@@ -1,0 +1,30 @@
+\hypertarget{_ascii_chart_8cpp_source}{}\doxysection{Ascii\+Chart.\+cpp}
+\mbox{\hyperlink{_ascii_chart_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <bitset>}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_benchmark_8h}{Benchmark/Benchmark.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_base_n_8h}{BaseN.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00008}\mbox{\hyperlink{_ascii_chart_8cpp_a848b75568cd0dbd4c02a94886bf4851e}{00008}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_ascii_chart_8cpp_a848b75568cd0dbd4c02a94886bf4851e}{ascii\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00009}00009\ \ \ \ \ std::ofstream\ out(\textcolor{stringliteral}{"{}ascii.html"{}});}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00010}00010\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}<html><head><title>ASCII\ Chart</title></head><body><h1>"{}};}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00011}00011\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Printable\ Extended\ ASCII\ Chart\ [0..255]:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00012}00012\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}<table><thead><tr><td>Char</td><td>DEC</td><td>OCT</td><td>HEX</td><td>BIN</td></tr></thead><tbody>"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ c\{0\};\ c\ <\ UCHAR\_MAX;\ ++c)\ \{}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00014}00014\ \textcolor{comment}{//\ \ \ \ \ \ \ \ out\ <<\ "{}<tr>"{}\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ c\ <<\ ((c\ +\ 1)\ \%\ chars\_per\_row\ ?\ '\ '\ :\ '\(\backslash\)n');}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ std::cout\ <<\ static\_cast<int8\_t>(c)\ <<\ "{}\(\backslash\)t"{}\ <<\ std::dec\ <<\ (int)c\ <<\ "{}\(\backslash\)t"{}\ <<\ std::oct\ <<\ int(c)\ <<\ "{}\(\backslash\)t"{}\ \ <<\ std::hex\ <<\ int(c)\ <<\ "{}\(\backslash\)t"{}\ \ <<\ dec\_to\_bin(c)\ <<\ '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00017}00017\ \textcolor{comment}{//\ \ \ \ \ \ \ \ if(c==9\ ||\ c==27)}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}<tr><td>"{}}\ <<\ std::dec\ <<\ static\_cast<char>(c)\ <<\ \textcolor{stringliteral}{"{}</td><td>"{}}\ <<\ std::oct\ <<\ static\_cast<int>(c)\ <<\ \textcolor{stringliteral}{"{}</td><td>"{}}\ <<\ std::hex\ <<\ static\_cast<int>(c)\ <<\ \textcolor{stringliteral}{"{}</td><td>"{}}\ <<\ std::bitset<8>(c)\ <<\ \textcolor{stringliteral}{"{}</td></tr><br\ />"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00019}00019\ \ \ \ \textcolor{comment}{//\ \ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ static\_cast<int8\_t>(c)\ <<\ "{}\(\backslash\)t"{}\ <<\ std::dec\ <<\ static\_cast<int>(c)\ <<\ "{}\(\backslash\)t"{}\ <<\ std::oct\ <<\ static\_cast<int>(c)\ <<\ "{}\(\backslash\)t"{}\ \ <<\ std::hex\ <<\ static\_cast<int>(c)\ <<\ "{}\(\backslash\)t"{}\ \ <<\ std::bitset<8>(c)\ <<\ '\(\backslash\)n';}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00022}00022\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}<tbody></table></body></html>"{}};}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00023}00023\ \ \ \ \ out.close();}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{_ascii_chart_8cpp_source_l00025}00025\ \}}
+
+\end{DoxyCode}

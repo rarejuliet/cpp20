@@ -1,0 +1,150 @@
+\hypertarget{classcontainers_1_1_hashtable}{}\doxysection{containers\+::Hashtable\texorpdfstring{$<$}{<} Val \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classcontainers_1_1_hashtable}\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+
+
+{\ttfamily \#include $<$Hashtable.\+h$>$}
+
+Inheritance diagram for containers\+::Hashtable\texorpdfstring{$<$}{<} Val \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcontainers_1_1_hashtable}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcontainers_1_1_hashtable_aa518dd95c8c7db9d1a6a32530c3c3c14}{Hashtable}} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor. Made explicit due to conversion from int being such a common occurrence that it might happen accidentally. \end{DoxyCompactList}\item 
+Val \mbox{\hyperlink{classcontainers_1_1_hashtable_ad34b49e23fb73ea22117a019c7e49608}{get}} (std\+::string key)
+\item 
+Val \mbox{\hyperlink{classcontainers_1_1_hashtable_a5294bbf19454f4c858092622b2b15a56}{operator\mbox{[}$\,$\mbox{]}}} (const std\+::string \&key)
+\item 
+bool \mbox{\hyperlink{classcontainers_1_1_hashtable_a55cd917662fa32e182f76891df5a96ef}{exists}} (const std\+::string \&key) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classcontainers_1_1_hashtable_ab57b95a21228b3c2ee0a05aef9daed98}{size}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classcontainers_1_1_hashtable_acde5f51b3acdd666722e079a98f9ddec}{capacity}} ()
+\item 
+void \mbox{\hyperlink{classcontainers_1_1_hashtable_ab87cd7324109bfa56758aab6ecef01f9}{set}} (std\+::string key, Val value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, Val $>$ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Val$>$\newline
+class containers\+::\+Hashtable$<$ Val $>$}
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00011}{11}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_aa518dd95c8c7db9d1a6a32530c3c3c14}\label{classcontainers_1_1_hashtable_aa518dd95c8c7db9d1a6a32530c3c3c14}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!Hashtable@{Hashtable}}
+\index{Hashtable@{Hashtable}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{Hashtable()}{Hashtable()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+\mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::\+Hashtable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [default]}}
+
+
+
+Constructor. Made explicit due to conversion from int being such a common occurrence that it might happen accidentally. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+size} & Zero based index to a size array. For example, size 0 is 13, size 1 is 21, etc. (Yes, it\textquotesingle{}s the fibonacci sequence again!) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_acde5f51b3acdd666722e079a98f9ddec}\label{classcontainers_1_1_hashtable_acde5f51b3acdd666722e079a98f9ddec}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00058}{58}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_a55cd917662fa32e182f76891df5a96ef}\label{classcontainers_1_1_hashtable_a55cd917662fa32e182f76891df5a96ef}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!exists@{exists}}
+\index{exists@{exists}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+bool \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00052}{52}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_ad34b49e23fb73ea22117a019c7e49608}\label{classcontainers_1_1_hashtable_ad34b49e23fb73ea22117a019c7e49608}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!get@{get}}
+\index{get@{get}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+Val \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::get (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00046}{46}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_a5294bbf19454f4c858092622b2b15a56}\label{classcontainers_1_1_hashtable_a5294bbf19454f4c858092622b2b15a56}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+Val \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00049}{49}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_ab87cd7324109bfa56758aab6ecef01f9}\label{classcontainers_1_1_hashtable_ab87cd7324109bfa56758aab6ecef01f9}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!set@{set}}
+\index{set@{set}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+void \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::set (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{Val}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00061}{61}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_ab57b95a21228b3c2ee0a05aef9daed98}\label{classcontainers_1_1_hashtable_ab57b95a21228b3c2ee0a05aef9daed98}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!size@{size}}
+\index{size@{size}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00055}{55}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}\label{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}} 
+\index{containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}!items@{items}}
+\index{items@{items}!containers::Hashtable$<$ Val $>$@{containers::Hashtable$<$ Val $>$}}
+\doxysubsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily template$<$typename Val $>$ \\
+std\+::map$<$std\+::string,Val$>$ \mbox{\hyperlink{classcontainers_1_1_hashtable}{containers\+::\+Hashtable}}$<$ Val $>$\+::items}
+
+
+
+Definition at line \mbox{\hyperlink{_hashtable_8h_source_l00064}{64}} of file \mbox{\hyperlink{_hashtable_8h_source}{Hashtable.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_hashtable_8h}{Hashtable.\+h}}\end{DoxyCompactItemize}

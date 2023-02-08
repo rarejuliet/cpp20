@@ -1,0 +1,12 @@
+\hypertarget{_generator_8h}{}\doxysection{Generator.\+h File Reference}
+\label{_generator_8h}\index{Generator.h@{Generator.h}}
+{\ttfamily \#include $<$coroutine$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_generator}{Generator$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The class name \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}}\textquotesingle{} is our choice and it is not required for coroutine magic. Compiler recognizes coroutine by the presence of \textquotesingle{}co\+\_\+yield\textquotesingle{} keyword. You can use name \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}}\textquotesingle{} (or any other name) instead as long as you include nested struct \mbox{\hyperlink{struct_generator_1_1promise__type}{promise\+\_\+type}} with \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}} get\+\_\+return\+\_\+object()\textquotesingle{} method. Note\+: You need to adjust class constructor/destructor names too when choosing to rename class. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_generator_1_1promise__type}{Generator$<$ T $>$\+::promise\+\_\+type}}
+\end{DoxyCompactItemize}

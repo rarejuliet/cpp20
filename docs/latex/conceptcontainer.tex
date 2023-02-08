@@ -1,0 +1,31 @@
+\hypertarget{conceptcontainer}{}\doxysection{container Concept Reference}
+\label{conceptcontainer}\index{container@{container}}
+
+
+{\ttfamily \#include $<$concepts.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptcontainer}{container}}\ =\ \ \textcolor{keyword}{requires}(T\ t)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typename}\ T::value\_type;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typename}\ T::size\_type;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typename}\ T::allocator\_type;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typename}\ T::iterator;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typename}\ T::const\_iterator;}
+\DoxyCodeLine{\ \ \ \ t.size();}
+\DoxyCodeLine{\ \ \ \ t.begin();}
+\DoxyCodeLine{\ \ \ \ t.end();}
+\DoxyCodeLine{\ \ \ \ t.cbegin();}
+\DoxyCodeLine{\ \ \ \ t.cend();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{concepts_8h_source_l00010}{10}} of file \mbox{\hyperlink{concepts_8h_source}{concepts.\+h}}.
+

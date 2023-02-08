@@ -1,0 +1,132 @@
+\hypertarget{_threads_2_generator_8h_source}{}\doxysection{Generator.\+h}
+\label{_threads_2_generator_8h_source}\index{Threads/Generator.h@{Threads/Generator.h}}
+\mbox{\hyperlink{_threads_2_generator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ GENERATOR\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ GENERATOR\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <coroutine>}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00007}00007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00008}00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_generator}{Generator}}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//\ The\ class\ name\ 'Generator'\ is\ our\ choice\ and\ it\ is\ not\ required\ for\ coroutine}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00011}00011\ \ \ \ \ \textcolor{comment}{//\ magic.\ Compiler\ recognizes\ coroutine\ by\ the\ presence\ of\ 'co\_yield'\ keyword.}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\ You\ can\ use\ name\ 'MyGenerator'\ (or\ any\ other\ name)\ instead\ as\ long\ as\ you\ include}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ nested\ struct\ promise\_type\ with\ 'MyGenerator\ get\_return\_object()'\ method.}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ Note:\ You\ need\ to\ adjust\ class\ constructor/destructor\ names\ too\ when\ choosing\ to}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ rename\ class.}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{struct\ }promise\_type;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00018}\mbox{\hyperlink{struct_generator_a73a1337b2321b2bd0db8237dace469f4}{00018}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_generator_a73a1337b2321b2bd0db8237dace469f4}{handle\_type}}\ =\ std::coroutine\_handle<promise\_type>;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_generator_1_1promise__type}{promise\_type}}\ \textcolor{comment}{//\ required}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00021}00021\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{struct_generator_1_1promise__type_acfd797ab8888f0607f1a1c3867f8bd85}{value\_}};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ std::exception\_ptr\ \mbox{\hyperlink{struct_generator_1_1promise__type_a5fa722b9591b613da4ea0fdb7bd06017}{exception\_}};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00025}\mbox{\hyperlink{struct_generator_1_1promise__type_a1d16f49d32325084e7643bf6c38c4c4d}{00025}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator}{Generator}}\ \mbox{\hyperlink{struct_generator_1_1promise__type_a1d16f49d32325084e7643bf6c38c4c4d}{get\_return\_object}}()}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_generator}{Generator}}(handle\_type::from\_promise(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00029}\mbox{\hyperlink{struct_generator_1_1promise__type_aa5e97cf327d17b4fb3b662f8c8aa1e4b}{00029}}\ \ \ \ \ \ \ \ \ std::suspend\_always\ \mbox{\hyperlink{struct_generator_1_1promise__type_aa5e97cf327d17b4fb3b662f8c8aa1e4b}{initial\_suspend}}()\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00030}\mbox{\hyperlink{struct_generator_1_1promise__type_aefca2d7a4fe92e94c2b7d6affef3eebb}{00030}}\ \ \ \ \ \ \ \ \ std::suspend\_always\ \mbox{\hyperlink{struct_generator_1_1promise__type_aefca2d7a4fe92e94c2b7d6affef3eebb}{final\_suspend}}()\ noexcept\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00031}\mbox{\hyperlink{struct_generator_1_1promise__type_a26ab764cbd5f615b15b2e9c8457dfa35}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_generator_1_1promise__type_a26ab764cbd5f615b15b2e9c8457dfa35}{unhandled\_exception}}()\ \{\ \mbox{\hyperlink{struct_generator_1_1promise__type_a5fa722b9591b613da4ea0fdb7bd06017}{exception\_}}\ =\ std::current\_exception();\ \}\ \textcolor{comment}{//\ saving}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ exception}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <std::convertible\_to<T>\ From>\ \textcolor{comment}{//\ C++20\ concept}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00035}\mbox{\hyperlink{struct_generator_1_1promise__type_a873b972210c86bc0e8065863af7a58f2}{00035}}\ \ \ \ \ \ \ \ \ std::suspend\_always\ \mbox{\hyperlink{struct_generator_1_1promise__type_a873b972210c86bc0e8065863af7a58f2}{yield\_value}}(From\&\&\ from)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator_1_1promise__type_acfd797ab8888f0607f1a1c3867f8bd85}{value\_}}\ =\ std::forward<From>(from);\ \textcolor{comment}{//\ caching\ the\ result\ in\ promise}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00040}\mbox{\hyperlink{struct_generator_1_1promise__type_a43e6e7a310dd433ce383ce83a363cb6d}{00040}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_generator_1_1promise__type_a43e6e7a310dd433ce383ce83a363cb6d}{return\_void}}()\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00041}00041\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{struct_generator_a73a1337b2321b2bd0db8237dace469f4}{handle\_type}}\ \mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00045}\mbox{\hyperlink{struct_generator_ab0d8260ace7366862e11832a40e79791}{00045}}\ \ \ \ \ \mbox{\hyperlink{struct_generator_ab0d8260ace7366862e11832a40e79791}{Generator}}(\mbox{\hyperlink{struct_generator_a73a1337b2321b2bd0db8237dace469f4}{handle\_type}}\ h)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}(h)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00049}\mbox{\hyperlink{struct_generator_aee38a7dcc2fe742d76aaf871fc4e9bca}{00049}}\ \ \ \ \ \mbox{\hyperlink{struct_generator_aee38a7dcc2fe742d76aaf871fc4e9bca}{\string~Generator}}()\ \{\ \mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}.destroy();\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00050}\mbox{\hyperlink{struct_generator_a62294a8fe15707a13a67d90e766be34a}{00050}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ fill();\ \textcolor{comment}{//\ The\ only\ way\ to\ reliably\ find\ out\ whether\ or\ not\ we\ finished\ coroutine,}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ whether\ or\ not\ there\ is\ going\ to\ be\ a\ next\ value\ generated\ (co\_yield)}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ coroutine\ via\ C++\ getter\ (operator\ ()\ below)\ is\ to\ execute/resume}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ coroutine\ until\ the\ next\ co\_yield\ point\ (or\ let\ it\ fall\ off\ end).}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Then\ we\ store/cache\ result\ in\ promise\ to\ allow\ getter\ (operator()\ below}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ grab\ it\ without\ executing\ coroutine).}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}.done();}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00060}\mbox{\hyperlink{struct_generator_a4b8ffb1bfbfbee20b0b22016e0e4ed3b}{00060}}\ \ \ \ \ T\ \mbox{\hyperlink{struct_generator_a4b8ffb1bfbfbee20b0b22016e0e4ed3b}{operator()}}()}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ fill();}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ full\_\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ we\ are\ going\ to\ move\ out\ previously\ cached}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ result\ to\ make\ promise\ empty\ again}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}.promise().value\_);}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00068}00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ full\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{void}\ fill()}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00072}00072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!full\_)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}();}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}.promise().exception\_)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::rethrow\_exception(\mbox{\hyperlink{struct_generator_aced1836f20912739aeeb7ed4c3d9fb9c}{h\_}}.promise().exception\_);}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ propagate\ coroutine\ exception\ in\ called\ context}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ full\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00083}00083\ \};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00085}00085\ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00086}\mbox{\hyperlink{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}{00086}}\ \mbox{\hyperlink{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}{fibonacci\_sequence}}(uint64\_t\ n)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00087}00087\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ 94)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Too\ big\ Fibonacci\ sequence.\ Elements\ would\ overflow."{}});}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{co\_yield}\ 0;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00095}00095\ \ \ \ \ \textcolor{keyword}{co\_yield}\ 1;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00098}00098\ \ \ \ \ uint64\_t\ a\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00099}00099\ \ \ \ \ uint64\_t\ b\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 2;\ i\ <\ n;\ i++)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ uint64\_t\ s\ =\ a\ +\ b;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_yield}\ s;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ a\ =\ b;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ b\ =\ s;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00114}\mbox{\hyperlink{_threads_2_generator_8h_a2c2cafa01e87606b7a1add075b506c64}{00114}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_threads_2_generator_8h_a2c2cafa01e87606b7a1add075b506c64}{testMain}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ gen\ =\ \mbox{\hyperlink{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}{fibonacci\_sequence}}(10);\ \textcolor{comment}{//\ max\ 94\ before\ uint64\_t\ overflows}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ gen;\ j++)}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}fib("{}}\ <<\ j\ <<\ \textcolor{stringliteral}{"{})="{}}\ <<\ gen()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ ex)\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Exception:\ "{}}\ <<\ ex.what()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Unknown\ exception.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00127}00127\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00128}00128\ \}}
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_threads_2_generator_8h_source_l00130}00130\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//GENERATOR\_H\_\_}}
+
+\end{DoxyCode}

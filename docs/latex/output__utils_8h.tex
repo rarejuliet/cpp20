@@ -1,0 +1,28 @@
+\hypertarget{output__utils_8h}{}\doxysection{output\+\_\+utils.\+h File Reference}
+\label{output__utils_8h}\index{output\_utils.h@{output\_utils.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string\+\_\+utils.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceutil}{util}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}{util\+::parse\+\_\+env}} (char $\ast$$\ast$env)
+\begin{DoxyCompactList}\small\item\em Parse environment variables and put contents in a map, where the variable name is the key to the value associated with it. We know exactly what format the environment variables are in, so most error checking is done away with. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_abc23c210733315546b8135fa70beb66d}{util\+::print\+\_\+map}} (const auto \&m)
+\begin{DoxyCompactList}\small\item\em Print the contents of a map to stdout. Note that this is a template function, and it has not been specialized for the new char type char8\+\_\+t. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}{util\+::print}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}{util\+::println}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout, followed by a newline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}{util\+::print\+\_\+lines}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout, with each value followed by a newline. \end{DoxyCompactList}\item 
+fs\+::path \mbox{\hyperlink{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}{util\+::get\+\_\+working\+\_\+path}} ()
+\end{DoxyCompactItemize}

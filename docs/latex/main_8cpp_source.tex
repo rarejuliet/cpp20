@@ -1,0 +1,56 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+\label{main_8cpp_source}\index{Benchmark/main.cpp@{Benchmark/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <bitset>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_benchmark_8h}{Benchmark.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_threads_2_generator_8h}{Generator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}../bible\_statistics.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}../sequences.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}../parse\_main.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}../output\_utils.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}../tests.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}../vfs.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}../concepts.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}../Hashtable.h"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}\mbox{\hyperlink{main_8cpp_a7f567e72b4713406998c6192bb2a10e7}{00024}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{x64-debug_2_c_make_files_2_show_includes_2main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{char}*\ env[])}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ std::istringstream\ iss\{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ iss.imbue(std::locale(\textcolor{stringliteral}{"{}en\_US.UTF8"{}}));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Current\ locale:\ "{}}\ <<\ iss.getloc().name()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ iss.imbue(std::locale());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Global\ locale\ :\ "{}}\ <<\ iss.getloc().name()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::bitset<8>(-\/47)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{concepts_8cpp_ab8fc191e094ba6191e07616d4dff6413}{concept\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vfs_8cpp_a88dd05537604bafec284cf6e3aaa5b24}{vfs\_test}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tests_8cpp_a703dd0d262a46a39818e1fd8a53dcce3}{string\_utils\_test\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tests_8cpp_ab3b29b037eb0e57ce25288a1ddb592e5}{fib\_test\_main}}(argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_benchmark_8h_a3fb26ef3c04f413a49ce9586e5dd9b29}{inf\_test\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bible__statistics_8cpp_ae53846960b4e798614f4031284437b1f}{bible\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{bible__statistics_8cpp_a182911eaa15cacaab6b604df02485296}{regex\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_hashtable_8cpp_a7724dfe1e318443cc2308dcdd818e0e1}{ht\_main}}(argc,argv,env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{tests_8cpp_ad1b1c8af5da71d5a9161b92710331461}{parse\_test\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii_chart_8cpp_a848b75568cd0dbd4c02a94886bf4851e}{ascii\_main}}(argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_benchmark_8cpp_aae13c7fc2bb67f618c0c064aebf00f2f}{bm\_main}}(argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_benchmark_8h_a262bb2e6853a46f39523d79143f857c5}{ss\_main}}(argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_benchmark_8h_a5f5f013d52c54b200b1441017238d38c}{tuple\_tie\_main}}(argc,argv,env);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{catch}(std::exception\&\ e)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Caught\ a\ std::exception.\ \ The\ message\ is:\(\backslash\)n\(\backslash\)t"{}}\ <<\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ n\{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \ \ \ \ std::cin\ >>\ n;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \}}
+
+\end{DoxyCode}

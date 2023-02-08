@@ -1,0 +1,116 @@
+\hypertarget{namespacemath}{}\doxysection{math Namespace Reference}
+\label{namespacemath}\index{math@{math}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr bool \mbox{\hyperlink{namespacemath_ab0cb2467a4eadfb220c8bc0ca3dad053}{is\+Prime}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacemath_a46ff225a15a847130bed5f5c09180924}{is\+\_\+prime}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. This is the best algorithm I have for finding primes. \mbox{\hyperlink{struct_a}{A}} further optimization would be to cache results of previous calls and return the cached copy in case of further calls. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespacemath_a4747013d0a9059067c697ac28e1c9354}{ifib}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Computes the nth fibonacci number. This function uses a loop or iterative design to compute fib(n), and so is much faster than the recursive version of this function. For more information, see documentation for the rfib function. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespacemath_a55ed2e100b9ae581d35eabe5bf5ad9e3}{rfib}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_a}{A}} recursive fibonacci number generator. Mainly for test and comparison with the iterative algorithm in function ifib. This function will be slow, and might cause a stack overflow with high enough values for n. In any case, overflow is NOT noted or reported. Instead, this function will happily compute values for n where the result doesn\textquotesingle{}t fit in a 64-\/bit integer. It simply overflows. The value for n where this starts to happen is 94. I could have thrown an exception, but for now this suffices. I\textquotesingle{}d like to keep it constexpr if possible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{namespacemath_a1a75a1d6bb28752850131401860ff953}{get\+\_\+primes}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacemath_a1a75a1d6bb28752850131401860ff953}\label{namespacemath_a1a75a1d6bb28752850131401860ff953}} 
+\index{math@{math}!get\_primes@{get\_primes}}
+\index{get\_primes@{get\_primes}!math@{math}}
+\doxysubsubsection{\texorpdfstring{get\_primes()}{get\_primes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ math\+::get\+\_\+primes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{async_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{async_8cpp_source}{async.\+cpp}}.
+
+\mbox{\Hypertarget{namespacemath_a4747013d0a9059067c697ac28e1c9354}\label{namespacemath_a4747013d0a9059067c697ac28e1c9354}} 
+\index{math@{math}!ifib@{ifib}}
+\index{ifib@{ifib}!math@{math}}
+\doxysubsubsection{\texorpdfstring{ifib()}{ifib()}}
+{\footnotesize\ttfamily constexpr uint64\+\_\+t math\+::ifib (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Computes the nth fibonacci number. This function uses a loop or iterative design to compute fib(n), and so is much faster than the recursive version of this function. For more information, see documentation for the rfib function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & An integer specifying the number in the sequence we desire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The fibonacci number associated with slot n in the sequence. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{math_8h_source_l00065}{65}} of file \mbox{\hyperlink{math_8h_source}{math.\+h}}.
+
+\mbox{\Hypertarget{namespacemath_a46ff225a15a847130bed5f5c09180924}\label{namespacemath_a46ff225a15a847130bed5f5c09180924}} 
+\index{math@{math}!is\_prime@{is\_prime}}
+\index{is\_prime@{is\_prime}!math@{math}}
+\doxysubsubsection{\texorpdfstring{is\_prime()}{is\_prime()}}
+{\footnotesize\ttfamily constexpr bool math\+::is\+\_\+prime (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. This is the best algorithm I have for finding primes. \mbox{\hyperlink{struct_a}{A}} further optimization would be to cache results of previous calls and return the cached copy in case of further calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{struct_a}{A}} uint64\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if n is prime, else false 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{math_8h_source_l00040}{40}} of file \mbox{\hyperlink{math_8h_source}{math.\+h}}.
+
+\mbox{\Hypertarget{namespacemath_ab0cb2467a4eadfb220c8bc0ca3dad053}\label{namespacemath_ab0cb2467a4eadfb220c8bc0ca3dad053}} 
+\index{math@{math}!isPrime@{isPrime}}
+\index{isPrime@{isPrime}!math@{math}}
+\doxysubsubsection{\texorpdfstring{isPrime()}{isPrime()}}
+{\footnotesize\ttfamily constexpr bool math\+::is\+Prime (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Start at 3 and check up to sqrt(n). Even numbers are ignored since they would have been found by division by 2 already. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & An unsigned number/param\texorpdfstring{$>$}{>} \begin{DoxyReturn}{Returns}
+true if prime, else false
+\end{DoxyReturn}
+\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{math_8h_source_l00013}{13}} of file \mbox{\hyperlink{math_8h_source}{math.\+h}}.
+
+\mbox{\Hypertarget{namespacemath_a55ed2e100b9ae581d35eabe5bf5ad9e3}\label{namespacemath_a55ed2e100b9ae581d35eabe5bf5ad9e3}} 
+\index{math@{math}!rfib@{rfib}}
+\index{rfib@{rfib}!math@{math}}
+\doxysubsubsection{\texorpdfstring{rfib()}{rfib()}}
+{\footnotesize\ttfamily constexpr uint64\+\_\+t math\+::rfib (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+\mbox{\hyperlink{struct_a}{A}} recursive fibonacci number generator. Mainly for test and comparison with the iterative algorithm in function ifib. This function will be slow, and might cause a stack overflow with high enough values for n. In any case, overflow is NOT noted or reported. Instead, this function will happily compute values for n where the result doesn\textquotesingle{}t fit in a 64-\/bit integer. It simply overflows. The value for n where this starts to happen is 94. I could have thrown an exception, but for now this suffices. I\textquotesingle{}d like to keep it constexpr if possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number in the sequence to obtain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nth number in the fibonacci sequence. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{math_8h_source_l00089}{89}} of file \mbox{\hyperlink{math_8h_source}{math.\+h}}.
+

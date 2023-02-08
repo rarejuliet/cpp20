@@ -1,0 +1,99 @@
+\hypertarget{vfs_8h_source}{}\doxysection{vfs.\+h}
+\mbox{\hyperlink{vfs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ VFS\_H}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ VFS\_H}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00007}00007\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{vfs_8h_a88dd05537604bafec284cf6e3aaa5b24}{vfs\_test}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{char}*\ env[]);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00013}\mbox{\hyperlink{classvfs}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvfs}{vfs}}\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ std::string\ default\_directory\ \{R\textcolor{stringliteral}{"{}(C:\(\backslash\)Users\(\backslash\)Adam)"{}\};}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ std::string\ current\_directory\ \{default\_directory\};}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fs::path\ root;}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00018}00018\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ }\textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00025}\mbox{\hyperlink{classvfs_ad627d4e1fd808ad533c24181b9e65247}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classvfs_ad627d4e1fd808ad533c24181b9e65247}{vfs}}(fs::path\ root\ =\ fs::path(default\_directory)):\ root(root)\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ fs::current\_path(fs::path(root));}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00034}\mbox{\hyperlink{classvfs_a0cb8a8ee482f68ec2623702df573775a}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a0cb8a8ee482f68ec2623702df573775a}{chdir}}(\textcolor{keyword}{const}\ fs::path\&\ directory)\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ fs::current\_path(directory);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(fs::current\_path()==directory)}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_aaf3eca54ef4c91cc088c163288a3f35e}{opendir}}(\textcolor{keyword}{const}\ fs::path\&\ path\ =\ default\_directory)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a9e0fbfec02091ced01365fa10709a1da}{closedir}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00055}\mbox{\hyperlink{classvfs_a2de029c61312045623244ae7e30ff80a}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classvfs_a2de029c61312045623244ae7e30ff80a}{readdir}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00060}\mbox{\hyperlink{classvfs_a5f0d5677ea536981c2d037f45075a96b}{00060}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classvfs_a5f0d5677ea536981c2d037f45075a96b}{readdir\_recurse}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a2f4d5ccc3cd927b2a04ceb90145bc18c}{mkdir}}(\textcolor{keyword}{const}\ fs::path\&\ path)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a158c5cb3c68963d1392ce94193acc44d}{mount}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a0d1c24006299bb971aeb754694d60a7e}{unmount}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvfs_a3e562138514a02ed3a1f48caa95d1f44}{unlink}}(\textcolor{keyword}{const}\ fs::path\&\ directory);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00089}\mbox{\hyperlink{classvfs_acad085244a52d0496352a3e6fb6113df}{00089}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::filesystem::path\ \mbox{\hyperlink{classvfs_acad085244a52d0496352a3e6fb6113df}{cwd}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fs::current\_path();}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00096}\mbox{\hyperlink{classvfs_a71bb9de9d5262719f0b8ca85cde5b94c}{00096}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classvfs_a71bb9de9d5262719f0b8ca85cde5b94c}{\string~vfs}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00097}00097\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00102}\mbox{\hyperlink{classreal__fs}{00102}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classreal__fs}{real\_fs}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classvfs}{vfs}}\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00108}\mbox{\hyperlink{classreal__fs_a1b7aa37654a593df2b23bb21bc607223}{00108}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classreal__fs_a1b7aa37654a593df2b23bb21bc607223}{real\_fs}}(fs::path\ root)\ :\ \mbox{\hyperlink{classvfs}{vfs}}(root)\ \{\}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00115}\mbox{\hyperlink{classreal__fs_ac57ef32b5543963c7abc8a8eccebdb7c}{00115}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_ac57ef32b5543963c7abc8a8eccebdb7c}{opendir}}(\textcolor{keyword}{const}\ fs::path\&\ path)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ fs::current\_path(path);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{entry}}\ =\ fs::directory\_entry(fs::path(path));}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{entry}}.exists())}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00128}\mbox{\hyperlink{classreal__fs_ac2d39181d90da3b2123f726736be4cef}{00128}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_ac2d39181d90da3b2123f726736be4cef}{closedir}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00136}\mbox{\hyperlink{classreal__fs_a084620566b163817559de4bcff804a02}{00136}}\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classreal__fs_a084620566b163817559de4bcff804a02}{readdir}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dir\_entries\ =\ std::vector<std::string>();}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\ entry\_it\ :\ fs::directory\_iterator(\mbox{\hyperlink{classvfs_acad085244a52d0496352a3e6fb6113df}{cwd}}()))}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ filename=\ entry\_it.path().filename().string();}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dir\_entries.push\_back(std::move(filename));}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dir\_entries;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00150}\mbox{\hyperlink{classreal__fs_a4dfbaa96f795bde9720b0ab7e497d473}{00150}}\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classreal__fs_a4dfbaa96f795bde9720b0ab7e497d473}{readdir\_recurse}}()\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ list\ =\ std::vector<std::string>\{\};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ it\ :\ fs::recursive\_directory\_iterator(\mbox{\hyperlink{classvfs_acad085244a52d0496352a3e6fb6113df}{cwd}}()))\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ filename\ =\ it.path().filename().string();}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list.push\_back(filename);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ list;}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00163}\mbox{\hyperlink{classreal__fs_aff25d41efce9a44ddff375a6876a1521}{00163}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_aff25d41efce9a44ddff375a6876a1521}{mount}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00168}\mbox{\hyperlink{classreal__fs_a0c7fac51db30a8d946ac6e9c27b644ba}{00168}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_a0c7fac51db30a8d946ac6e9c27b644ba}{unmount}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00172}\mbox{\hyperlink{classreal__fs_a4493ec55f2de4db46975329dcc62a94b}{00172}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classreal__fs_a4493ec55f2de4db46975329dcc62a94b}{\string~real\_fs}}()\ \{\}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00180}\mbox{\hyperlink{classreal__fs_a2d09d781e9b192418a5f992b1ecfe033}{00180}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_a2d09d781e9b192418a5f992b1ecfe033}{mkdir}}(\textcolor{keyword}{const}\ fs::path\&\ path)\textcolor{keyword}{\ override}\{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ fs::create\_directory(path);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{entry}}\ =\ fs::directory\_entry(path);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{entry}}.exists();}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00191}\mbox{\hyperlink{classreal__fs_a7fb46b8675f230602d3d52d334805d10}{00191}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classreal__fs_a7fb46b8675f230602d3d52d334805d10}{unlink}}(\textcolor{keyword}{const}\ fs::path\&\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fs::remove(path);}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00194}\mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{00194}}\ \ \ \ \ \ \ \ \ fs::directory\_entry\ \mbox{\hyperlink{classreal__fs_a29709a549c2fc8efe331738b76603774}{entry}};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00195}00195\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vfs_8h_source_l00196}00196\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

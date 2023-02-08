@@ -1,0 +1,39 @@
+\hypertarget{aligned_8cpp_source}{}\doxysection{aligned.\+cpp}
+\mbox{\hyperlink{aligned_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <type\_traits>}\ \textcolor{comment}{//\ std::alignment\_of()}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00006}00006\ \textcolor{comment}{//...}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00007}00007\ \textcolor{comment}{//template\ <class\ T>}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00008}\mbox{\hyperlink{struct_my_obj}{00008}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_my_obj}{MyObj}}\ \{\};}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00009}\mbox{\hyperlink{aligned_8cpp_a8cab5c4aaad39be2eb7c72089b7ddefa}{00009}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{aligned_8cpp_a8cab5c4aaad39be2eb7c72089b7ddefa}{aligned\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv,\ \textcolor{keywordtype}{char}\ **env)\ \{}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[256];\ \textcolor{comment}{//\ for\ simplicity}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00011}00011\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Buffer:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ i\ :\ buffer)\ \{}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ std::cout\ <<\ i;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00015}00015\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Buffer:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ alignment\ =\ std::alignment\_of\_v<int>;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}*\ ptr\ =\ buffer;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00018}00018\ \ \ \ \ std::size\_t\ space\ =\ \textcolor{keyword}{sizeof}(buffer);\ \textcolor{comment}{//\ Be\ sure\ this\ results\ in\ the\ true\ size\ of\ your\ buffer}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::align(alignment,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_my_obj}{MyObj}}),\ ptr,\ space))\ \{}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ now\ have\ storage\ the\ size\ of\ MyObj,\ starting\ at\ ptr,\ aligned\ on}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ int\ boundary.\ Use\ it\ here\ if\ you\ like,\ or\ save\ off\ the\ starting\ address}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ contained\ in\ ptr\ for\ later\ use.}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Last,\ move\ starting\ pointer\ and\ decrease\ available\ space\ before}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ while\ loop\ restarts.}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ ptr\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(ptr)\ +\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_my_obj}{MyObj}});}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ space\ -\/=\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_my_obj}{MyObj}});}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ At\ this\ point,\ align()\ has\ returned\ a\ null\ pointer,\ signaling\ it\ is\ not}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ possible\ to\ allow\ more\ aligned\ storage\ in\ this\ buffer.}}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00032}00032\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Buffer\ full."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{aligned_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

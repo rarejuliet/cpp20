@@ -1,0 +1,133 @@
+\hypertarget{_base_n_8h}{}\doxysection{Base\+N.\+h File Reference}
+\label{_base_n_8h}\index{BaseN.h@{BaseN.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{_base_n_8h_a7a5970df045d48922d6d31fc9e9e8df0}{dec\+\_\+to\+\_\+hex}} (const uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Convert a number to hexadecimal string. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{_base_n_8h_ab28f21400f13f9d7803083f78777d179}{hex\+\_\+to\+\_\+dec}} (const std\+::string \&hex)
+\begin{DoxyCompactList}\small\item\em Convert a hex value to decimal. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{_base_n_8h_a1a56159173b9865149153a69e830daa7}{dec\+\_\+to\+\_\+bin}} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Convert an integer into a string representation of the number in binary. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{_base_n_8h_a46e7a7ba982039469136d81a4ebc94d9}{bin\+\_\+to\+\_\+dec}} (std\+::string bin)
+\begin{DoxyCompactList}\small\item\em Convert a binary string representation of a number to its decimal representation. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{_base_n_8h_aa76cf208d8f36f199d749b280a82cd0d}{to\+The\+Power}} (uint64\+\_\+t num, uint64\+\_\+t power)
+\begin{DoxyCompactList}\small\item\em Does the same job as std\+::pow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_base_n_8h_a46e7a7ba982039469136d81a4ebc94d9}\label{_base_n_8h_a46e7a7ba982039469136d81a4ebc94d9}} 
+\index{BaseN.h@{BaseN.h}!bin\_to\_dec@{bin\_to\_dec}}
+\index{bin\_to\_dec@{bin\_to\_dec}!BaseN.h@{BaseN.h}}
+\doxysubsubsection{\texorpdfstring{bin\_to\_dec()}{bin\_to\_dec()}}
+{\footnotesize\ttfamily uint64\+\_\+t bin\+\_\+to\+\_\+dec (\begin{DoxyParamCaption}\item[{std\+::string}]{bin }\end{DoxyParamCaption})}
+
+
+
+Convert a binary string representation of a number to its decimal representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin} & \mbox{\hyperlink{struct_a}{A}} string containing a binary representation of a number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer containing the decimal value of bin. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_n_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{_base_n_8cpp_source}{Base\+N.\+cpp}}.
+
+\mbox{\Hypertarget{_base_n_8h_a1a56159173b9865149153a69e830daa7}\label{_base_n_8h_a1a56159173b9865149153a69e830daa7}} 
+\index{BaseN.h@{BaseN.h}!dec\_to\_bin@{dec\_to\_bin}}
+\index{dec\_to\_bin@{dec\_to\_bin}!BaseN.h@{BaseN.h}}
+\doxysubsubsection{\texorpdfstring{dec\_to\_bin()}{dec\_to\_bin()}}
+{\footnotesize\ttfamily std\+::string dec\+\_\+to\+\_\+bin (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Convert an integer into a string representation of the number in binary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{struct_a}{A}} number to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} string representation of the binary value of n. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_n_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_base_n_8cpp_source}{Base\+N.\+cpp}}.
+
+\mbox{\Hypertarget{_base_n_8h_a7a5970df045d48922d6d31fc9e9e8df0}\label{_base_n_8h_a7a5970df045d48922d6d31fc9e9e8df0}} 
+\index{BaseN.h@{BaseN.h}!dec\_to\_hex@{dec\_to\_hex}}
+\index{dec\_to\_hex@{dec\_to\_hex}!BaseN.h@{BaseN.h}}
+\doxysubsubsection{\texorpdfstring{dec\_to\_hex()}{dec\_to\_hex()}}
+{\footnotesize\ttfamily std\+::string dec\+\_\+to\+\_\+hex (\begin{DoxyParamCaption}\item[{const uint64\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Convert a number to hexadecimal string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \mbox{\hyperlink{struct_a}{A}} number to convert to hex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} string representation of the decimal value for n. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_n_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_base_n_8cpp_source}{Base\+N.\+cpp}}.
+
+\mbox{\Hypertarget{_base_n_8h_ab28f21400f13f9d7803083f78777d179}\label{_base_n_8h_ab28f21400f13f9d7803083f78777d179}} 
+\index{BaseN.h@{BaseN.h}!hex\_to\_dec@{hex\_to\_dec}}
+\index{hex\_to\_dec@{hex\_to\_dec}!BaseN.h@{BaseN.h}}
+\doxysubsubsection{\texorpdfstring{hex\_to\_dec()}{hex\_to\_dec()}}
+{\footnotesize\ttfamily uint64\+\_\+t hex\+\_\+to\+\_\+dec (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hex }\end{DoxyParamCaption})}
+
+
+
+Convert a hex value to decimal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hex} & \mbox{\hyperlink{struct_a}{A}} string representation of an hexadecimal number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer with the corresponding decimal value for hex. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_n_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_base_n_8cpp_source}{Base\+N.\+cpp}}.
+
+\mbox{\Hypertarget{_base_n_8h_aa76cf208d8f36f199d749b280a82cd0d}\label{_base_n_8h_aa76cf208d8f36f199d749b280a82cd0d}} 
+\index{BaseN.h@{BaseN.h}!toThePower@{toThePower}}
+\index{toThePower@{toThePower}!BaseN.h@{BaseN.h}}
+\doxysubsubsection{\texorpdfstring{toThePower()}{toThePower()}}
+{\footnotesize\ttfamily uint64\+\_\+t to\+The\+Power (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{num,  }\item[{uint64\+\_\+t}]{power }\end{DoxyParamCaption})}
+
+
+
+Does the same job as std\+::pow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & \mbox{\hyperlink{struct_a}{A}} number to be raised to power. \\
+\hline
+{\em power} & An exponent to raise num to the power of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer containing num$\ast$$\ast$power. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_n_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_base_n_8cpp_source}{Base\+N.\+cpp}}.
+

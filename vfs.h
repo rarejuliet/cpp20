@@ -4,13 +4,18 @@
 #include <vector>
 #include <filesystem>
 
-int vfs_test(int argc, char* argv[], char* env[]);
 namespace fs = std::filesystem;
 
 /**
- * \brief Base class for all virtual filesystem components.
- */
-class vfs {
+    @namespace vfs
+    @brief     Contains all classes and functions making up the virtual filesystem.
+**/
+namespace vfs {
+int vfs_test(int argc, char* argv[], char* env[]);
+	/**
+	 * \brief Base class for all virtual filesystem components.
+	 */
+	class vfs {
 	private:
 		constexpr static std::string default_directory {R"(C:\Users\Adam)"};
 		std::string current_directory {default_directory};
@@ -193,4 +198,5 @@ class real_fs : public vfs {
 		}
 		fs::directory_entry entry;
 	};
+}
 #endif

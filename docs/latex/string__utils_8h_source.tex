@@ -1,0 +1,38 @@
+\hypertarget{string__utils_8h_source}{}\doxysection{string\+\_\+utils.\+h}
+\mbox{\hyperlink{string__utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ STRING\_UTILS\_H}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ STRING\_UTILS\_H}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutil}{util}}\ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00013}\mbox{\hyperlink{namespaceutil_a1819236004259f5ed311a3280921b254}{00013}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ std::string\ \mbox{\hyperlink{namespaceutil_a1819236004259f5ed311a3280921b254}{uppercase\_copy}}(\textcolor{keyword}{const}\ std::string\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ std::string\ uc\{s\};}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ std::ranges::transform(s,uc.begin(),\ ::toupper);}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uc;}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00024}\mbox{\hyperlink{namespaceutil_a0c98bef30162ac3f51cf09eaf90256f3}{00024}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_a0c98bef30162ac3f51cf09eaf90256f3}{uppercase}}(std::string\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ std::ranges::transform(s,s.begin(),::toupper);}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00033}\mbox{\hyperlink{namespaceutil_a910ab45ae1e576c197158c70f515d1a4}{00033}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespaceutil_a910ab45ae1e576c197158c70f515d1a4}{lowercase\_copy}}(\textcolor{keyword}{const}\ std::string\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ std::string\ uc\{s\};}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ std::ranges::transform(s,uc.begin(),\ ::tolower);}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uc;}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00043}\mbox{\hyperlink{namespaceutil_a14bee7bff57b61879754ee644b9dee71}{00043}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceutil_a14bee7bff57b61879754ee644b9dee71}{lowercase}}(std::string\&\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ std::ranges::transform(s,s.begin(),::tolower);}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00052}\mbox{\hyperlink{namespaceutil_a145261daba2477c2dd1e3c1771974e0e}{00052}}\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceutil_a145261daba2477c2dd1e3c1771974e0e}{commify}}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ value)}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00053}00053\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ ss.imbue(std::locale(\textcolor{stringliteral}{"{}en\_US.UTF8"{}}));}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ ss\ <<\ std::fixed\ <<\ value;}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{string__utils_8h_source_l00060}00060\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

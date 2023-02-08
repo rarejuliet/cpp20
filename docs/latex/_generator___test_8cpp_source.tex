@@ -1,0 +1,40 @@
+\hypertarget{_generator___test_8cpp_source}{}\doxysection{Generator\+\_\+\+Test.\+cpp}
+\mbox{\hyperlink{_generator___test_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_threads_2_generator_8h}{Generator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../cpp20/Benchmark/Generator.h"{}}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sequences_8h}{sequences.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00016}\mbox{\hyperlink{_generator___test_8cpp_a98656972ddfe9027ffbc143fac41705c}{00016}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{_generator___test_8cpp_a98656972ddfe9027ffbc143fac41705c}{add}}(\textcolor{keyword}{auto}\ x,\ \textcolor{keyword}{auto}\ y)\ \{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ x\ +\ y;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00021}\mbox{\hyperlink{_generator___test_8cpp_a457af7fb60a532a4f1f135ad85d77323}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_generator___test_8cpp_a457af7fb60a532a4f1f135ad85d77323}{generator\_test}}()\{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ rval\ =\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\{\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\{\ 4.5\ \};}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::format(\textcolor{stringliteral}{"{}\{0\}\ *\ \{1\}\ ==\ \{2\}\(\backslash\)n"{}},\ x,\ y,\ \mbox{\hyperlink{_generator___test_8cpp_a98656972ddfe9027ffbc143fac41705c}{add}}(x,\ y));}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}\ primes\ =\ \mbox{\hyperlink{namespacesequences_a099d9498d223dce72d8c42419ba16d78}{sequences::get\_prime\_sequence}}();}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ primes()\ <<\ \textcolor{stringliteral}{"{}\ is\ prime\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}\ fib\ =\ \mbox{\hyperlink{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}{sequences::get\_fibonacci\_sequence}}(121);}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ uint64\_t\ max=94;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(uint64\_t\ i=0;\ i<max;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}fib("{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{})==\(\backslash\)t"{}}\ <<\ fib()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{catch}\ (std::exception\&\ e)\ \{}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ std::cerr\ <<\ e.what()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ rval\ =\ EXIT\_FAILURE;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ rval;}
+\DoxyCodeLine{\Hypertarget{_generator___test_8cpp_source_l00042}00042\ \}}
+
+\end{DoxyCode}

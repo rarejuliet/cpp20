@@ -6,6 +6,7 @@
 #include <filesystem>
 #include "main.h"
 #include "string_utils.h"
+#include "concepts.h"
 
 namespace util {
 	namespace fs = std::filesystem;
@@ -45,7 +46,9 @@ namespace util {
 	 * and it has not been specialized for the new char type char8_t.
 	 * \param m A std::map
 	 */
-	inline void print_map(const auto& m) {
+    template<typename T>
+	inline void print_map(const T& m) {
+        static_assert(container<T>);
         for (const auto& [key, value] : m)
             std::cout << '[' << key << "] = " << value << "\n";
         

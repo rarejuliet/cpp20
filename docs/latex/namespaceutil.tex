@@ -1,0 +1,238 @@
+\hypertarget{namespaceutil}{}\doxysection{util Namespace Reference}
+\label{namespaceutil}\index{util@{util}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}{parse\+\_\+env}} (char $\ast$$\ast$env)
+\begin{DoxyCompactList}\small\item\em Parse environment variables and put contents in a map, where the variable name is the key to the value associated with it. We know exactly what format the environment variables are in, so most error checking is done away with. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_abc23c210733315546b8135fa70beb66d}{print\+\_\+map}} (const auto \&m)
+\begin{DoxyCompactList}\small\item\em Print the contents of a map to stdout. Note that this is a template function, and it has not been specialized for the new char type char8\+\_\+t. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}{print}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}{println}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout, followed by a newline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}{print\+\_\+lines}} (auto \&a)
+\begin{DoxyCompactList}\small\item\em Print the contents of a to std\+::cout, with each value followed by a newline. \end{DoxyCompactList}\item 
+fs\+::path \mbox{\hyperlink{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}{get\+\_\+working\+\_\+path}} ()
+\item 
+constexpr std\+::string \mbox{\hyperlink{namespaceutil_a1819236004259f5ed311a3280921b254}{uppercase\+\_\+copy}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Takes a string argument and creates a copy in uppercase. \end{DoxyCompactList}\item 
+constexpr void \mbox{\hyperlink{namespaceutil_a0c98bef30162ac3f51cf09eaf90256f3}{uppercase}} (std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Convert a string to all uppercase. After this function returns, s will have been modified so that all characters are uppercase. \end{DoxyCompactList}\item 
+constexpr std\+::string \mbox{\hyperlink{namespaceutil_a910ab45ae1e576c197158c70f515d1a4}{lowercase\+\_\+copy}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Takes a string argument and creates a copy in lowercase. \end{DoxyCompactList}\item 
+constexpr void \mbox{\hyperlink{namespaceutil_a14bee7bff57b61879754ee644b9dee71}{lowercase}} (std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Convert a string to all lowercase. After this function returns, s will have been modified so that all characters are lowercase. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceutil_a145261daba2477c2dd1e3c1771974e0e}{commify}} (const auto \&value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceutil_a145261daba2477c2dd1e3c1771974e0e}\label{namespaceutil_a145261daba2477c2dd1e3c1771974e0e}} 
+\index{util@{util}!commify@{commify}}
+\index{commify@{commify}!util@{util}}
+\doxysubsubsection{\texorpdfstring{commify()}{commify()}}
+{\footnotesize\ttfamily std\+::string util\+::commify (\begin{DoxyParamCaption}\item[{const auto \&}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{\hyperlink{struct_a}{A}} numeric value is expected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} new string with a comma-\/separated value. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string__utils_8h_source_l00052}{52}} of file \mbox{\hyperlink{string__utils_8h_source}{string\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}\label{namespaceutil_a7cab83b4789124dc8bcf74f962db3117}} 
+\index{util@{util}!get\_working\_path@{get\_working\_path}}
+\index{get\_working\_path@{get\_working\_path}!util@{util}}
+\doxysubsubsection{\texorpdfstring{get\_working\_path()}{get\_working\_path()}}
+{\footnotesize\ttfamily fs\+::path util\+::get\+\_\+working\+\_\+path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00085}{85}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a14bee7bff57b61879754ee644b9dee71}\label{namespaceutil_a14bee7bff57b61879754ee644b9dee71}} 
+\index{util@{util}!lowercase@{lowercase}}
+\index{lowercase@{lowercase}!util@{util}}
+\doxysubsubsection{\texorpdfstring{lowercase()}{lowercase()}}
+{\footnotesize\ttfamily constexpr void util\+::lowercase (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a string to all lowercase. After this function returns, s will have been modified so that all characters are lowercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{struct_a}{A}} std\+::string to convert. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{string__utils_8h_source_l00043}{43}} of file \mbox{\hyperlink{string__utils_8h_source}{string\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a910ab45ae1e576c197158c70f515d1a4}\label{namespaceutil_a910ab45ae1e576c197158c70f515d1a4}} 
+\index{util@{util}!lowercase\_copy@{lowercase\_copy}}
+\index{lowercase\_copy@{lowercase\_copy}!util@{util}}
+\doxysubsubsection{\texorpdfstring{lowercase\_copy()}{lowercase\_copy()}}
+{\footnotesize\ttfamily constexpr std\+::string util\+::lowercase\+\_\+copy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Takes a string argument and creates a copy in lowercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{struct_a}{A}} source string to convert to lowercase. s is not modified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} copy of s converted to lowercase. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string__utils_8h_source_l00033}{33}} of file \mbox{\hyperlink{string__utils_8h_source}{string\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}\label{namespaceutil_a5233a9f7283f9de27776f6d7d1e5d564}} 
+\index{util@{util}!parse\_env@{parse\_env}}
+\index{parse\_env@{parse\_env}!util@{util}}
+\doxysubsubsection{\texorpdfstring{parse\_env()}{parse\_env()}}
+{\footnotesize\ttfamily auto util\+::parse\+\_\+env (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Parse environment variables and put contents in a map, where the variable name is the key to the value associated with it. We know exactly what format the environment variables are in, so most error checking is done away with. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em env} & \mbox{\hyperlink{struct_a}{A}} pointer to an array of char $\ast$ containing the environment variables for the current process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} std\+::map$<$std\+::string, std\+::string$>$ containing the environment variables. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00020}{20}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}\label{namespaceutil_a4279683c7a3f4e615f23c87496d47fec}} 
+\index{util@{util}!print@{print}}
+\index{print@{print}!util@{util}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void util\+::print (\begin{DoxyParamCaption}\item[{auto \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the contents of a to std\+::cout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \mbox{\hyperlink{struct_a}{A}} container having an iterator interface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00058}{58}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}\label{namespaceutil_ada0c7d4f24c60fccbae75439150230e7}} 
+\index{util@{util}!print\_lines@{print\_lines}}
+\index{print\_lines@{print\_lines}!util@{util}}
+\doxysubsubsection{\texorpdfstring{print\_lines()}{print\_lines()}}
+{\footnotesize\ttfamily void util\+::print\+\_\+lines (\begin{DoxyParamCaption}\item[{auto \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the contents of a to std\+::cout, with each value followed by a newline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \mbox{\hyperlink{struct_a}{A}} container having an iterator interface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00079}{79}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_abc23c210733315546b8135fa70beb66d}\label{namespaceutil_abc23c210733315546b8135fa70beb66d}} 
+\index{util@{util}!print\_map@{print\_map}}
+\index{print\_map@{print\_map}!util@{util}}
+\doxysubsubsection{\texorpdfstring{print\_map()}{print\_map()}}
+{\footnotesize\ttfamily void util\+::print\+\_\+map (\begin{DoxyParamCaption}\item[{const auto \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the contents of a map to stdout. Note that this is a template function, and it has not been specialized for the new char type char8\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & \mbox{\hyperlink{struct_a}{A}} std\+::map \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00048}{48}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}\label{namespaceutil_aee93c481c6c73aaf9a76b11ea2fd728c}} 
+\index{util@{util}!println@{println}}
+\index{println@{println}!util@{util}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}}
+{\footnotesize\ttfamily void util\+::println (\begin{DoxyParamCaption}\item[{auto \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the contents of a to std\+::cout, followed by a newline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \mbox{\hyperlink{struct_a}{A}} container having an iterator interface. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{output__utils_8h_source_l00068}{68}} of file \mbox{\hyperlink{output__utils_8h_source}{output\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a0c98bef30162ac3f51cf09eaf90256f3}\label{namespaceutil_a0c98bef30162ac3f51cf09eaf90256f3}} 
+\index{util@{util}!uppercase@{uppercase}}
+\index{uppercase@{uppercase}!util@{util}}
+\doxysubsubsection{\texorpdfstring{uppercase()}{uppercase()}}
+{\footnotesize\ttfamily constexpr void util\+::uppercase (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Convert a string to all uppercase. After this function returns, s will have been modified so that all characters are uppercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{struct_a}{A}} std\+::string to convert. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{string__utils_8h_source_l00024}{24}} of file \mbox{\hyperlink{string__utils_8h_source}{string\+\_\+utils.\+h}}.
+
+\mbox{\Hypertarget{namespaceutil_a1819236004259f5ed311a3280921b254}\label{namespaceutil_a1819236004259f5ed311a3280921b254}} 
+\index{util@{util}!uppercase\_copy@{uppercase\_copy}}
+\index{uppercase\_copy@{uppercase\_copy}!util@{util}}
+\doxysubsubsection{\texorpdfstring{uppercase\_copy()}{uppercase\_copy()}}
+{\footnotesize\ttfamily constexpr std\+::string util\+::uppercase\+\_\+copy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Takes a string argument and creates a copy in uppercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \mbox{\hyperlink{struct_a}{A}} source string to convert to uppercase. s is not modified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_a}{A}} copy of s converted to uppercase. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{string__utils_8h_source_l00013}{13}} of file \mbox{\hyperlink{string__utils_8h_source}{string\+\_\+utils.\+h}}.
+

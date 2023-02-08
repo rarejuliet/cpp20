@@ -1,0 +1,49 @@
+\hypertarget{_hashtable_8h_source}{}\doxysection{Hashtable.\+h}
+\mbox{\hyperlink{_hashtable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ HASHTABLE\_H}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ HASHTABLE\_H}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00007}00007\ \textcolor{comment}{//constexpr\ uint64\_t\ MAX\_CAPACITY\ \{87\};}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00008}00008\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_hashtable_8h_a7724dfe1e318443cc2308dcdd818e0e1}{ht\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{char}*\ env[]);}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00009}\mbox{\hyperlink{namespacecontainers}{00009}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecontainers}{containers}}\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Val>}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00011}\mbox{\hyperlink{classcontainers_1_1_hashtable}{00011}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontainers_1_1_hashtable}{Hashtable}}\ :\ \textcolor{keyword}{public}\ std::map<std::string,Val>\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00023}00023\ \textcolor{comment}{//\ \ constexpr\ uint64\_t\ Capacity\ =\ Capacities[0];}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00031}00031\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint64\_t\ hash\_str(\textcolor{keyword}{const}\ std::string\&\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00032}00032\ \ \ \ \ uint64\_t\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ j\ =\ 0;\ str[j];\ j++)}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ i\ +=\ str[j];}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00037}00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00045}\mbox{\hyperlink{classcontainers_1_1_hashtable_aa518dd95c8c7db9d1a6a32530c3c3c14}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_aa518dd95c8c7db9d1a6a32530c3c3c14}{Hashtable}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00046}\mbox{\hyperlink{classcontainers_1_1_hashtable_ad34b49e23fb73ea22117a019c7e49608}{00046}}\ \ \ \ \ \ \ \ \ Val\ \mbox{\hyperlink{classcontainers_1_1_hashtable_ad34b49e23fb73ea22117a019c7e49608}{get}}(std::string\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}[key];}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00049}\mbox{\hyperlink{classcontainers_1_1_hashtable_a5294bbf19454f4c858092622b2b15a56}{00049}}\ \ \ \ \ \ \ \ \ Val\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a5294bbf19454f4c858092622b2b15a56}{operator[]}}(\textcolor{keyword}{const}\ std::string\&\ key)\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}[key];}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00052}\mbox{\hyperlink{classcontainers_1_1_hashtable_a55cd917662fa32e182f76891df5a96ef}{00052}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a55cd917662fa32e182f76891df5a96ef}{exists}}(\textcolor{keyword}{const}\ std::string\&\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}.at(key);}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00055}\mbox{\hyperlink{classcontainers_1_1_hashtable_ab57b95a21228b3c2ee0a05aef9daed98}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_ab57b95a21228b3c2ee0a05aef9daed98}{size}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}.size();}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00058}\mbox{\hyperlink{classcontainers_1_1_hashtable_acde5f51b3acdd666722e079a98f9ddec}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_acde5f51b3acdd666722e079a98f9ddec}{capacity}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}.max\_size();}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00061}\mbox{\hyperlink{classcontainers_1_1_hashtable_ab87cd7324109bfa56758aab6ecef01f9}{00061}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontainers_1_1_hashtable_ab87cd7324109bfa56758aab6ecef01f9}{set}}(std::string\ key,\ Val\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}}[key]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00064}\mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{00064}}\ \ \ \ \ \ \ \ \ std::map<std::string,Val>\ \mbox{\hyperlink{classcontainers_1_1_hashtable_a2015055ec175709433d1c0991e9038fd}{items}};}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00065}00065\ \ \ \ \ \};\ \textcolor{comment}{//\ class\ Hashtable}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_hashtable_8h_source_l00068}00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//defined\ HASHTABLE\_H}}
+
+\end{DoxyCode}

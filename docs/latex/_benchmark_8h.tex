@@ -1,0 +1,119 @@
+\hypertarget{_benchmark_8h}{}\doxysection{Benchmark/\+Benchmark.h File Reference}
+\label{_benchmark_8h}\index{Benchmark/Benchmark.h@{Benchmark/Benchmark.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_benchmark_1_1test}{Benchmark\+::test}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_date_time}{Date\+Time}}
+\item 
+namespace \mbox{\hyperlink{namespace_fibonacci}{Fibonacci}}
+\item 
+namespace \mbox{\hyperlink{namespace_benchmark}{Benchmark}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{namespace_date_time_aa91770d9d63be33a21edf680963871d3}{Date\+Time\+::\+Now}} () -\/$>$ time\+\_\+point$<$ high\+\_\+resolution\+\_\+clock $>$
+\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespace_fibonacci_a7349108863b13bb25ebb423bf149de19}{Fibonacci\+::recursive}} (const uint64\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_a}{A}} recursive fibonacci number generator. \end{DoxyCompactList}\item 
+constexpr uint64\+\_\+t \mbox{\hyperlink{namespace_fibonacci_ae732b819ae4ab456db006b763179079e}{Fibonacci\+::iterative}} (const uint64\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em An iterative solution to the fibonacci sequence. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_benchmark_8h_aa88cce127c48395c0c4ee192a843904a}{dc\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_benchmark_8h_a848b75568cd0dbd4c02a94886bf4851e}{ascii\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_benchmark_8h_a262bb2e6853a46f39523d79143f857c5}{ss\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_benchmark_8h_aae13c7fc2bb67f618c0c064aebf00f2f}{bm\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_benchmark_8h_a5f5f013d52c54b200b1441017238d38c}{tuple\+\_\+tie\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$env\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_benchmark_8h_a3fb26ef3c04f413a49ce9586e5dd9b29}{inf\+\_\+test\+\_\+main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$env\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Entry point for infinity generator test. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_benchmark_8h_a848b75568cd0dbd4c02a94886bf4851e}\label{_benchmark_8h_a848b75568cd0dbd4c02a94886bf4851e}} 
+\index{Benchmark.h@{Benchmark.h}!ascii\_main@{ascii\_main}}
+\index{ascii\_main@{ascii\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{ascii\_main()}{ascii\_main()}}
+{\footnotesize\ttfamily int ascii\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_ascii_chart_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_ascii_chart_8cpp_source}{Ascii\+Chart.\+cpp}}.
+
+\mbox{\Hypertarget{_benchmark_8h_aae13c7fc2bb67f618c0c064aebf00f2f}\label{_benchmark_8h_aae13c7fc2bb67f618c0c064aebf00f2f}} 
+\index{Benchmark.h@{Benchmark.h}!bm\_main@{bm\_main}}
+\index{bm\_main@{bm\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{bm\_main()}{bm\_main()}}
+{\footnotesize\ttfamily int bm\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_benchmark_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_benchmark_8cpp_source}{Benchmark.\+cpp}}.
+
+\mbox{\Hypertarget{_benchmark_8h_aa88cce127c48395c0c4ee192a843904a}\label{_benchmark_8h_aa88cce127c48395c0c4ee192a843904a}} 
+\index{Benchmark.h@{Benchmark.h}!dc\_main@{dc\_main}}
+\index{dc\_main@{dc\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{dc\_main()}{dc\_main()}}
+{\footnotesize\ttfamily int dc\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dc_8cpp_source_l00201}{201}} of file \mbox{\hyperlink{dc_8cpp_source}{dc.\+cpp}}.
+
+\mbox{\Hypertarget{_benchmark_8h_a3fb26ef3c04f413a49ce9586e5dd9b29}\label{_benchmark_8h_a3fb26ef3c04f413a49ce9586e5dd9b29}} 
+\index{Benchmark.h@{Benchmark.h}!inf\_test\_main@{inf\_test\_main}}
+\index{inf\_test\_main@{inf\_test\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{inf\_test\_main()}{inf\_test\_main()}}
+{\footnotesize\ttfamily int inf\+\_\+test\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{char $\ast$}]{env\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Entry point for infinity generator test. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & number of elements in argv \\
+\hline
+{\em argv} & a string array containing argc elements. \\
+\hline
+{\em env} & a null terminated array of char$\ast$ containing the environment variables for this process. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{tests_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}.
+
+\mbox{\Hypertarget{_benchmark_8h_a262bb2e6853a46f39523d79143f857c5}\label{_benchmark_8h_a262bb2e6853a46f39523d79143f857c5}} 
+\index{Benchmark.h@{Benchmark.h}!ss\_main@{ss\_main}}
+\index{ss\_main@{ss\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{ss\_main()}{ss\_main()}}
+{\footnotesize\ttfamily int ss\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_string_stream_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_string_stream_8cpp_source}{String\+Stream.\+cpp}}.
+
+\mbox{\Hypertarget{_benchmark_8h_a5f5f013d52c54b200b1441017238d38c}\label{_benchmark_8h_a5f5f013d52c54b200b1441017238d38c}} 
+\index{Benchmark.h@{Benchmark.h}!tuple\_tie\_main@{tuple\_tie\_main}}
+\index{tuple\_tie\_main@{tuple\_tie\_main}!Benchmark.h@{Benchmark.h}}
+\doxysubsubsection{\texorpdfstring{tuple\_tie\_main()}{tuple\_tie\_main()}}
+{\footnotesize\ttfamily int tuple\+\_\+tie\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{char $\ast$}]{env\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tuple1_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{tuple1_8cpp_source}{tuple1.\+cpp}}.
+

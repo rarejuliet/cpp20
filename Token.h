@@ -30,8 +30,12 @@ enum class TokenType : char {
 	Eof = -1
 };
 
+/**
+ * @brief 
+ */
 class Token {
 public:
+
 	TokenType Type = TokenType::Eof;
 	std::string Buffer;
 	explicit Token(TokenType t, std::string buffer) :
@@ -39,13 +43,14 @@ public:
 	static auto CreateToken(TokenType t, const std::string& buffer) {
 		//		std::unique_ptr<Token> tk(new Token(t, buffer));
 		// Supposedly it's better to do it this way.
-		auto tk = std::make_unique<Token>(t, buffer);
-		return tk;
+		//auto tk = std::make_unique<Token>(t, buffer);
+		return std::make_unique<Token>(t, buffer);
+		//return tk;
 	}
 
 	/**
-	 * \brief Returns a string representation of this Token
-	 * \return A string name for the enumerated value.
+	 * @brief Returns a string representation of this Token
+	 * @return A string name for the enumerated value.
 	 */
 	[[nodiscard]] auto to_string() const -> std::string {
 		std::string rv;
@@ -125,7 +130,7 @@ public:
 
 class Lexer {
 public:
-	Lexer(std::istream& s) : stream(s), buf() {}
+	Lexer(std::istream& s) : stream(s), buf(std::string("")) {}
 
 	/**
 	 * \brief operator bool - Used to detect when the stream has reached eof.
@@ -223,18 +228,30 @@ private:
 struct Node {
 	/**
 	 * \brief 
-	 * \param t 
+	 * \param t
 	 */
 	Node(Token t) : token(std::move(t)) {}
 	Token token;
 	Node* left = nullptr;
 	Node* right= nullptr;
 };
+/**
+    @struct Expression
+    @brief  
+**/
 struct Expression : Node{
 	Expression(std::unique_ptr<Node> &root_node) : Node(std::move(root_node->token)) {}
 	std::unique_ptr<Node> root;
 };
+/**
+
+    @class   Parser
+    @brief   
+    @details ~
+
+**/
 class Parser {
+public:
 	explicit Parser(std::istream& is) {
 		lexer = std::make_unique<Lexer>(is);
 	}

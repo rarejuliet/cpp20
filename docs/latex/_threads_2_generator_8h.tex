@@ -1,0 +1,45 @@
+\hypertarget{_threads_2_generator_8h}{}\doxysection{Threads/\+Generator.h File Reference}
+\label{_threads_2_generator_8h}\index{Threads/Generator.h@{Threads/Generator.h}}
+{\ttfamily \#include $<$coroutine$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_generator}{Generator$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em The class name \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}}\textquotesingle{} is our choice and it is not required for coroutine magic. Compiler recognizes coroutine by the presence of \textquotesingle{}co\+\_\+yield\textquotesingle{} keyword. You can use name \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}}\textquotesingle{} (or any other name) instead as long as you include nested struct \mbox{\hyperlink{struct_generator_1_1promise__type}{promise\+\_\+type}} with \textquotesingle{}\mbox{\hyperlink{struct_generator}{Generator}} get\+\_\+return\+\_\+object()\textquotesingle{} method. Note\+: You need to adjust class constructor/destructor names too when choosing to rename class. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_generator_1_1promise__type}{Generator$<$ T $>$\+::promise\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}{fibonacci\+\_\+sequence}} (uint64\+\_\+t n)
+\item 
+int \mbox{\hyperlink{_threads_2_generator_8h_a2c2cafa01e87606b7a1add075b506c64}{test\+Main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}\label{_threads_2_generator_8h_a19519ffd9d671e53ef6eae17e14c3b22}} 
+\index{Generator.h@{Generator.h}!fibonacci\_sequence@{fibonacci\_sequence}}
+\index{fibonacci\_sequence@{fibonacci\_sequence}!Generator.h@{Generator.h}}
+\doxysubsubsection{\texorpdfstring{fibonacci\_sequence()}{fibonacci\_sequence()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_generator}{Generator}}$<$ uint64\+\_\+t $>$ fibonacci\+\_\+sequence (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_threads_2_generator_8h_source_l00086}{86}} of file \mbox{\hyperlink{_threads_2_generator_8h_source}{Generator.\+h}}.
+
+\mbox{\Hypertarget{_threads_2_generator_8h_a2c2cafa01e87606b7a1add075b506c64}\label{_threads_2_generator_8h_a2c2cafa01e87606b7a1add075b506c64}} 
+\index{Generator.h@{Generator.h}!testMain@{testMain}}
+\index{testMain@{testMain}!Generator.h@{Generator.h}}
+\doxysubsubsection{\texorpdfstring{testMain()}{testMain()}}
+{\footnotesize\ttfamily int test\+Main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_threads_2_generator_8h_source_l00114}{114}} of file \mbox{\hyperlink{_threads_2_generator_8h_source}{Generator.\+h}}.
+

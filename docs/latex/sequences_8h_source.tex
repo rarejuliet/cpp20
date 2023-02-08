@@ -1,0 +1,61 @@
+\hypertarget{sequences_8h_source}{}\doxysection{sequences.\+h}
+\mbox{\hyperlink{sequences_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ SEQUENCES\_H}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ SEQUENCES\_H}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_threads_2_generator_8h}{Generator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8h}{math.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00009}\mbox{\hyperlink{namespacesequences}{00009}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesequences}{sequences}}\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00010}00010\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00017}00017\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00018}\mbox{\hyperlink{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}{00018}}\ \mbox{\hyperlink{namespacesequences_a6c64165ac0324e8335ca9a8607db051c}{get\_fibonacci\_sequence}}(uint64\_t\ n)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ max\_fibonacci\ =\ 94;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ max\_fibonacci)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}Fibonacci\ sequence\ for\ [fib(\{0\})]\ would\ overflow\ a\ 64-\/bit\ integer."{}},n));}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{co\_yield}\ 0;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{co\_yield}\ 1;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00031}00031\ \ \ \ \ uint64\_t\ a\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00032}00032\ \ \ \ \ uint64\_t\ b\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint64\_t\ i\ =\ 2;\ i\ <\ n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ uint64\_t\ s\ =\ a\ +\ b;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_yield}\ s;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ a\ =\ b;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ b\ =\ s;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00045}\mbox{\hyperlink{namespacesequences_a099d9498d223dce72d8c42419ba16d78}{00045}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}\ \mbox{\hyperlink{namespacesequences_a099d9498d223dce72d8c42419ba16d78}{get\_prime\_sequence}}()}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00047}00047\ \ \ \ \ uint64\_t\ n\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{while}\ (n<UINT64\_MAX)\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{namespacemath_a46ff225a15a847130bed5f5c09180924}{math::is\_prime}}(n))\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ ++n;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_yield}\ n;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ ++n;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00062}\mbox{\hyperlink{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}{00062}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_generator}{Generator<uint64\_t>}}\ \mbox{\hyperlink{namespacesequences_a1fec924a4192c970c7cc0f6c55aa50d6}{get\_infinite\_sequence}}()\ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00063}00063\ \ \ \ \ uint64\_t\ i=0;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{while}(i<UINT64\_MAX)}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_yield}\ i;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ ++i;}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00071}00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{sequences_8h_source_l00072}00072\ }
+
+\end{DoxyCode}

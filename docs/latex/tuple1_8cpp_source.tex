@@ -1,0 +1,122 @@
+\hypertarget{tuple1_8cpp_source}{}\doxysection{tuple1.\+cpp}
+\label{tuple1_8cpp_source}\index{containers/tuple1.cpp@{containers/tuple1.cpp}}
+\mbox{\hyperlink{tuple1_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <tuple>}\ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ tie()\ tuple\_cat()\ swap()\ and\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \ \ \ \ \ \textcolor{comment}{//\ EXIT\_SUCCESS\ and\ EXIT\_FAILURE}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <thread>}\ \ \ \ \ \ \ \textcolor{comment}{//\ jthread}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00006}\mbox{\hyperlink{tuple1_8cpp_aea12da54c4fa33548eda00c60213f858}{00006}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tuple1_8cpp_aea12da54c4fa33548eda00c60213f858}{tuple\_cat\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv,\ \textcolor{keywordtype}{char}\ **env)}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{comment}{//\ Initializing\ 1st\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00010}00010\ \ \ \ \ tuple\ <int,\ char,\ float>\ tup1(20,\ \textcolor{charliteral}{'g'},\ 17.5);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\ Initializing\ 2nd\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00013}00013\ \ \ \ \ tuple\ <int,\ char,\ float>\ tup2(30,\ \textcolor{charliteral}{'f'},\ 10.5);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00014}00014\ \ \ \ \ tuple\ <std::string,\ int,\ std::vector<double>>\ tup4(\textcolor{stringliteral}{"{}I\ am\ a\ string"{}},\ 2,\ \{\ 0,1,2,3,4,5,6,7,8,9\ \});}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{comment}{//\ Concatenating\ 2\ tuples\ to\ return\ a\ new\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{auto}\ tup3\ =\ tuple\_cat(tup1,\ tup2);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00019}00019\ \ \ \ \ std::pair<std::string,\ std::string>\ pair\ =\ make\_pair(\textcolor{stringliteral}{"{}Key"{}},\ \textcolor{stringliteral}{"{}Value"{}});}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00020}00020\ \ \ \ \ std::cout\ <<\ pair.first\ <<\ pair.second\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ Displaying\ new\ tuple\ elements}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00022}00022\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ new\ tuple\ elements\ in\ order\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00023}00023\ \ \ \ \ cout\ <<\ get<0>(tup3)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<1>(tup3)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00024}00024\ \ \ \ \ cout\ <<\ get<2>(tup3)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<3>(tup3)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00025}00025\ \ \ \ \ cout\ <<\ get<4>(tup3)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<5>(tup3)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00030}\mbox{\hyperlink{tuple1_8cpp_a2d19137b05f0bcb1c636e07b02b273ce}{00030}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tuple1_8cpp_a2d19137b05f0bcb1c636e07b02b273ce}{tuple\_swap\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv,\ \textcolor{keywordtype}{char}**\ env)}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ Initializing\ 1st\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00034}00034\ \ \ \ \ tuple\ <int,\ char,\ float>\ tup1(20,\ \textcolor{charliteral}{'g'},\ 17.5);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Initializing\ 2nd\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00037}00037\ \ \ \ \ tuple\ <int,\ char,\ float>\ tup2(10,\ \textcolor{charliteral}{'f'},\ 15.5);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Printing\ 1st\ and\ 2nd\ tuple\ before\ swapping}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00040}00040\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ first\ tuple\ elements\ before\ swapping\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00041}00041\ \ \ \ \ cout\ <<\ get<0>(tup1)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<1>(tup1)\ <<\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ <<\ get<2>(tup1)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00043}00043\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ second\ tuple\ elements\ before\ swapping\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00044}00044\ \ \ \ \ cout\ <<\ get<0>(tup2)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<1>(tup2)\ <<\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ <<\ get<2>(tup2)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Swapping\ tup1\ values\ with\ tup2}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00048}00048\ \ \ \ \ tup1.swap(tup2);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ Printing\ 1st\ and\ 2nd\ tuple\ after\ swapping}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00051}00051\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ first\ tuple\ elements\ after\ swapping\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00052}00052\ \ \ \ \ cout\ <<\ get<0>(tup1)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<1>(tup1)\ <<\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ <<\ get<2>(tup1)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00054}00054\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ second\ tuple\ elements\ after\ swapping\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00055}00055\ \ \ \ \ cout\ <<\ get<0>(tup2)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ get<1>(tup2)\ <<\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ <<\ get<2>(tup2)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00061}\mbox{\hyperlink{_benchmark_8h_a5f5f013d52c54b200b1441017238d38c}{00061}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tuple1_8cpp_a5f5f013d52c54b200b1441017238d38c}{tuple\_tie\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{char}*\ env[])\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Initializing\ variables\ for\ unpacking}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ i\_val\{\};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{char}\ ch\_val\{\};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{float}\ f\_val\{\};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Initializing\ tuple}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00069}00069\ \ \ \ \ tuple\ <int,\ char,\ float>\ tup1(20,\ \textcolor{charliteral}{'g'},\ 17.5);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ Use\ of\ tie()\ without\ ignore}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00072}00072\ \ \ \ \ tie(i\_val,\ ch\_val,\ f\_val)\ =\ tup1;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ Displaying\ unpacked\ tuple\ elements}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ without\ ignore}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00076}00076\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ unpacked\ tuple\ values\ (without\ ignore)\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00077}00077\ \ \ \ \ cout\ <<\ i\_val\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ ch\_val\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ f\_val;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00078}00078\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Use\ of\ tie()\ with\ ignore}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ ignores\ char\ value}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00082}00082\ \ \ \ \ tie(i\_val,\ ignore,\ f\_val)\ =\ tup1;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Displaying\ unpacked\ tuple\ elements}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ with\ ignore}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00085}00085\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ unpacked\ tuple\ values\ (with\ ignore)\ are\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00086}00086\ \ \ \ \ cout\ <<\ i\_val\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ f\_val;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00087}00087\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//use\ of\ structured\ bindings:}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{auto}\&\ [iv,cv,fv]\ =\ tup1;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00091}00091\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}iv:\{"{}}\ <<\ iv\ <<\ \textcolor{stringliteral}{"{}\}\ "{}}\ <<\ \textcolor{stringliteral}{"{}cv:\{"{}}\ <<\ cv\ <<\ \textcolor{stringliteral}{"{}\}\ "{}}\ <<\ \textcolor{stringliteral}{"{}fv:\{"{}}\ <<}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ fv\ <<\ \textcolor{stringliteral}{"{}\}\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00094}00094\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00099}\mbox{\hyperlink{tuple1_8cpp_a19b44389110c1b782f1726194ef34671}{00099}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tuple1_8cpp_a19b44389110c1b782f1726194ef34671}{jthread\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv,\ \textcolor{keywordtype}{char}**\ env)\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00101}00101\ \ \ \ \ uint32\_t\ n\ =\ std::jthread::hardware\_concurrency();}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00102}00102\ \ \ \ \ cout\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\ concurrent\ threads\ are\ supported.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00104}00104\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}main("{}}\ <<\ argc\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ argc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ cout\ <<\ argv[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ argc;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ cout\ <<\ env[i];}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00111}00111\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{tuple1_8cpp_aea12da54c4fa33548eda00c60213f858}{tuple\_cat\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{tuple1_8cpp_a2d19137b05f0bcb1c636e07b02b273ce}{tuple\_swap\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00114}00114\ \ \ \ \ \mbox{\hyperlink{tuple1_8cpp_a5f5f013d52c54b200b1441017238d38c}{tuple\_tie\_main}}(argc,\ argv,\ env);}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{tuple1_8cpp_source_l00116}00116\ \}}
+
+\end{DoxyCode}

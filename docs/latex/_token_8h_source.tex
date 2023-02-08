@@ -1,0 +1,280 @@
+\hypertarget{_token_8h_source}{}\doxysection{Token.\+h}
+\mbox{\hyperlink{_token_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TOKEN\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TOKEN\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00008}\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{00008}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{TokenType}}\ :\ \textcolor{keywordtype}{char}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a490aa6e856ccf208a054389e47ce0d06}{Id}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ab2ee912b91d69b435159c7c3f6df7f5f}{Number}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a0986d137604183312e6d3599578bc6cd}{Sin}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823affca562be079b9e4e41ea9d6a86c582b}{Cos}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1266b4e6f81e60733ec6c717e0181f60}{Tan}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823ace0be71e33226e4c1db2bcea5959f16b}{Log}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823acad39a154bffb61175f674d6eefaf6d0}{Exp}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823af91f89a8b9c7f2e02675fa2d2609abd9}{Log10}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7a62a19ae79ad2e91c678d8cae130794}{Exp10}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aae77f3ad25595e35b327334d89410054}{Sqrt}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a1686a6c336b71b36d77354cea19a8b52}{Int}},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823aaf6c6cf7a454b4ef4a850ac4d960a2cc}{Dot}}\ =\ \textcolor{charliteral}{'.'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a185b7133db22230701a857c059360cc2}{Assign}}\ =\ \textcolor{charliteral}{'='},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a32ba78fe43257d3e7f88e3935a8ea0d4}{Plus}}\ =\ \textcolor{charliteral}{'+'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a453fb623e752c5993f65bc410fd74fe5}{Minus}}\ =\ \textcolor{charliteral}{'-\/'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a62b6d55816cf737bfc6f42e60df1a3f2}{Mul}}\ =\ \textcolor{charliteral}{'*'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a43d11850893d2fe84a1e618121c1cc0a}{Div}}\ =\ \textcolor{charliteral}{'/'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a7aeb0277500c86e4aa6bd23f9a737942}{Mod}}\ =\ \textcolor{charliteral}{'\%'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a8be6d3e955290ee50c00a4bc92aa7749}{Pow}}\ =\ \textcolor{charliteral}{'\string^'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a83aa590baf7250511fba793140bd1ea0}{Lp}}\ =\ \textcolor{charliteral}{'('},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a79e01c1296be018f71c07736b282fb40}{Rp}}\ =\ \textcolor{charliteral}{')'},}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823a49650dcc55dc413da4032cbe44b15d37}{Eof}}\ =\ -\/1}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00031}00031\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00036}\mbox{\hyperlink{class_token}{00036}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_token}{Token}}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00037}00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00039}\mbox{\hyperlink{class_token_a125b7cd40164e5e1118834bf2733a2e5}{00039}}\ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{TokenType}}\ \mbox{\hyperlink{class_token_a125b7cd40164e5e1118834bf2733a2e5}{Type}}\ =\ TokenType::Eof;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00040}\mbox{\hyperlink{class_token_a6e3292ec1765b962931e986fb4d21118}{00040}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_token_a6e3292ec1765b962931e986fb4d21118}{Buffer}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00041}\mbox{\hyperlink{class_token_afddc86c367b8684da63e20c437ab7f92}{00041}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_token_afddc86c367b8684da63e20c437ab7f92}{Token}}(\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{TokenType}}\ t,\ std::string\ buffer)\ :}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_token_a125b7cd40164e5e1118834bf2733a2e5}{Type}}(t),\ \mbox{\hyperlink{class_token_a6e3292ec1765b962931e986fb4d21118}{Buffer}}(std::move(buffer))\ \{\}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00043}\mbox{\hyperlink{class_token_a6fa3c503e9cbcea0160981adeff72faf}{00043}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_token_a6fa3c503e9cbcea0160981adeff72faf}{CreateToken}}(\mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{TokenType}}\ t,\ \textcolor{keyword}{const}\ std::string\&\ buffer)\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ std::unique\_ptr<Token>\ tk(new\ Token(t,\ buffer));}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Supposedly\ it's\ better\ to\ do\ it\ this\ way.}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//auto\ tk\ =\ std::make\_unique<Token>(t,\ buffer);}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<Token>(t,\ buffer);}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ tk;}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00055}\mbox{\hyperlink{class_token_a806ed9a184812d579f6a3167e63e92f0}{00055}}\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_token_a806ed9a184812d579f6a3167e63e92f0}{to\_string}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ std::string\ rv;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (this-\/>Type)\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Id:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Id"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Number:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Number"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Int:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Int"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Assign:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Assign"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Plus:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Plus"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Minus:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Minus"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Mul:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Mul"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Div:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Div"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Mod:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Mod"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Pow:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Pow"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Lp:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Lp"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Rp:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Rp"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Dot:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Dot"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Eof:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Eof"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Sin:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Sin"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Cos:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Cos"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Tan:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Tan"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Log:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Log"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Exp:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Exp"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Log10:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Log10"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Exp10:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Exp10"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Sqrt:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Sqrt"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ rv\ =\ \textcolor{stringliteral}{"{}Eof"{}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rv;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00129}00129\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00131}\mbox{\hyperlink{class_lexer}{00131}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{namespace_lexer}{Lexer}}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00132}00132\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00133}\mbox{\hyperlink{class_lexer_a03928c9428a7a948c6c28f8178ff340b}{00133}}\ \ \ \ \ \mbox{\hyperlink{class_lexer_a03928c9428a7a948c6c28f8178ff340b}{Lexer}}(std::istream\&\ s)\ :\ stream(s),\ buf(std::string(\textcolor{stringliteral}{"{}"{}}))\ \{\}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00138}\mbox{\hyperlink{class_lexer_a5341bf89d0abddfa5694edf272c31ef3}{00138}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !stream.eof();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00146}\mbox{\hyperlink{class_lexer_a9694461c4f1061069ac3a501ecb8b7b2}{00146}}\ \ \ \ \ std::unique\_ptr<Token>\ \mbox{\hyperlink{class_lexer_a9694461c4f1061069ac3a501ecb8b7b2}{get\_next\_token}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ ch\{\};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ ch\ =\ stream.get();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ la\{\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_token_8h_ae7cbb988e991b55c7a73cbd74a96c823}{TokenType}}\ type\ =\ TokenType::Eof;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ buf\ =\ ch;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ num\{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//buf\ +=\ ch;}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (ch)\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'b'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'d'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'e'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'f'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'g'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'h'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'i'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'j'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'k'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'l'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'m'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'o'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'p'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'q'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'r'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'t'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'u'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'v'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'w'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'x'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'y'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'z'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'A'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'B'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'C'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'E'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'F'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'G'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'H'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'I'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'J'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'K'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'L'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'M'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'N'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'O'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'P'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'Q'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'R'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'S'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'U'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'V'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'W'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'X'}:\ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'Y'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'Z'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Id;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(isalnum(stream.peek()))\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ +=\ stream.get();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'0'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'1'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'2'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'3'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'4'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'5'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'6'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'7'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'8'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'9'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \ \ \ \textcolor{charliteral}{'.'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Number;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.putback(ch);}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream\ >>\ num;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf\ =\ std::to\_string(num);}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//while\ (isdigit(la\ =\ stream.peek()))\ \{}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ buf\ +=\ stream.get();}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'+'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Plus;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'-\/'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Minus;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'*'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Mul;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Div;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\string^'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Pow;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\%'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Mod;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'('}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Lp;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{')'}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Rp;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//case\ '.':}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ type\ =\ TokenType::Dot;}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ break;}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ TokenType::Eof;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_token_a6fa3c503e9cbcea0160981adeff72faf}{Token::CreateToken}}(type,\ std::move(buf));}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00223}00223\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00224}00224\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00225}00225\ \ \ \ \ std::istream\ \&stream;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00226}00226\ \ \ \ \ std::string\ buf;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00227}00227\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00228}\mbox{\hyperlink{struct_node}{00228}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_node}{Node}}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00233}\mbox{\hyperlink{struct_node_a7fe0b08801739879a268d04c0f32d1f8}{00233}}\ \ \ \ \ \mbox{\hyperlink{struct_node_a7fe0b08801739879a268d04c0f32d1f8}{Node}}(\mbox{\hyperlink{class_token}{Token}}\ t)\ :\ \mbox{\hyperlink{struct_node_a257d69949cc658cc99aa670f57a0efec}{token}}(std::move(t))\ \{\}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00234}\mbox{\hyperlink{struct_node_a257d69949cc658cc99aa670f57a0efec}{00234}}\ \ \ \ \ \mbox{\hyperlink{class_token}{Token}}\ \mbox{\hyperlink{struct_node_a257d69949cc658cc99aa670f57a0efec}{token}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00235}\mbox{\hyperlink{struct_node_ab8c667ac8fdb120ed4c031682a9cdaee}{00235}}\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{struct_node_ab8c667ac8fdb120ed4c031682a9cdaee}{left}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00236}\mbox{\hyperlink{struct_node_a7328862eaa6dea28018326549b3294d3}{00236}}\ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}*\ \mbox{\hyperlink{struct_node_a7328862eaa6dea28018326549b3294d3}{right}}=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00237}00237\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00238}\mbox{\hyperlink{struct_expression}{00238}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_expression}{Expression}}\ :\ \mbox{\hyperlink{struct_node}{Node}}\{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00239}\mbox{\hyperlink{struct_expression_a6779b05606e55d7c4069b6d03b867615}{00239}}\ \ \ \ \ \mbox{\hyperlink{struct_expression_a6779b05606e55d7c4069b6d03b867615}{Expression}}(std::unique\_ptr<Node>\ \&root\_node)\ :\ \mbox{\hyperlink{struct_node}{Node}}(std::move(root\_node-\/>\mbox{\hyperlink{struct_node_a257d69949cc658cc99aa670f57a0efec}{token}}))\ \{\}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00240}\mbox{\hyperlink{struct_expression_aa3d34b8163e418fcac0282adf0e4a15a}{00240}}\ \ \ \ \ std::unique\_ptr<Node>\ \mbox{\hyperlink{struct_expression_aa3d34b8163e418fcac0282adf0e4a15a}{root}};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00241}00241\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00242}\mbox{\hyperlink{class_parser}{00242}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{namespace_parser}{Parser}}\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00243}00243\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{namespace_parser}{Parser}}(std::istream\&\ is)\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ lexer\ =\ std::make\_unique<Lexer>(is);}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00246}00246\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_parser_a5cbcf98ea42139dc88f9afa2f320573c}{expr}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ std::unique\_ptr<Token>\ t\ =\ lexer-\/>get\_next\_token();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ std::unique\_ptr<Token>\ la\ =\ lexer-\/>get\_next\_token();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_node}{Node}}\ node(std::move(*t));}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (t-\/>Type)}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00252}00252\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Id:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Number:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Should\ find\ an\ operator\ and\ another\ Number}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ node.\mbox{\hyperlink{struct_node_ab8c667ac8fdb120ed4c031682a9cdaee}{left}}-\/>\mbox{\hyperlink{struct_node_a257d69949cc658cc99aa670f57a0efec}{token}}\ =\ *t;}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ lexer-\/>get\_next\_token();}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Sin:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Cos:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Tan:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Log:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Exp:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Log10:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Exp10:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Sqrt:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00269}00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Int:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Dot:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Assign:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Plus:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Minus:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Mul:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Div:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Mod:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Pow:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Lp:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Rp:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TokenType::Eof:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ we\ got\ here,\ there's\ some\ error.}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00286}00286\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00287}00287\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00288}00288\ \ \ \ \ std::unique\_ptr<Lexer>\ lexer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00289}00289\ \};}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00294}\mbox{\hyperlink{_token_8h_a7ad5e6d28bc8ada4997316aaa734eaa2}{00294}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_token_8h_a7ad5e6d28bc8ada4997316aaa734eaa2}{lexer\_main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{char}*\ env[]);}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00295}00295\ \textcolor{comment}{//int\ parser\_main(int\ argc,\ char*\ argv[],\ char*\ env[]);}}
+\DoxyCodeLine{\Hypertarget{_token_8h_source_l00296}00296\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TOKEN\_H\_\_}}
+
+\end{DoxyCode}
