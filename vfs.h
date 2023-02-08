@@ -2,6 +2,8 @@
 #define VFS_H
 #include <string>
 #include <vector>
+#include <filesystem>
+
 int vfs_test(int argc, char* argv[], char* env[]);
 namespace fs = std::filesystem;
 
@@ -29,19 +31,18 @@ class vfs {
 		 * \param directory A path to a directory to change to.
 		 * \return true on success, else false
 		 */
-		inline virtual bool chdir(const std::string& directory) {
+		inline virtual bool chdir(const fs::path& directory) {
 			fs::current_path(directory);
 			if(fs::current_path()==directory)
 				return true;
-			else
-				return false;
+			return false;
 		};
 		/**
 		 * \brief open a directory.
-		 * \param filename a path to a directory to open
+		 * \param path a path to a directory to open
 		 * \return true on success, else false.
 		 */
-		virtual bool opendir(const std::string& filename = default_directory) = 0;
+		virtual bool opendir(const fs::path& path = default_directory) = 0;
 		/**
 		 * \brief Close a directory opened with opendir()
 		 * \return true on success, else false
@@ -59,11 +60,11 @@ class vfs {
 		virtual std::vector<std::string> readdir_recurse() = 0;
 		/**
 		 * \brief Create a new directory.
-		 * \param directory_name Path containing the name of the folder
+		 * \param path Path containing the name of the folder
 		 * you wish to create.
 		 * \return true on success, else false
 		 */
-		virtual bool mkdir(const std::string& directory_name) = 0;
+		virtual bool mkdir(const fs::path& path) = 0;
 		/**
 		 * \brief Mount, or connect a filesystem to this one.
 		 * \return true on success, else false
@@ -79,7 +80,7 @@ class vfs {
 		 * \param directory A path to a file or directory.
 		 * \return true on success, else false
 		 */
-		bool unlink(const std::string& directory);
+		bool unlink(const fs::path& directory);
 
 		/**
 		 * \brief Get the current working directory.
@@ -104,16 +105,16 @@ class real_fs : public vfs {
 	 * \brief Constructor.
 	 * \param root A path to startup at.
 	 */
-	explicit real_fs(std::string root) : vfs(root) {}
+	explicit real_fs(fs::path root) : vfs(root) {}
 
 		/**
 		 * \brief open a directory.
-		 * \param filename a path to a directory to open
+		 * \param path a path to a directory to open
 		 * \return true on success, else false.
 		 */
-		bool opendir(const std::string& filename) override {
-			fs::current_path(filename);
-			entry = fs::directory_entry(fs::path(filename));
+		bool opendir(const fs::path& path) override {
+			fs::current_path(path);
+			entry = fs::directory_entry(fs::path(path));
 			if(entry.exists())
 				return true;
 			else
@@ -172,23 +173,23 @@ class real_fs : public vfs {
 
 		/**
 		 * \brief Create a new directory.
-		 * \param directory_name Path containing the name of the folder
+		 * \param path Path containing the name of the folder
 		 * you wish to create.
 		 * \return true on success, else false
 		 */
-		virtual bool mkdir(const std::string& directory_name) override{
-			fs::create_directory(directory_name);
-			entry = fs::directory_entry(directory_name);
+		virtual bool mkdir(const fs::path& path) override{
+			fs::create_directory(path);
+			entry = fs::directory_entry(path);
 			return entry.exists();
 		}
 
 		/**
 		 * \brief Unlink(), or delete a directory or file.
-		 * \param directory A path to a file or directory.
+		 * \param path A path to a file or directory.
 		 * \return true on success, else false
 		 */
-		virtual bool unlink(const std::string& directory) {
-			return fs::remove(directory);
+		virtual bool unlink(const fs::path& path) {
+			return fs::remove(path);
 		}
 		fs::directory_entry entry;
 	};

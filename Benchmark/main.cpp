@@ -12,7 +12,8 @@
 #include "../output_utils.h"
 #include "../tests.h"
 #include "../vfs.h"
-
+#include "../concepts.h"
+#include "../Hashtable.h"
 /**
  * \brief Entry point for the application.
  * \param argc 
@@ -31,19 +32,19 @@ int main(int argc, char* argv[], char* env[])
         iss.imbue(std::locale());
         std::cout << "Global locale : " << iss.getloc().name() << std::endl;
         std::cout << std::bitset<8>(-47) << "\n";
-
-//        vfs_test(argc, argv, env);
-//	    string_utils_test_main(argc, argv, env);
-        //fib_test_main(argc, argv);
-        //inf_test_main(argc, argv, env);
-//	    bible_main(argc, argv, env);
-//    	regex_main(argc, argv, env);
-    	//ht_main(argc,argv,env);
-    	//parse_test_main(argc, argv, env);
+        concept_main(argc, argv, env);
+        vfs_test(argc, argv, env);
+	    string_utils_test_main(argc, argv, env);
+        fib_test_main(argc, argv);
+        inf_test_main(argc, argv, env);
+	    bible_main(argc, argv, env);
+    	regex_main(argc, argv, env);
+    	ht_main(argc,argv,env);
+    	parse_test_main(argc, argv, env);
     	ascii_main(argc, argv);
-    	//bm_main(argc, argv);
-    	//ss_main(argc, argv);
-    	//tuple_tie_main(argc,argv,env);
+    	bm_main(argc, argv);
+    	ss_main(argc, argv);
+    	tuple_tie_main(argc,argv,env);
     }
 	catch(std::exception& e)
     {

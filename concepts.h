@@ -19,6 +19,10 @@ concept container = requires(T t) {
     t.cbegin();
     t.cend();
 };
-
+template<class T>
+struct A : public std::vector<T>{};
+template<class T>
+struct B {};
+int concept_main(int argc, char * argv[], char ** env);
 
 #endif

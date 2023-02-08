@@ -2,10 +2,9 @@
 #include "vfs.h"
 
 #include <iostream>
-namespace fs = std::filesystem;
-struct NotImplementedException : private std::exception {
-	explicit NotImplementedException(const char* str) : std::exception(str){}
-};
+
+#include "exceptions.h"
+//namespace fs = std::filesystem;
 
 
 //bool vfs::chdir(const std::string& directory) {
@@ -16,13 +15,13 @@ bool vfs::closedir() {
 	throw NotImplementedException{"This function (chdir) hasn't been implemented yet."};
 }
 
-bool vfs::mkdir(const std::string& directory_name) {
+bool vfs::mkdir(const fs::path& path) {
 	throw NotImplementedException{"This function (mkdir) hasn't been implemented yet."};
 }
 bool vfs::mount() {
 	throw NotImplementedException{"This function (mount) hasn't been implemented yet."};
 }
-bool vfs::opendir(const std::string& filename) {
+bool vfs::opendir(const fs::path& path) {
 	throw NotImplementedException{"This function (opendir) hasn't been implemented yet."};
 }
 //std::vector<std::string> vfs::readdir() {
@@ -31,7 +30,7 @@ bool vfs::opendir(const std::string& filename) {
 bool vfs::unmount() {
 	throw NotImplementedException{"This function (unmount) hasn't been implemented yet."};
 }
-bool vfs::unlink(const std::string &directory) {
+bool vfs::unlink(const fs::path &directory) {
 	throw NotImplementedException{"This function (unlink) hasn't been implemented yet."};
 }
 

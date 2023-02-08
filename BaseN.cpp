@@ -2,10 +2,6 @@
 
 
 
-struct NotImplementedException : std::exception {
-	
-};
-
 //INTEGER TO HEXADECIMAL
 /**
  * \brief Convert a number to hexadecimal string.
