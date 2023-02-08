@@ -44,7 +44,7 @@ int vfs_test(int argc, char* argv[], char* env[]) {
 	}
 	if(vfs->mkdir("testdir_from_vfs"))
 		std::cout << "mkdir() was successfull." << std::endl;
-	auto dirs = vfs->readdir();
+	auto dirs = vfs->readdir_recurse();
 	for (const auto & dir : dirs)
 	{
 		std::cout << dir << std::endl;

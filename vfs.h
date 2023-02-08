@@ -53,6 +53,11 @@ class vfs {
 		 */
 		virtual std::vector<std::string> readdir() = 0;
 		/**
+		 * \brief Like readdir(), only this version recurses into all subdirectories.
+		 * \return A vector of string containing all directory entries and sub-entries.
+		 */
+		virtual std::vector<std::string> readdir_recurse() = 0;
+		/**
 		 * \brief Create a new directory.
 		 * \param directory_name Path containing the name of the folder
 		 * you wish to create.
@@ -135,6 +140,19 @@ class real_fs : public vfs {
 				dir_entries.push_back(std::move(filename));
 			}
 			return dir_entries;
+		}
+
+		/**
+		 * \brief Like readdir(), only this version recurses into all subdirectories.
+		 * \return A vector of string containing all directory entries and sub-entries.
+		 */
+		std::vector<std::string> readdir_recurse() {
+			auto list = std::vector<std::string>{};
+			for (const auto& it : fs::recursive_directory_iterator(cwd())) {
+				auto filename = it.path().filename().string();
+				list.push_back(filename);
+			}
+			return list;
 		}
 
 		/**
