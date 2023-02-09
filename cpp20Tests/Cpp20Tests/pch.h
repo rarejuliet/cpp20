@@ -13,5 +13,6 @@
 #include "CppUnitTest.h"
 #include "../../vfs.h"
 #include <memory>
-
+#include "math.h"
+#include "../../Benchmark/Benchmark.h"
 #endif //PCH_H

@@ -4,7 +4,6 @@
 #include "Benchmark.h"
 #include "../math.h"
 int bm_main(int argc, char* argv[]) {
-//	using namespace Fibonacci;
 	static_assert(math::Fibonacci::iterative(3) == math::Fibonacci::recursive(3));
 	static_assert(math::Fibonacci::recursive(9) == math::Fibonacci::iterative(9));
 	uint64_t input {0};

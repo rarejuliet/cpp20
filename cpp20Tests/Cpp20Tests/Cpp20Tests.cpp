@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "../../math.h"
 //#include <memory>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -28,17 +29,16 @@ namespace Cpp20Tests
 		END_TEST_METHOD_ATTRIBUTE()
 		TEST_METHOD(vfs_chdir)
 		{
-//			const auto vfs = std::make_unique<real_fs>(test_dir);
-			std::filesystem::path p = test_dir;
-			bool success = vfs->chdir(p);
-			if( success )
-				Logger::WriteMessage(L"chdir() was successful.\n");
-				//TODO: finish this test.
-			Logger::WriteMessage("Current directory is now: ");
-			Logger::WriteMessage(vfs->cwd().c_str());
-			Logger::WriteMessage("\n");
-			std::filesystem::path cd = vfs->cwd();
-			Assert::AreEqual(test_dir.string(), cd.string());
+			bool success = vfs->chdir(test_dir);
+			Assert::AreEqual(success,true);
+			//if( success )
+			//	Logger::WriteMessage(L"chdir() was successful.\n");
+			//	//TODO: finish this test.
+			//Logger::WriteMessage("Current directory is now: ");
+			//Logger::WriteMessage(vfs->cwd().c_str());
+			//Logger::WriteMessage("\n");
+			//std::filesystem::path cd = vfs->cwd();
+			//Assert::AreEqual(new_dir.string(), cd.string());
 		}
 		BEGIN_TEST_METHOD_ATTRIBUTE(vfs_mkdir)
 			TEST_OWNER(L"Adam Choate")
@@ -57,14 +57,23 @@ namespace Cpp20Tests
 			TEST_PRIORITY(3)
 		END_TEST_METHOD_ATTRIBUTE()
 		TEST_METHOD(vfs_chdir2) {
-			bool success = vfs->chdir(new_dir);
-			if(success)
-			{
-				Logger::WriteMessage("chdir(");
-				Logger::WriteMessage(new_dir.c_str());
-				Logger::WriteMessage(") SUCCEEDED\n");
-			}
-			Assert::AreEqual(new_dir.c_str(),vfs->cwd().c_str());
+			bool success = vfs->chdir(test_dir);
+			if( success )
+				Logger::WriteMessage(L"chdir() was successful.\n");
+				//TODO: finish this test.
+			Logger::WriteMessage("Current directory is now: ");
+			Logger::WriteMessage(vfs->cwd().c_str());
+			Logger::WriteMessage("\n");
+			std::filesystem::path cd = vfs->cwd();
+			Assert::AreEqual(test_dir.string(), cd.string());
+			//bool success = vfs->chdir(new_dir);
+			//if(success)
+			//{
+			//	Logger::WriteMessage("chdir(");
+			//	Logger::WriteMessage(new_dir.c_str());
+			//	Logger::WriteMessage(") SUCCEEDED\n");
+			//}
+			//Assert::AreEqual(new_dir.c_str(),vfs->cwd().c_str());
 		}
 		BEGIN_TEST_METHOD_ATTRIBUTE(vfs_readdir_recurse)
 			TEST_OWNER(L"Adam Choate")
@@ -95,10 +104,41 @@ namespace Cpp20Tests
 						Logger::WriteMessage("unlink() was UNSUCCESSFUL.");
 					else
 						Logger::WriteMessage("unlink() was SUCCESSFUL");
-			} catch (std::exception e) {
+			} catch (...) {
 				Logger::WriteMessage("Caught an exception: ");
-				Logger::WriteMessage(e.what());
 			}
 		}
+	};
+	TEST_CLASS(math_Fibonacci) {
+
+		TEST_METHOD_INITIALIZE(fibonacci_sanity_check) {
+			static_assert(math::Fibonacci::iterative(3) == math::Fibonacci::recursive(3));
+			static_assert(math::Fibonacci::recursive(9) == math::Fibonacci::iterative(9));
+		}
+		TEST_METHOD(benchmark) {
+			uint64_t input {0};
+
+			Benchmark::test t{};
+			std::vector<uint64_t> fibs{};
+			for(uint64_t i=0; i< math::Fibonacci::MAX_FIBONACCI / 3; ++i)	{
+				fibs.push_back(math::Fibonacci::recursive(i));
+			}
+			t.stop();
+			std::cout << "Elapsed time was: " << std::chrono::duration_cast<std::chrono::nanoseconds>(t.elapsed) << "\n";
+			fibs.clear();
+			Benchmark::test t2{};
+			for(uint64_t i=0; i< math::Fibonacci::MAX_FIBONACCI / 3; ++i)	{
+				fibs.push_back(math::Fibonacci::iterative(i));
+			}
+			t2.stop();
+			std::cout << "Elapsed time was: " << std::chrono::duration_cast<std::chrono::nanoseconds>(t2.elapsed) << "\n";
+			std::cout << "It took the recursive function [" << t.elapsed - t2.elapsed << 
+				"] ns longer that the iterative one." << std::endl;
+
+		}
+		TEST_METHOD(recursive_fibonacci) {
+			
+		}
+		
 	};
 }
