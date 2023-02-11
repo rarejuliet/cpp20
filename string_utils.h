@@ -4,6 +4,19 @@
 #include <string>
 #include <sstream>
 namespace util {
+	constexpr const char* UTF8 = "en_US.UTF8";
+	 /**
+	     @brief Set the current locale for cin, cout and cerr.
+	     @param locale - A C string containing the name of the locale you wish to set the
+	     stdin, stdout, and stderr (std::cin, std::cout, std::err) iostreams to.  Default
+	     is UTF8.
+	 **/
+	inline auto set_locale(const char* locale = UTF8) {
+		auto old = std::cout.imbue(std::locale(locale));
+		std::cerr.imbue(std::locale(locale));
+		std::cin.imbue(std::locale(locale));
+		return old;
+	}
 	/**
 	 * \brief Takes a string argument and creates a copy in uppercase.
 	 * \param s A source string to convert to uppercase.  s is not
@@ -49,12 +62,34 @@ namespace util {
 	 * \param value A numeric value is expected.
 	 * \return A new string with a comma-separated value.
 	 */
-	std::string commify(const auto& value)
+	constexpr  inline std::string commify(const auto& value)
 	{
 	    std::stringstream ss;
-	    ss.imbue(std::locale("en_US.UTF8"));
+	    ss.imbue(std::locale(UTF8));
 	    ss << std::fixed << value;
 	    return ss.str();
+	}
+	 /**
+	     @brief  Convert a value to its string representation.
+	     @param  val - Some value to convert to a string.
+	     @retval     - A std::string containing the string representation of val
+	 **/
+	constexpr inline std::string to_str(auto& val) {
+		std::stringstream ss;
+		ss.imbue(std::locale(UTF8));
+		ss << val;
+		return ss.str();
+	}
+	 /**
+	     @brief  This function converts a std::string to a const char*.  Many functions
+	     require a const char* as an argument, so to minimize casting and cluttered code
+	     this function is used.  Same effect as calling std::string::c_str on a string
+	     object.
+	     @param  s - A string to be converted to a const char*
+	     @retval   - A const char* containing the contents of s.
+	 **/
+	constexpr inline const char* to_c_str(const std::string& s) {
+		return s.c_str();
 	}
 }
 #endif

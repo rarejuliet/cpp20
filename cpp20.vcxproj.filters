@@ -69,6 +69,9 @@
     <ClCompile Include="concepts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="zlib_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Benchmark\Generator.h">

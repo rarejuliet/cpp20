@@ -80,7 +80,7 @@ uint64_t bin_to_dec(std::string bin)
  */
 uint64_t toThePower(uint64_t num, uint64_t power)
 {
-    return std::pow(num,power);
+    return static_cast<uint64_t>(std::pow(num,power));
     uint64_t temp = num;
     for (uint64_t i = 1; i < power; i++)
         temp = temp * num;

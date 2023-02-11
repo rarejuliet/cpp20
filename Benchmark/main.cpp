@@ -32,6 +32,7 @@ int main(int argc, char* argv[], char* env[])
         iss.imbue(std::locale());
         std::cout << "Global locale : " << iss.getloc().name() << std::endl;
         std::cout << std::bitset<8>(-47) << "\n";
+        zlib_test_main(argc, argv, env);
         concept_main(argc, argv, env);
 	    vfs::vfs_test(argc, argv, env);
 	    string_utils_test_main(argc, argv, env);

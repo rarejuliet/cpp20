@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../../math.h"
+#include "../../string_utils.h"
 //#include <memory>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -124,21 +125,26 @@ namespace Cpp20Tests
 				fibs.push_back(math::Fibonacci::recursive(i));
 			}
 			t.stop();
-			std::cout << "Elapsed time was: " << std::chrono::duration_cast<std::chrono::nanoseconds>(t.elapsed) << "\n";
+//			std::cout << "Elapsed time was: " << std::chrono::duration_cast<std::chrono::nanoseconds>(t.elapsed) << "\n";
+			Logger::WriteMessage("Elapsed time for recursive function was: ");
+			auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(t.elapsed);
+			Logger::WriteMessage(util::to_str(elapsed).c_str());
 			fibs.clear();
 			Benchmark::test t2{};
 			for(uint64_t i=0; i< math::Fibonacci::MAX_FIBONACCI / 3; ++i)	{
 				fibs.push_back(math::Fibonacci::iterative(i));
 			}
 			t2.stop();
-			std::cout << "Elapsed time was: " << std::chrono::duration_cast<std::chrono::nanoseconds>(t2.elapsed) << "\n";
-			std::cout << "It took the recursive function [" << t.elapsed - t2.elapsed << 
-				"] ns longer that the iterative one." << std::endl;
-
+			Logger::WriteMessage("\nElapsed time for iterative function was: ");
+			elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(t2.elapsed);
+			Logger::WriteMessage(util::to_str(elapsed).c_str());
+			Logger::WriteMessage("\n");
+			Logger::WriteMessage("It took the recursive function [");
+			auto difference = t.elapsed - t2.elapsed;
+			Logger::WriteMessage(util::to_str(difference).c_str()); 
+			Logger::WriteMessage("] ns longer than the iterative one.");
+			Logger::WriteMessage("\n");
+			Assert::IsFalse(t.elapsed < t2.elapsed);
 		}
-		TEST_METHOD(recursive_fibonacci) {
-			
-		}
-		
 	};
 }

@@ -2,6 +2,10 @@
 
 #include <string>
 #include <vector>
+template<class T>
+struct A : public std::vector<T>{};
+template<class T>
+struct B {};
 
 int concept_main(int argc, char * argv[], char ** env) {
     static_assert(container<A<int>>);
