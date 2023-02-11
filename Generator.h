@@ -3,6 +3,7 @@
 #include <coroutine>
 #include <exception>
 #include <iostream>
+
 template <typename T>
 struct Generator
 {
@@ -81,5 +82,49 @@ private:
     }
 };
 
+Generator<uint64_t>
+fibonacci_sequence(uint64_t n)
+{
+    if (n == 0)
+        co_return;
+    if (n > 94)
+        throw std::runtime_error("Too big Fibonacci sequence. Elements would overflow.");
+    co_yield 0;
+    if (n == 1)
+        co_return;
+    co_yield 1;
+    if (n == 2)
+        co_return;
+    uint64_t a = 0;
+    uint64_t b = 1;
+
+    for (uint64_t i = 2; i < n; i++)
+    {
+        uint64_t s = a + b;
+        co_yield s;
+        a = b;
+        b = s;
+    }
+}
+/// <summary>
+/// 
+/// </summary>
+/// <returns></returns>
+
+int testMain(int argc, char** argv) {
+    try {
+        auto gen = fibonacci_sequence(10); // max 94 before uint64_t overflows
+
+        for (int j = 0; gen; j++)
+            std::cout << "fib(" << j << ")=" << gen() << '\n';
+    }
+    catch (const std::exception& ex) {
+        std::cerr << "Exception: " << ex.what() << '\n';
+    }
+    catch (...) {
+        std::cerr << "Unknown exception.\n";
+    }
+    return 0;
+}
 
 #endif //GENERATOR_H__
