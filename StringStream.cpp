@@ -1,4 +1,4 @@
-#include "Benchmark/Benchmark.h"
+#include "Benchmark.h"
 #include "Token.h"
 #include <string_view>
 #include <iostream>

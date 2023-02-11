@@ -26,7 +26,7 @@
 #  define SET_BINARY_MODE(file)
 #endif
 
-constexpr auto CHUNK = std::pow(2,18); // 2**18 = 256KB
+constexpr auto CHUNK = 262144; // 2**18 = 256KB
 
 /* Compress from file source to file dest until EOF on source.
    def() returns Z_OK on success, Z_MEM_ERROR if memory could not be

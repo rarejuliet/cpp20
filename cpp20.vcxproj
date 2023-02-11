@@ -129,15 +129,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Downloads\zlib-1.2.13\adler32.c" />
     <ClCompile Include="aligned.cpp" />
     <ClCompile Include="AsciiChart.cpp" />
     <ClCompile Include="BaseN.cpp" />
-    <ClCompile Include="Benchmark\Benchmark.cpp" />
-    <ClCompile Include="Benchmark\main.cpp" />
+    <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="bible_statistics.cpp" />
     <ClCompile Include="concepts.cpp" />
-    <ClCompile Include="containers\tuple1.cpp" />
+    <ClCompile Include="tuple1.cpp" />
     <ClCompile Include="dc.cpp" />
     <ClCompile Include="Generator_Test.cpp" />
     <ClCompile Include="Hashtable.cpp" />
@@ -146,14 +145,14 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StringStream.cpp" />
     <ClCompile Include="tests.cpp" />
-    <ClCompile Include="Threads\async.cpp" />
+    <ClCompile Include="async.cpp" />
     <ClCompile Include="vfs.cpp" />
     <ClCompile Include="zlib_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseN.h" />
-    <ClInclude Include="Benchmark\Benchmark.h" />
-    <ClInclude Include="Benchmark\Generator.h" />
+    <ClInclude Include="Benchmark.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="bible_statistics.h" />
     <ClInclude Include="concepts.h" />
     <ClInclude Include="exceptions.h" />

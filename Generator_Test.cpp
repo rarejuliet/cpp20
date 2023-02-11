@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <format>
 #include <iostream>
-#include "../cpp20/Benchmark/Generator.h"
+#include "Generator.h"
 #include "sequences.h"
 
 /**
