@@ -1,8 +1,10 @@
 #ifndef VFS_H
 #define VFS_H
+#include <cassert>
 #include <string>
 #include <vector>
 #include <filesystem>
+#include <iostream>
 
 namespace fs = std::filesystem;
 
@@ -27,7 +29,7 @@ int vfs_test(int argc, char* argv[], char* env[]);
 		 * \param root The real path for this vfs (this will become the root directory
 		 * for this filesystem.)
 		 */
-		explicit vfs(fs::path root = fs::path(default_directory)): root(root) {
+		inline explicit vfs(fs::path root = fs::path(default_directory)): root(root) {
 			fs::current_path(fs::path(root));
 		}
 
@@ -36,11 +38,8 @@ int vfs_test(int argc, char* argv[], char* env[]);
 		 * \param directory A path to a directory to change to.
 		 * \return true on success, else false
 		 */
-		inline virtual bool chdir(const fs::path& directory) {
+		inline virtual void chdir(const fs::path& directory) {
 			fs::current_path(directory);
-			if(fs::current_path()==directory)
-				return true;
-			return false;
 		};
 		/**
 		 * \brief open a directory.
@@ -85,7 +84,7 @@ int vfs_test(int argc, char* argv[], char* env[]);
 		 * \param directory A path to a file or directory.
 		 * \return true on success, else false
 		 */
-		bool unlink(const fs::path& directory);
+		virtual bool unlink(const fs::path& directory) = 0;
 
 		/**
 		 * \brief Get the current working directory.
@@ -182,10 +181,10 @@ class real_fs : public vfs {
 		 * you wish to create.
 		 * \return true on success, else false
 		 */
-		virtual bool mkdir(const fs::path& path) override{
-			fs::create_directory(path);
+		inline virtual bool mkdir(const fs::path& path) override{
+			bool success = fs::create_directory(path);
 			entry = fs::directory_entry(path);
-			return entry.exists();
+			return success;
 		}
 
 		/**
@@ -193,8 +192,20 @@ class real_fs : public vfs {
 		 * \param path A path to a file or directory.
 		 * \return true on success, else false
 		 */
-		virtual bool unlink(const fs::path& path) {
-			return fs::remove(path);
+		virtual bool unlink(const fs::path& path) override {
+			uintmax_t removed {0};
+			try {
+				if (path != fs::path(R"("C:\")")) {
+					removed = fs::remove_all(path);
+					return removed > 0;
+				} else {
+					return false;
+				}
+			} catch(std::exception& e) {
+				std::cerr << "Caught an exception: " << typeid(e).name() << "\n" << typeid(e).raw_name() << std::endl;
+				std::cerr << e.what() << "\n";
+				return false;
+			}
 		}
 		fs::directory_entry entry;
 	};

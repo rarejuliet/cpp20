@@ -6,14 +6,14 @@
 #include <exception>
 #include "Benchmark.h"
 #include "Generator.h"
-#include "../bible_statistics.h"
-#include "../sequences.h"
-#include "../parse_main.h"
-#include "../output_utils.h"
-#include "../tests.h"
-#include "../vfs.h"
-#include "../concepts.h"
-#include "../Hashtable.h"
+#include "bible_statistics.h"
+#include "sequences.h"
+#include "parse_main.h"
+#include "output_utils.h"
+#include "tests.h"
+#include "vfs.h"
+#include "concepts.h"
+#include "Hashtable.h"
 /**
  * \brief Entry point for the application.
  * \param argc 
@@ -32,7 +32,7 @@ int main(int argc, char* argv[], char* env[])
         iss.imbue(std::locale());
         std::cout << "Global locale : " << iss.getloc().name() << std::endl;
         std::cout << std::bitset<8>(18) << "\n";
-        zlib_test_main(argc, argv, env);
+        //zlib_test_main(argc, argv, env);
         concept_main(argc, argv, env);
 	    vfs::vfs_test(argc, argv, env);
 	    string_utils_test_main(argc, argv, env);

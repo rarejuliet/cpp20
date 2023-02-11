@@ -1,6 +1,7 @@
 #ifndef STRING_UTILS_H
 #define STRING_UTILS_H
 #include <algorithm>
+#include <filesystem>
 #include <string>
 #include <sstream>
 namespace util {
@@ -90,6 +91,11 @@ namespace util {
 	 **/
 	constexpr inline const char* to_c_str(const std::string& s) {
 		return s.c_str();
+	}
+	inline std::string remove_trailing_backslash(std::filesystem::path path) {
+		std::string s = path.string();
+		auto p = s.substr(0,s.find_last_of("\\"));
+		return p;
 	}
 }
 #endif

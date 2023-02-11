@@ -36,13 +36,25 @@ namespace vfs {
 
 
 	int vfs_test(int argc, char* argv[], char* env[]) {
-		auto vfs = std::make_unique<real_fs>(R"(C:\Users\Adam)");
-		if(vfs->chdir("source"))
+		fs::path tmp = fs::temp_directory_path();
+		fs::path src = tmp / "source";
+		fs::path tst = src / "testdir_from_vfs";
+
+		auto vfs = std::make_unique<real_fs>(tmp);
+		if(vfs->mkdir(src))
 		{
-			std::cout << "chdir() was successful." << std::endl;
+			std::cout << "mkdir() was successful." << std::endl;
 		}
-		if(vfs->mkdir("testdir_from_vfs"))
-			std::cout << "mkdir() was successfull." << std::endl;
+		if(vfs->mkdir(tmp)) {
+			std::cout << "mkdir() was successful." << std::endl;
+		}
+		vfs->chdir(fs::temp_directory_path());
+		if(vfs->unlink(src)) {
+			std::cerr << "unlink(" << src << ") was successful." << std::endl;
+		} else {
+			std::cerr << "unlink(" << src << ") was NOT successful." << std::endl;
+		}
+
 		auto dirs = vfs->readdir_recurse();
 		for (const auto & dir : dirs)
 		{
