@@ -21,9 +21,6 @@
     <ClCompile Include="Benchmark\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="containers\parse_main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="containers\tuple1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,6 +67,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="zlib_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Downloads\zlib-1.2.13\adler32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parse_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

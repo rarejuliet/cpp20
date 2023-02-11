@@ -1,7 +1,7 @@
 #include <bitset>
 #include <fstream>
 
-#include "Benchmark/Benchmark.h"
+#include "Benchmark.h"
 #include "BaseN.h"
 
 
