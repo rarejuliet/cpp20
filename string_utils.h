@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <filesystem>
 #include <string>
-#include <sstream>
+#include <strstream>
 namespace util {
 	constexpr const char* UTF8 = "en_US.UTF8";
 	 /**

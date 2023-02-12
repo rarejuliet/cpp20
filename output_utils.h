@@ -21,7 +21,7 @@ namespace util {
 	inline auto parse_env(char** env) {
         std::map<std::string, std::string> env_map{};
         for (int i = 0; env[i]; ++i) {
-			if(DEBUG) {
+			if constexpr (DEBUG) {
 				std::cerr << "Checking [" << i << "]\n";
             }
         	std::string s{ env[i] };
@@ -30,10 +30,10 @@ namespace util {
             //with lookup later.
             std::string first = util::uppercase_copy(s.substr(0, equals));
             std::string second = s.substr(equals + 1);
-            if(DEBUG)
+            if constexpr (DEBUG)
 				std::cerr << first << " == " << second << std::endl;
             env_map.insert(std::make_pair(first, second));
-            if(DEBUG){
+            if constexpr (DEBUG){
         		std::cerr << "envp[" << i << "]: " << env[i] << std::endl;
             }
             env_map[first] = second;
@@ -46,9 +46,7 @@ namespace util {
 	 * and it has not been specialized for the new char type char8_t.
 	 * \param m A std::map
 	 */
-    template<typename T>
-	inline void print_map(const T& m) {
-        static_assert(container<T>);
+	inline void print_map(const auto& m) {
         for (const auto& [key, value] : m)
             std::cout << '[' << key << "] = " << value << "\n";
         
@@ -58,7 +56,7 @@ namespace util {
 	 * \brief Print the contents of a to std::cout
 	 * \param a A container having an iterator interface.
 	 */
-	inline void print(auto& a) {
+	inline void print(const auto& a) {
         for (auto &i : a) {
             std::cout << i;
         }
@@ -68,25 +66,29 @@ namespace util {
 	 * \brief Print the contents of a to std::cout, followed by a newline.
 	 * \param a A container having an iterator interface.
 	 */
-	inline void println(auto& a) {
+	inline void println(const auto& a) {
         for (auto &i : a) {
             std::cout << i;
         }
         std::cout << std::endl;
     }
 
-	/**
-	 * \brief Print the contents of a to std::cout, with each value followed by a newline.
-	 * \param a A container having an iterator interface.
-	 */
-	inline void print_lines(auto& a) {
+    /**
+        @brief  Print the contents of a to std::cout, with each value followed by a newline.
+        @tparam T - The type of a.
+        @param  a - A container having an iterator interface.
+    **/
+	inline void print_lines(const auto& a) {
         for (auto &i : a) {
             std::cout << i << std::endl;
         }
         std::cout << std::endl;
     }
-    inline fs::path get_working_path()
-	{
+    /**
+        @brief  Returns the current working directory.
+        @retval  - A std::filesystem::path containing the current working directory.
+    **/
+    inline fs::path get_working_path() {
 	    return fs::current_path();
     }
 }
