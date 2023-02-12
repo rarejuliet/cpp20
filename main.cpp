@@ -32,6 +32,37 @@ int main(int argc, char* argv[], char* env[])
         iss.imbue(std::locale());
         std::cout << "Global locale : " << iss.getloc().name() << std::endl;
         std::cout << std::bitset<8>(18) << "\n";
+
+	    for (auto i = 0; i < 256; ++i) {
+		    std::cout << "Is " << i << " prime?: ";
+            std::cout << math::is_prime_b(i) << std::endl;
+	    }
+
+        Benchmark::test t1;
+        bool isprime = math::is_prime_a(1073741827);
+        t1.stop();
+        Benchmark::test t2;
+        bool isprime2 = math::is_prime_b(1073741827);
+        t2.stop();
+
+        std::cout << "It took is_prime_a(1073741827) " << std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed) << std::endl;
+        std::cout << "It took is_prime_b(1073741827) " << std::chrono::duration_cast<std::chrono::nanoseconds>(t2.elapsed) << std::endl;
+
+        auto difference = std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed-t2.elapsed);
+        std::cout << "That is a difference of " << difference << std::endl;
+
+
+
+        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed-t2.elapsed);
+
+
+        std::cout << "Is 247 prime?: ";
+        std::cout << math::is_prime_b(247) << std::endl;
+
+        std::cout << "Is 37 prime?: ";
+        std::cout << math::is_prime_b(37) << std::endl;
+
+        util::print_map(util::parse_env(env));
         //zlib_test_main(argc, argv, env);
         concept_main(argc, argv, env);
 	    vfs::vfs_test(argc, argv, env);

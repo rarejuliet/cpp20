@@ -10,7 +10,7 @@ namespace math {
         ++i;
         uint64_t num = 0;
         while (num < UINTMAX_MAX) {
-	        if (bool p = math::is_prime(num)) {
+	        if (bool p = math::is_prime_c(num)) {
                 co_yield num;
             }
             ++num;

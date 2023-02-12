@@ -44,9 +44,12 @@ namespace util {
 	/**
 	 * \brief Print the contents of a map to stdout.  Note that this is a template function,
 	 * and it has not been specialized for the new char type char8_t.
+        @tparam T - The type of a.
 	 * \param m A std::map
 	 */
-	inline void print_map(const auto& m) {
+    template<class T>
+    requires(container<T>)
+	inline void print_map(const T& m) {
         for (const auto& [key, value] : m)
             std::cout << '[' << key << "] = " << value << "\n";
         
@@ -54,9 +57,12 @@ namespace util {
 
 	/**
 	 * \brief Print the contents of a to std::cout
+        @tparam T - The type of a.
 	 * \param a A container having an iterator interface.
 	 */
-	inline void print(const auto& a) {
+    template<class T>
+    requires(container<T>)
+	inline void print(const T& a) {
         for (auto &i : a) {
             std::cout << i;
         }
@@ -64,9 +70,12 @@ namespace util {
 
 	/**
 	 * \brief Print the contents of a to std::cout, followed by a newline.
+        @tparam T - The type of a.
 	 * \param a A container having an iterator interface.
 	 */
-	inline void println(const auto& a) {
+    template<class T>
+    requires(container<T>)
+	inline void println(const T& a) {
         for (auto &i : a) {
             std::cout << i;
         }
@@ -78,7 +87,9 @@ namespace util {
         @tparam T - The type of a.
         @param  a - A container having an iterator interface.
     **/
-	inline void print_lines(const auto& a) {
+    template<class T>
+    requires(container<T>)
+	inline void print_lines(const T& a) {
         for (auto &i : a) {
             std::cout << i << std::endl;
         }

@@ -10,7 +10,7 @@ namespace math {
 /// </summary>
 /// <param name="n">An unsigned number/param>
 /// <returns>true if prime, else false</returns>
-    constexpr bool isPrime(uint64_t n) {
+    constexpr bool is_prime_a(uint64_t n) {
         if (n < 2) {
             return false;
         }
@@ -28,6 +28,22 @@ namespace math {
         }
         return true;
     }
+    constexpr uint64_t is_prime_b(uint64_t n) {
+        if(n<2)
+            return 0;
+        if(n==2)
+            return 1;
+        if(n%2==0)
+            return 0;
+        auto sqrt_n = static_cast<uint64_t>(sqrt(n));
+        uint64_t isprime=1;
+	    for (auto i=2ull; i<=sqrt_n; i++) {
+            isprime = isprime & ((n % i) != 0);
+            if(!isprime)
+                return 0;
+	    }
+        return isprime;
+    }
     /**
      * \brief Start at 3 and check up to sqrt(n).  Even numbers are ignored since
      * they would have been found by division by 2 already.  This is the best
@@ -37,7 +53,7 @@ namespace math {
      * \param n A uint64_t
      * \return true if n is prime, else false
      */
-    constexpr bool is_prime(uint64_t n) {  //todo: memoize this function.  Or create a different
+    constexpr bool is_prime_c(uint64_t n) {  //todo: memoize this function.  Or create a different
         // todo: function and memoize that one.
         if (n < 2) 
             return false;

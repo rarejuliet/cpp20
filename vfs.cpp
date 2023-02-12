@@ -45,7 +45,7 @@ namespace vfs {
 		{
 			std::cout << "mkdir() was successful." << std::endl;
 		}
-		if(vfs->mkdir(tmp)) {
+		if(vfs->mkdir(tst)) {
 			std::cout << "mkdir() was successful." << std::endl;
 		}
 		vfs->chdir(fs::temp_directory_path());
