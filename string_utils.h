@@ -63,11 +63,12 @@ namespace util {
 	 * \param value A numeric value is expected.
 	 * \return A new string with a comma-separated value.
 	 */
-	constexpr  inline std::string commify(const auto& value)
+	constexpr inline std::string commify(const auto& value)
 	{
 	    std::stringstream ss;
-	    ss.imbue(std::locale(UTF8));
+	    auto loc = ss.imbue(std::locale(UTF8)); //Save current locale.
 	    ss << std::fixed << value;
+		ss.imbue(loc);  // Set it back to its previous value
 	    return ss.str();
 	}
 	 /**
@@ -77,8 +78,9 @@ namespace util {
 	 **/
 	constexpr inline std::string to_str(auto& val) {
 		std::stringstream ss;
-		ss.imbue(std::locale(UTF8));
+		auto loc = ss.imbue(std::locale(UTF8));
 		ss << val;
+		ss.imbue(loc);
 		return ss.str();
 	}
 	 /**
@@ -92,10 +94,65 @@ namespace util {
 	constexpr inline const char* to_c_str(const std::string& s) {
 		return s.c_str();
 	}
-	inline std::string remove_trailing_backslash(std::filesystem::path path) {
+/**
+     @brief  Creates and returns a std::filesystem::path with any trailing char removed.
+     @param  path - A std::filesystem::path to remove the trailing char from.
+     @param  c	  - A char to remove from the end of path.
+     @retval      - A copy of the string with the char removed.
+ **/
+	inline std::string remove_trailing(std::filesystem::path path, char c) {
 		std::string s = path.string();
-		auto p = s.substr(0,s.find_last_of("\\"));
-		return p;
+		const uint64_t len = s.length();
+		if(s.at(len-1)==c)
+			s = s.substr(0,s.size()-1);
+		return s;
+	}
+ /**
+     @brief  Creates and returns a std::filesystem::path with any trailing backslash removed.
+     @param  path - A std::filesystem::path to remove the trailing backslash from.
+     @retval      - A copy of the string with the backslash removed.
+ **/
+	inline std::string remove_trailing_backslash(std::filesystem::path path) {
+		return remove_trailing(path,'\\');
+		uint64_t len = path.string().length();
+		std::string s = path.string();
+
+		if(s.at(len-1)=='\\')
+			s = s.substr(0,s.size()-1);
+		return s;
+	}
+ /**
+     @brief  Creates and returns a std::filesystem::path with any trailing slash removed.
+     @param  path - A std::filesystem::path to remove the trailing slash from.
+     @retval      - A copy of the string with the slash removed.
+ **/
+	inline std::string remove_trailing_slash(std::filesystem::path path) {
+		return remove_trailing(path,'/');
+		uint64_t len = path.string().length();
+		std::string s = path.string();
+
+		if(s.at(len-1)=='/')
+			s = s.substr(0,s.size()-1);
+		return s;
+	}
+ /**
+     @brief  Bite the newline off the end of a path.
+     @param  path - A path.
+     @retval      - A std::string with the last character removed (if it was a newline).
+ **/
+	inline std::string chomp(std::filesystem::path path) {
+		return remove_trailing(path,'\n');
+	}
+ /**
+     @brief  Remove the trailing character from a string.
+     @param  path - A path to trim.
+     @retval      - A string with the last character removed.
+ **/
+	inline std::string chop(std::filesystem::path path) {
+		std::string s = path.string();
+		uint64_t len = s.length();
+		s = s.substr(0,s.size()-1);
+		return s;
 	}
 }
 #endif
