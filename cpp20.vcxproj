@@ -148,6 +148,7 @@
     <ClCompile Include="StringStream.cpp" />
     <ClCompile Include="tests.cpp" />
     <ClCompile Include="async.cpp" />
+    <ClCompile Include="UInt128.cpp" />
     <ClCompile Include="vfs.cpp" />
     <ClCompile Include="zlib_test.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="concepts.h" />
     <ClInclude Include="exceptions.h" />
     <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="UInt128.h" />
     <ClInclude Include="vfs.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="math.h" />
