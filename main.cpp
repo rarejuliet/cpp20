@@ -17,6 +17,7 @@
 #include "Hashtable.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/format.hpp>
+#include "BigInt.h"
 /**
  * \brief Entry point for the application.
  * \param argc 
@@ -37,16 +38,16 @@ int main(int argc, char* argv[], char* env[])
         std::cout << std::bitset<8>(18) << "\n";
 
         BigInteger max_value = BigInteger("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
-        for (BigInteger i=max_value-UINT64_MAX; i<max_value ; ++i) {
+        for (BigInteger i=max_value-BigInteger(UINT64_MAX); i<max_value ; ++i) {
 		    std::cout << "Is " << i.getNumber() << " prime?: ";
 //            std::cout << math::is_prime_b(i) << std::endl;
 	    }
 
         Benchmark::test t1;
-        bool isprime = math::is_prime_a(1073741827);
+        bool isprime =  math::is_prime_a(1073741);
         t1.stop();
         Benchmark::test t2;
-        bool isprime2 = math::is_prime_b(1073741827);
+        bool isprime2 = math::is_prime_b(107377421);
         t2.stop();
 
         std::cout << "It took is_prime_a(1073741827) " << std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed) << std::endl;

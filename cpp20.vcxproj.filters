@@ -143,8 +143,22 @@
     <ClInclude Include="endianness.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BigInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uint128_t.build.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="bible.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="uint128_t.include.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="uint128_t_config.include.h">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -2,18 +2,65 @@
 #define MATH_H
 #include <cmath>
 #include <cstdint>
+#include <iostream>
 
 #include "BigDecimal.h"
 #include "BigInteger.h"
+#include "uint128_t.h"
 
 namespace math {
+inline uint64_t uint128_high64(uint128_t x) {
+  return x >> 64;
+}
+
+inline uint64_t uint128_low64(uint128_t x) {
+  return x & 0xFFFFFFFFFFFFFFFFull;
+}
+
+inline uint128_t uint128_mul64(uint64_t a, uint64_t b) {
+  return (uint128_t)a * b;
+}
+
+inline uint128_t uint128_add(uint128_t a, uint128_t b) {
+  return a + b;
+}
+
+inline uint128_t uint128_sub(uint128_t a, uint128_t b) {
+  return a - b;
+}
+
+inline uint128_t uint128_sqrt(uint128_t x) {
+  if (x == 0) {
+    return 0;
+  }
+
+  uint64_t b = uint128_high64(x);
+  if (b == 0) {
+    return (uint128_t)sqrt(uint128_low64(x));
+  }
+
+  uint64_t r = (1ull << 62);
+  uint64_t t = 0;
+  while (r != 0) {
+    t = uint128_add(t, r);
+    uint128_t c = uint128_mul64(t, t);
+    if (c <= x) {
+      x = uint128_sub(x, c);
+      t = uint128_add(t, r);
+    }
+    t = uint128_sub(t, r);
+    r >>= 1;
+  }
+
+  return t;
+}
 /// <summary>
 /// Start at 3 and check up to sqrt(n).  Even numbers are ignored since
 /// they would have been found by division by 2 already.
 /// </summary>
 /// <param name="n">An unsigned number/param>
 /// <returns>true if prime, else false</returns>
-    inline constexpr bool is_prime_a(uint64_t n) {
+    inline bool is_prime_a(uint128_t n) {
         if (n < 2) {
             return false;
         }
@@ -23,30 +70,40 @@ namespace math {
         if (n % 2 == 0) {
             return false;
         }
-        const auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        for (auto i = 3ul; i <= sqrt_n; i += 2ul) {
+        //const auto sqrt_n = uint128_sqrt(n);
+        for (uint128_t i = 3ul; i <= n/2; i += 2ul) {
             if ((n % i) == 0) {
                 return false;
             }
         }
         return true;
     }
-    inline constexpr uint64_t is_prime_b(uint64_t n) {
+    inline uint128_t is_prime_b(uint128_t n) {
         if(n<2)
             return 0;
         if(n==2)
             return 1;
         if(n%2==0)
             return 0;
-        auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        uint64_t isprime=1;
-	    for (auto i=2ull; i<=sqrt_n; i++) {
+        auto sqrt_n = uint128_sqrt(n);
+        uint128_t isprime=1;
+	    for (uint128_t i=2ull; i<=n/2; i++) {
             isprime = isprime & ((n % i) != 0);
             if(!isprime)
                 return 0;
 	    }
         return isprime;
     }
+
+
+//
+//int main() {
+//  uint128_t x = (uint128_t)1ull << 127;
+//  std::cout << uint128_sqrt(x) << std::endl;
+//  return 0;
+//}
+
+
     /**
      * \brief Start at 3 and check up to sqrt(n).  Even numbers are ignored since
      * they would have been found by division by 2 already.  This is the best
@@ -56,7 +113,7 @@ namespace math {
      * \param n A uint64_t
      * \return true if n is prime, else false
      */
-    inline bool is_prime_c(BigInteger n) {  //todo: memoize this function.  Or create a different
+    inline bool is_prime_c(uint128_t n) {  //todo: memoize this function.  Or create a different
         // todo: function and memoize that one.
         if (n < 2) 
             return false;
@@ -64,8 +121,8 @@ namespace math {
             return true;
         if (n % 2 == 0)
             return false;
-        //const uint64_t sqrt_n = sqrtl((static_cast<uint64_t>(n));
-        for (BigInteger i = 3; i < (n/2); i+=2) {
+        const uint128_t sqrt_n = math::uint128_sqrt(n);
+        for (uint128_t i = 3; i <= sqrt_n; i+=2) {
             if ((n % i) == 0) {
                 return false;
             }

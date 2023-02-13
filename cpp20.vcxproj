@@ -156,6 +156,7 @@
     <ClInclude Include="BaseN.h" />
     <ClInclude Include="Benchmark.h" />
     <ClInclude Include="BigDecimal.h" />
+    <ClInclude Include="BigInt.h" />
     <ClInclude Include="BigInteger.h" />
     <ClInclude Include="endianness.h" />
     <ClInclude Include="Generator.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="concepts.h" />
     <ClInclude Include="exceptions.h" />
     <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="uint128_t.build.h" />
     <ClInclude Include="uint128_t.h" />
     <ClInclude Include="vfs.h" />
     <ClInclude Include="main.h" />
@@ -176,6 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="bible.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="uint128_t.include.h" />
+    <None Include="uint128_t_config.include.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

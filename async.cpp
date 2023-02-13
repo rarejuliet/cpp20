@@ -18,7 +18,7 @@ namespace math {
     Generator<uint64_t> get_primes(uint64_t startval=0) {
         uint64_t num{startval};
         while (true) {
-	        if (bool p = math::is_prime_a(num)) {
+	        if (math::is_prime_a(num)) {
                 co_yield num;
             }
             ++num;
@@ -38,7 +38,7 @@ int sequence_main(int argc, char* argv[], char* env[]) {
     try
     {
         // Generate 255 prime numbers starting at (UINT32_MAX*UINT32MAX/2)
-        uint64_t start{UINT32_MAX*(UINT32_MAX/2)};
+        uint128_t start(0xFFFFFFFFFFFF);
         auto primes = math::get_primes(start);
         for (uint64_t i=0; i<255; ++i) {
             std::cout << primes() << " is prime\n";
