@@ -60,7 +60,7 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
     auto inf = sequences::get_infinite_sequence();
     while (inf)
     {
-	    uint64_t i = inf();
+	    auto i = inf();
     	std::cout << i << " ";
         if (i >= 255)
     		break;

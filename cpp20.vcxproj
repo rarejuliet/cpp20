@@ -133,6 +133,8 @@
     <ClCompile Include="AsciiChart.cpp" />
     <ClCompile Include="BaseN.cpp" />
     <ClCompile Include="Benchmark.cpp" />
+    <ClCompile Include="BigDecimal.cpp" />
+    <ClCompile Include="BigInteger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="bible_statistics.cpp" />
     <ClCompile Include="concepts.cpp" />
@@ -152,6 +154,8 @@
   <ItemGroup>
     <ClInclude Include="BaseN.h" />
     <ClInclude Include="Benchmark.h" />
+    <ClInclude Include="BigDecimal.h" />
+    <ClInclude Include="BigInteger.h" />
     <ClInclude Include="Generator.h" />
     <ClInclude Include="bible_statistics.h" />
     <ClInclude Include="concepts.h" />

@@ -3,6 +3,9 @@
 #include <cmath>
 #include <cstdint>
 
+#include "BigDecimal.h"
+#include "BigInteger.h"
+
 namespace math {
 /// <summary>
 /// Start at 3 and check up to sqrt(n).  Even numbers are ignored since
@@ -10,7 +13,7 @@ namespace math {
 /// </summary>
 /// <param name="n">An unsigned number/param>
 /// <returns>true if prime, else false</returns>
-    constexpr bool is_prime_a(uint64_t n) {
+    inline constexpr bool is_prime_a(uint64_t n) {
         if (n < 2) {
             return false;
         }
@@ -28,7 +31,7 @@ namespace math {
         }
         return true;
     }
-    constexpr uint64_t is_prime_b(uint64_t n) {
+    inline constexpr uint64_t is_prime_b(uint64_t n) {
         if(n<2)
             return 0;
         if(n==2)
@@ -53,7 +56,7 @@ namespace math {
      * \param n A uint64_t
      * \return true if n is prime, else false
      */
-    constexpr bool is_prime_c(uint64_t n) {  //todo: memoize this function.  Or create a different
+    inline bool is_prime_c(BigInteger n) {  //todo: memoize this function.  Or create a different
         // todo: function and memoize that one.
         if (n < 2) 
             return false;
@@ -61,8 +64,8 @@ namespace math {
             return true;
         if (n % 2 == 0)
             return false;
-        const auto sqrt_n = static_cast<uint64_t>(sqrt(n));
-        for (uint64_t i = 3; i < sqrt_n; i+=2) {
+        //const uint64_t sqrt_n = sqrtl((static_cast<uint64_t>(n));
+        for (BigInteger i = 3; i < (n/2); i+=2) {
             if ((n % i) == 0) {
                 return false;
             }

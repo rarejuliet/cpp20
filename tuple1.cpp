@@ -60,6 +60,13 @@ int tuple_swap_main(int argc, char** argv, char** env)
 
 int tuple_tie_main(int argc, char* argv[], char* env[]) {
     using namespace std;
+    std::vector<std::tuple<std::string,char,uint64_t>> tuples {
+		{"Adam Choate",'M', 46}
+		,{"Roberta Choate",'F', 47}
+	};
+    for (const auto & [name,sex,age] : tuples) {
+	    std::cout << name << " " << sex << " " << age << std::endl;
+    }
     // Initializing variables for unpacking
     int i_val{};
     char ch_val{};

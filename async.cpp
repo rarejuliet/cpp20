@@ -25,7 +25,7 @@ namespace math {
  * \param argv Parameter values.
  * \return EXIT_SUCCESS on success, EXIT_FAILURE on failure.
  */
-int async_main(int argc, char ** argv) {
+int sequence_main(int argc, char* argv[], char* env[]) {
     try
     {
         Generator<uint64_t> primes = math::get_primes();

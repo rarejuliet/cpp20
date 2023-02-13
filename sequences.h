@@ -68,5 +68,6 @@ inline Generator<uint64_t> get_infinite_sequence() {
     }
 }
 }
+int sequence_main(int argc, char* argv[], char* env[]);
 #endif
 
