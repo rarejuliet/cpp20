@@ -78,7 +78,7 @@
     <ClCompile Include="BigDecimal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UInt128.cpp">
+    <ClCompile Include="uint128_t.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,7 +137,10 @@
     <ClInclude Include="BigDecimal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UInt128.h">
+    <ClInclude Include="uint128_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="endianness.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

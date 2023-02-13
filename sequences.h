@@ -42,10 +42,10 @@ get_fibonacci_sequence(uint64_t n)
  * numbers.
  * \return A Generator<int64_t> over the prime numbers.
  */
-inline Generator<uint64_t> get_prime_sequence()
+inline Generator<BigInteger> get_prime_sequence(uint64_t startval=0)
 {
-    uint64_t n = 0;
-    while (n<UINT64_MAX) {
+    uint64_t n = startval;
+    while (true) {
         while (!math::is_prime_c(n)) {
             ++n;
         }

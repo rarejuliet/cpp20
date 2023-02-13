@@ -24,9 +24,9 @@ int generator_test(){
         int x{ 3 };
         float y{ 4.5 };
         std::cout << std::format("{0} * {1} == {2}\n", x, y, add(x, y));
-        auto primes = sequences::get_prime_sequence();
+        auto primes = sequences::get_prime_sequence(UINT64_MAX);
         for (int i = 0; i < 100; ++i) {
-            std::cout << primes() << " is prime\n";
+            std::cout << primes().getNumber() << " is prime\n";
         }
         auto fib = sequences::get_fibonacci_sequence(121);
         uint64_t max=94;

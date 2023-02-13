@@ -15,7 +15,8 @@
 #include "vfs.h"
 #include "concepts.h"
 #include "Hashtable.h"
-
+#include <boost/lexical_cast.hpp>
+#include <boost/format.hpp>
 /**
  * \brief Entry point for the application.
  * \param argc 
@@ -58,12 +59,12 @@ int main(int argc, char* argv[], char* env[])
 
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed-t2.elapsed);
 
-
-        std::cout << "Is 247 prime?: ";
-        std::cout << math::is_prime_b(247) << std::endl;
-
-        std::cout << "Is 37 prime?: ";
-        std::cout << math::is_prime_b(37) << std::endl;
+        auto n = 247;
+        std::cout << boost::format("Is %1% prime?: %2%") % n % math::is_prime_a(n);
+        std::cout << math::is_prime_b(n) << std::endl;
+        auto p = 37;
+        std::cout << boost::format("Is %1% prime?: %2%") % p % math::is_prime_a(p);
+        std::cout << math::is_prime_c(37) << std::endl;
 
         util::print_map(util::parse_env(env));
         //concept_main(argc, argv, env);
