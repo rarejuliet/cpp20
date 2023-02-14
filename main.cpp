@@ -47,7 +47,7 @@ int main(int argc, char* argv[], char* env[])
         bool isprime =  math::is_prime_a(1073741);
         t1.stop();
         Benchmark::test t2;
-        bool isprime2 = math::is_prime_b(107377421);
+        bool isprime2 = math::is_prime_b(1073741);
         t2.stop();
 
         std::cout << "It took is_prime_a(1073741827) " << std::chrono::duration_cast<std::chrono::nanoseconds>(t1.elapsed) << std::endl;
@@ -62,10 +62,10 @@ int main(int argc, char* argv[], char* env[])
 
         auto n = 247;
         std::cout << boost::format("Is %1% prime?: %2%") % n % math::is_prime_a(n);
-        std::cout << math::is_prime_b(n) << std::endl;
+        std::cout << math::is_prime_a(n) << std::endl;
         auto p = 37;
         std::cout << boost::format("Is %1% prime?: %2%") % p % math::is_prime_a(p);
-        std::cout << math::is_prime_c(37) << std::endl;
+        std::cout << math::is_prime_a(37) << std::endl;
 
         util::print_map(util::parse_env(env));
         //concept_main(argc, argv, env);
