@@ -38,7 +38,7 @@ int sequence_main(int argc, char* argv[], char* env[]) {
     try
     {
         // Generate 255 prime numbers starting at (UINT32_MAX*UINT32MAX/2)
-        uint128_t start(0xFFFFF);
+        uint64_t start(0xFFFFF);
         auto primes = math::get_primes(start);
         for (uint64_t i=0; i<255; ++i) {
             std::cout << primes() << " is prime\n";

@@ -2,6 +2,7 @@
 #include "../../math.h"
 #include "../../string_utils.h"
 #include "../../Benchmark.h"
+
 //#include <memory>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

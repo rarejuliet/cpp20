@@ -148,7 +148,6 @@
     <ClCompile Include="StringStream.cpp" />
     <ClCompile Include="tests.cpp" />
     <ClCompile Include="async.cpp" />
-    <ClCompile Include="uint128_t.cpp" />
     <ClCompile Include="vfs.cpp" />
     <ClCompile Include="zlib_test.cpp" />
   </ItemGroup>
@@ -164,8 +163,6 @@
     <ClInclude Include="concepts.h" />
     <ClInclude Include="exceptions.h" />
     <ClInclude Include="Hashtable.h" />
-    <ClInclude Include="uint128_t.build.h" />
-    <ClInclude Include="uint128_t.h" />
     <ClInclude Include="vfs.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="math.h" />
@@ -178,10 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="bible.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="uint128_t.include.h" />
-    <None Include="uint128_t_config.include.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

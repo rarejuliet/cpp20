@@ -6,95 +6,22 @@
 #include <map>
 #include "BigDecimal.h"
 #include "BigInteger.h"
-#include "uint128_t.h"
 
 namespace math {
-/**
-    @brief  Get the high 64 bits of an uint128_t.
-    @param  x - An uint128_t
-    @retval   - The high 64 bits as a uint64_t.
-**/
-inline uint64_t uint128_high64(uint128_t x) {
-  return x >> 64;
-}
-/**
-    @brief  Get the low 64 bits of an uint128_t.
-    @param  x - An uint128_t
-    @retval   - The low 64 bits as an uint64_t
-**/
-inline uint64_t uint128_low64(uint128_t x) {
-  return x & 0xFFFFFFFFFFFFFFFFull;
-}
-/**
-    @brief  Multiply two uint64_t and return the result as an uint128_t.
-    @param  a - An uint64_t 
-    @param  b - An uint64_t 
-    @retval   - An uint128_t containing the value a * b
-**/
-inline uint128_t uint128_mul64(uint64_t a, uint64_t b) {
-  return (uint128_t)a * b;
-}
-/**
-    @brief  Add two uint64_t.
-    @param  a - An uint64_t 
-    @param  b - An uint64_t 
-    @retval   - An uint128_t containing a + b
-**/
-inline uint128_t uint128_add(uint128_t a, uint128_t b) {
-  return a + b;
-}
-/**
-    @brief  Subtract one uint128_t from another.
-    @param  a - An uint128_t
-    @param  b - An uint128_t
-    @retval   - An uint128_t containing a - b
-**/
-inline uint128_t uint128_sub(uint128_t a, uint128_t b) {
-  return a - b;
-}
 
-/**
-    @brief  Take the square root of an uint128_t.
-    @param  x - The number you wish to find the square root for.
-    @retval   - The square root of x.
-**/
-inline uint128_t uint128_sqrt(uint128_t x) {
-    if (x == 0) {
-        return 0;
-    }
-    uint64_t b = uint128_high64(x);
-    if (b == 0) {
-        return (uint128_t)sqrt(uint128_low64(x));
-    }
-
-    uint64_t r = (1ull << 62);
-    uint64_t t = 0;
-    while (r != 0) {
-        t = uint128_add(t, r);
-        uint128_t c = uint128_mul64(t, t);
-        if (c <= x) {
-            x = uint128_sub(x, c);
-            t = uint128_add(t, r);
-        }
-        t = uint128_sub(t, r);
-        r >>= 1;
-    }
-    return t;
-}
-
-    static std::map<uint128_t, bool> p_map { {0,false}, {1,false}, {2,true}, {3,true} };
+    static std::map<uint64_t, bool> p_map { {0,false}, {1,false}, {2,true}, {3,true} };
     /**
         @brief Start at 3 and check up to sqrt(n).  Even numbers are ignored since 
         they would have been found by division by 2 already.
         @param n - An unsigned number.
         @retval   - true if prime, else false
     **/
-    inline bool is_prime_a(uint128_t n) {
+    inline bool is_prime_a(uint64_t n) {
         if(math::p_map.size() < n) {
             return p_map[n];
         } else {
             //const auto sqrt_n = uint128_sqrt(n);
-            for (uint128_t i = 3ul; i <= n/2; i += 2ul) {
+            for (uint64_t i = 3ul; i <= n/2; i += 2ul) {
                 p_map[i]=((n % i) == 0);
             }
             p_map[n]=true;
@@ -106,16 +33,15 @@ inline uint128_t uint128_sqrt(uint128_t x) {
         @param  n - An unsigned number.
         @retval   - true if prime, else false.
     **/
-    inline uint128_t is_prime_b(uint128_t n) {
+    inline uint64_t is_prime_b(uint64_t n) {
         if(n<2)
             return 0;
         if(n==2)
             return 1;
         if(n%2==0)
             return 0;
-        auto sqrt_n = uint128_sqrt(n);
-        uint128_t isprime=1;
-	    for (uint128_t i=2ull; i<=n/2; i++) {
+        uint64_t isprime=1;
+	    for (uint64_t i=2ull; i<=n/2; i++) {
             isprime = isprime & ((n % i) != 0);
             if(!isprime)
                 return 0;
@@ -132,7 +58,7 @@ inline uint128_t uint128_sqrt(uint128_t x) {
      * \param n A uint64_t
      * \return true if n is prime, else false
      */
-    inline bool is_prime_c(uint128_t n) {  //todo: memoize this function.  Or create a different
+    inline bool is_prime_c(uint64_t n) {  //todo: memoize this function.  Or create a different
 
         if (n < 2) 
             return false;
@@ -140,8 +66,8 @@ inline uint128_t uint128_sqrt(uint128_t x) {
             return true;
         if (n % 2 == 0)
             return false;
-        const uint128_t sqrt_n = math::uint128_sqrt(n);
-        for (uint128_t i = 3; i <= sqrt_n; i+=2) {
+        const uint64_t sqrt_n = static_cast<uint64_t>(sqrt(n));
+        for (uint64_t i = 3; i <= sqrt_n; i+=2) {
             if ((n % i) == 0) {
                 return false;
             }
