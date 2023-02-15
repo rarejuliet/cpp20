@@ -1,7 +1,7 @@
 #include "BaseN.h"
 
 
-
+namespace basen {
 //INTEGER TO HEXADECIMAL
 /**
  * \brief Convert a number to hexadecimal string.
@@ -85,4 +85,5 @@ uint64_t toThePower(uint64_t num, uint64_t power)
     for (uint64_t i = 1; i < power; i++)
         temp = temp * num;
     return temp;
+}
 }

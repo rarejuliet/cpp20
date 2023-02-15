@@ -67,3 +67,18 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
     }
     return EXIT_SUCCESS;
 }
+
+/**
+ * \brief Entry point for u64 test.
+ * \param argc number of elements in argv
+ * \param argv a string array containing argc elements.
+ * \param env a null terminated array of char* containing
+ * the environment variables for this process.
+ * \return EXIT_SUCCESS
+ */
+int u64_test_main(int argc, char* argv[], char* env[]) {
+    u64 window {0xFF};
+    for(; window.value<0xFFFFFF; ++window.value)
+        print(window);
+    return EXIT_SUCCESS;
+}

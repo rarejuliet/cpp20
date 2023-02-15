@@ -78,7 +78,8 @@ int main(int argc, char* argv[], char* env[])
     	//regex_main(argc, argv, env);
     	//ht_main(argc,argv,env);
     	//parse_test_main(argc, argv, env);
-    	ascii_main(argc, argv);
+    	//ascii_main(argc, argv);
+        u64_test_main(argc, argv, env);
     	//bm_main(argc, argv);
     	//ss_main(argc, argv);
     	//tuple_tie_main(argc,argv,env);

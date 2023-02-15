@@ -6,10 +6,47 @@
 #include <map>
 #include "BigDecimal.h"
 #include "BigInteger.h"
+#include "BaseN.h"
+#include <iostream>
+#include <cstdlib>
+#include <cstddef>
+#include <bitset>
+union u64 {
+    uint64_t value;
+    unsigned char b00;
+    unsigned char b01;
+    unsigned char b02;
+    unsigned char b03;
+    unsigned char b04;
+    unsigned char b05;
+    unsigned char b06;
+    unsigned char b07;
+    unsigned char b08;
+    unsigned char b09;
+    unsigned char b10;
+    unsigned char b11;
+    unsigned char b12;
+    unsigned char b13;
+    unsigned char b14;
+    unsigned char b15;
+    unsigned char bytes[16];
+    // unsigned char b16;
+    // unsigned char b17;
+    // unsigned char b18;
+    // unsigned char b19;
+    // unsigned char b20;
+};
+inline void print(u64 u) {
+    std::cout << "uint64_t value: {" << u.value << "}" << std::endl;
+    std::cout << "byte values:" << std::endl;
+    int i=0;
+    for(auto &byte : u.bytes) {
+        std::cout << "byte:" << i++ << "{" << std::bitset<8>(byte) << ", " << basen::dec_to_hex(byte) << "}" << std::endl;
+    }
+}
 
 namespace math {
 
-    static std::map<uint64_t, bool> p_map { {0,false}, {1,false}, {2,true}, {3,true} };
     /**
         @brief Start at 3 and check up to sqrt(n).  Even numbers are ignored since 
         they would have been found by division by 2 already.
@@ -17,15 +54,21 @@ namespace math {
         @retval   - true if prime, else false
     **/
     inline bool is_prime_a(uint64_t n) {
-        if(math::p_map.size() < n) {
+    static std::map<uint64_t, int> p_map { {0,0}, {1,0}, {2,1}, {3,1} };
+        if(p_map.count(n)>0) {
             return p_map[n];
         } else {
-            //const auto sqrt_n = uint128_sqrt(n);
-            for (uint64_t i = 3ul; i <= n/2; i += 2ul) {
-                p_map[i]=((n % i) == 0);
+            const uint64_t sqrt_n = static_cast<uint64_t>(sqrt(n));
+            for (uint64_t i = 3ul; i <= sqrt_n; i += 2ul) {
+                if( ((n % i) == 0) ) {
+                    p_map.insert_or_assign(n,0);
+                    return p_map[n];
+                }
             }
-            p_map[n]=true;
+            p_map.insert_or_assign(n,1);
+//            p_map[n]=1;
         }
+//        p_map[n]=1;
         return p_map[n];
     }
     /**

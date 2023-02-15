@@ -100,7 +100,7 @@ namespace util {
      @param  c	  - A char to remove from the end of path.
      @retval      - A copy of the string with the char removed.
  **/
-	inline std::string remove_trailing(std::filesystem::path path, char c) {
+	inline std::string remove_trailing(std::filesystem::path path, auto c) {
 		std::string s = path.string();
 		const uint64_t len = s.length();
 		if(s.at(len-1)==c)

@@ -16,7 +16,6 @@ namespace Cpp20Tests {
 			//	a = a.substr(0,a.size()-1);
 			//}
 			const std::string b = R"(C:\Temp)";
-			//util::remove_trailing_backslash(
 			const std::string c = util::remove_trailing_backslash(fs::path(a));
 			Assert::AreNotEqual(a,b);
 			Assert::AreEqual(b,c);
@@ -58,7 +57,7 @@ namespace Cpp20Tests {
 		{
 			vfs->chdir(test_dir);
 			fs::path p{vfs->cwd()};
-			std::string s = p.string();//util::remove_trailing_backslash(p);
+			std::string s = p.string();
 			Assert::AreEqual(p.string(),s);
 		}
 		BEGIN_TEST_METHOD_ATTRIBUTE(vfs_mkdir)
