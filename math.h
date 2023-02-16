@@ -11,6 +11,14 @@
 #include <cstdlib>
 #include <cstddef>
 #include <bitset>
+/**
+    @union u64
+    @brief A union of a 64-but unsigned integer and sixteen bytes 
+    (unsigned char) which allow for byte addressing of the value.  Also
+    useful when working with numbers to be able to visualize the various
+    different bytes.  Also, so a range for can easily be used to iterate
+    through the sixteen bytes, an array is overlayed with the other values.
+**/
 union u64 {
     uint64_t value;
     unsigned char b00;
