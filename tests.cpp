@@ -4,6 +4,7 @@
 #include "output_utils.h"
 #include "sequences.h"
 #include "string_utils.h"
+#include "number.h"
 
 int parse_test_main(int argc, char * argv[], char * envp[]) {
     std::vector<std::string> args(argc);
@@ -65,6 +66,20 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
         if (i >= 255)
     		break;
     }
+    return EXIT_SUCCESS;
+}
+
+/**
+    @brief  
+    @param  argc - 
+    @param  argv - 
+    @param  env  - 
+    @retval      - 
+**/
+int number_test_main(int argc, char* argv[], char* env[]) {
+    math::number a{UINT64_MAX-1};
+    math::number b{7};
+    math::number c=a+b;
     return EXIT_SUCCESS;
 }
 

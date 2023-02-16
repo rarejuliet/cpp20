@@ -164,6 +164,7 @@
     <ClInclude Include="concepts.h" />
     <ClInclude Include="exceptions.h" />
     <ClInclude Include="Hashtable.h" />
+    <ClInclude Include="number.h" />
     <ClInclude Include="vfs.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="math.h" />

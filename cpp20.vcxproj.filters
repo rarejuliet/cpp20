@@ -143,6 +143,9 @@
     <ClInclude Include="BigInt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="number.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="bible.txt" />

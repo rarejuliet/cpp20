@@ -84,7 +84,9 @@ int main(int argc, char* argv[], char* env[])
     	//ss_main(argc, argv);
     	//tuple_tie_main(argc,argv,env);
         //zlib_test_main(argc, argv, env);
-        maze_test_main(argc, argv, env);
+        //maze_test_main(argc, argv, env);
+        number_test_main(argc, argv, env);
+
     }
 	catch(std::exception& e)
     {
