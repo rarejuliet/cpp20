@@ -78,7 +78,7 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
  */
 int u64_test_main(int argc, char* argv[], char* env[]) {
     u64 window {0xFF};
-    for(; window.value<0xFFFFFF; ++window.value)
+    for(; window.value<0xFFF; ++window.value)
         print(window);
     return EXIT_SUCCESS;
 }

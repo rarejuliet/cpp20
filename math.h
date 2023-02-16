@@ -30,11 +30,6 @@ union u64 {
     unsigned char b14;
     unsigned char b15;
     unsigned char bytes[16];
-    // unsigned char b16;
-    // unsigned char b17;
-    // unsigned char b18;
-    // unsigned char b19;
-    // unsigned char b20;
 };
 inline void print(u64 u) {
     std::cout << "uint64_t value: {" << u.value << "}" << std::endl;

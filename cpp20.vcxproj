@@ -138,6 +138,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="bible_statistics.cpp" />
     <ClCompile Include="concepts.cpp" />
+    <ClCompile Include="maze.cpp" />
     <ClCompile Include="tuple1.cpp" />
     <ClCompile Include="dc.cpp" />
     <ClCompile Include="Generator_Test.cpp" />
