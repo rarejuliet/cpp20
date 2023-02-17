@@ -32,7 +32,7 @@ int regex_main(int argc, char* argv[], char* env[]) {
     std::ifstream in("bible.txt");
     std::string buf;
     while(std::getline(in,buf)) {
-    	std::regex word_regex("(\\w+)");
+		std::regex word_regex(R"([A-Za-z_]+)");
 
     	auto words_begin = 
 			std::sregex_iterator(buf.begin(), buf.end(), word_regex);

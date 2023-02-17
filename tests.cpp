@@ -68,7 +68,9 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
     }
     return EXIT_SUCCESS;
 }
-
+void print(math::number n) {
+     std::cout << n.lower << " " << n.upper << std::endl;
+}
 /**
     @brief  
     @param  argc - 
@@ -77,9 +79,15 @@ int inf_test_main(int argc, char* argv[], char* env[]) {
     @retval      - 
 **/
 int number_test_main(int argc, char* argv[], char* env[]) {
-    math::number a{UINT64_MAX-1};
+    math::number a{INT64_MAX-1};
+    print(a);
     math::number b{7};
+    print(b);
     math::number c=a+b;
+    print(c);
+    for(math::number i{INT64_MAX}; i.upper < INT64_MAX; ++i) {
+        print(i);
+    }
     return EXIT_SUCCESS;
 }
 

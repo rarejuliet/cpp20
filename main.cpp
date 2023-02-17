@@ -68,14 +68,14 @@ int main(int argc, char* argv[], char* env[])
         std::cout << math::is_prime_a(37) << std::endl;
 
         util::print_map(util::parse_env(env));
-        //concept_main(argc, argv, env);
+        concept_main(argc, argv, env);
 	    //vfs::vfs_test(argc, argv, env);
 	    //string_utils_test_main(argc, argv, env);
         fib_test_main(argc, argv);
         inf_test_main(argc, argv, env);
         //sequence_main(argc, argv, env);
 	    //bible_main(argc, argv, env);
-    	//regex_main(argc, argv, env);
+    	regex_main(argc, argv, env);
     	//ht_main(argc,argv,env);
     	//parse_test_main(argc, argv, env);
     	//ascii_main(argc, argv);
@@ -85,7 +85,7 @@ int main(int argc, char* argv[], char* env[])
     	//tuple_tie_main(argc,argv,env);
         //zlib_test_main(argc, argv, env);
         //maze_test_main(argc, argv, env);
-        number_test_main(argc, argv, env);
+        //number_test_main(argc, argv, env);
 
     }
 	catch(std::exception& e)
