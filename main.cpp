@@ -86,7 +86,7 @@ int main(int argc, char* argv[], char* env[])
         //zlib_test_main(argc, argv, env);
         //maze_test_main(argc, argv, env);
         //number_test_main(argc, argv, env);
-
+        time_test_main(argc, argv, env);
     }
 	catch(std::exception& e)
     {

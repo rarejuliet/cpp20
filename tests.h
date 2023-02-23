@@ -8,5 +8,5 @@ int zlib_test_main(int argc, char* argv[], char* env[]);
 int u64_test_main(int argc, char* argv[], char* env[]);
 int maze_test_main(int argc, char* argv[], char* env[]);
 int number_test_main(int argc, char* argv[], char* env[]);
-
+int time_test_main(int argc, char* argv[], char* env[]);
 #endif

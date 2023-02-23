@@ -91,6 +91,13 @@ int number_test_main(int argc, char* argv[], char* env[]) {
     return EXIT_SUCCESS;
 }
 
+int time_test_main(int argc, char* argv[], char* env[]) {
+    std::cout << "std::chrono::high_resolution_clock::is_steady: " << std::chrono::high_resolution_clock::is_steady << std::endl;
+    auto t = std::chrono::high_resolution_clock::now();
+    std::cout << "t.time_since_epoch()" << t.time_since_epoch() << std::endl;
+    return EXIT_SUCCESS;
+}
+
 /**
  * \brief Entry point for u64 test.
  * \param argc number of elements in argv

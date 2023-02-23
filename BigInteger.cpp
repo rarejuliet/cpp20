@@ -3,13 +3,9 @@
 #include <sstream>
 #include <cmath>
 #include "BigInteger.h"
-#define MAX 10000 // for strings
 
-BigInteger::BigInteger() // empty constructor initializes zero
-{
-	number = "0";
-	sign = false;
-}
+
+BigInteger::BigInteger() : number("0"), sign(false) {}
 //-------------------------------------------------------------
 BigInteger::BigInteger(std::string s) // "string" constructor
 {
@@ -25,13 +21,13 @@ BigInteger::BigInteger(std::string s) // "string" constructor
 	}
 }
 //-------------------------------------------------------------
-BigInteger::BigInteger(std::string s, bool sin) // "string" constructor
+BigInteger::BigInteger(std::string num, bool sign) // "string" constructor
 {
-	setNumber( s );
-	setSign( sin );
+	setNumber( num );
+	setSign( sign );
 }
 //-------------------------------------------------------------
-BigInteger::BigInteger(int n) // "int" constructor
+BigInteger::BigInteger(long long n) // "int" constructor
 {
 	std::stringstream ss;
 	std::string s;
@@ -355,8 +351,7 @@ std::string BigInteger::add(std::string number1, std::string number2)
 
 //-------------------------------------------------------------
 // subtracts two strings and returns their sum in as a string
-std::string BigInteger::subtract(std::string number1, std::string number2)
-{
+std::string BigInteger::subtract(std::string number1, std::string number2) const {
 	std::string sub = (number1.length()>number2.length())? number1 : number2;
 	int differenceInLength = abs( (int)(number1.size() - number2.size()) );
 
@@ -425,12 +420,15 @@ std::string BigInteger::multiply(std::string n1, std::string n2)
 	return res;
 }
 
-//-------------------------------------------------------------
-// divides string on long long, returns pair(qutiont, remainder)
-std::pair<std::string, long long> BigInteger::divide(std::string n, long long den)
-{
+/**
+    @brief  Divide one BigInteger by another.
+    @param  n   - A numerator.
+    @param  den - A denominator.
+    @retval     - The result of n / den as a pair(quotient, remainder);
+**/
+std::pair<std::string, long long> BigInteger::divide(std::string n, long long den) const {
 	long long rem = 0;
-	std::string result; result.resize(MAX);
+	std::string result; result.resize(MAX_STRING_NUM_LENGTH);
 	
 	for(int indx=0, len = n.length(); indx<len; ++indx)
 	{
